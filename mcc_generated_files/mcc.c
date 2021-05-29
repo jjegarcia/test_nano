@@ -1,21 +1,24 @@
 /**
-  Generated Main Source File
+  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs Source File
 
-  Company:
+  @Company:
     Microchip Technology Inc.
 
-  File Name:
-    main.c
+  @File Name:
+    mcc.c
 
-  Summary:
-    This is the main file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary:
+    This is the mcc.c file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
-  Description:
+  @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
         Device            :  PIC16F15244
         Driver Version    :  2.00
+    The generated drivers are tested against the following:
+        Compiler          :  XC8 2.31 and above or later
+        MPLAB             :  MPLAB X 5.45
 */
 
 /*
@@ -41,42 +44,34 @@
     SOFTWARE.
 */
 
-#include "mcc_generated_files/mcc.h"
+#include "mcc.h"
 
-/*
-                         Main application
- */
-void main(void)
+
+void SYSTEM_Initialize(void)
 {
-    // initialize the device
-    SYSTEM_Initialize();
 
-    // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
-    INTERRUPT_GlobalInterruptEnable();
-
-    // Enable the Peripheral Interrupts
-    INTERRUPT_PeripheralInterruptEnable();
-
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
-    printf("hey");
-    while (1)
-    {
-        // Add your application code
-//        LED0_Toggle();
-//        LED0_LAT=1;
-//        LATA2=1;
-//        LED0_SetLow();
-        printf("toggling");
-        __delay_ms(1000);
-    }
+    PIN_MANAGER_Initialize();
+    OSCILLATOR_Initialize();
+    WDT_Initialize();
+    EUSART1_Initialize();
 }
+
+void OSCILLATOR_Initialize(void)
+{
+    // MFOEN disabled; LFOEN disabled; ADOEN disabled; HFOEN disabled; 
+    OSCEN = 0x00;
+    // FRQ 1_MHz; 
+    OSCFRQ = 0x00;
+    // TUN 0; 
+    OSCTUNE = 0x00;
+}
+
+void WDT_Initialize(void)
+{
+    // WDTPS 1:32; WDTCS LFINTOSC (31 kHz); SWDTEN OFF; 
+    WDTCON = 0x00;
+}
+
 /**
  End of File
 */
