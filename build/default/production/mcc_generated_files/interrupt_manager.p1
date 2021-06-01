@@ -23,9 +23,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5102
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5102: extern volatile PIR0bits_t PIR0bits __attribute__((address(0x70C)));
 [v _PIR0bits `VS264 ~T0 @X0 0 e@1804 ]
-"154 mcc_generated_files/pin_manager.h
-[; ;mcc_generated_files/pin_manager.h: 154: void PIN_MANAGER_IOC(void);
+"297 mcc_generated_files/tmr0.h
+[; ;mcc_generated_files/tmr0.h: 297: void TMR0_ISR(void);
+[v _TMR0_ISR `(v ~T0 @X0 0 ef ]
+"222 mcc_generated_files/pin_manager.h
+[; ;mcc_generated_files/pin_manager.h: 222: void PIN_MANAGER_IOC(void);
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 0 ef ]
+"420 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 420:     struct {
+[s S31 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . INTEDG . PEIE GIE ]
+"419
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 419: typedef union {
+[u S30 `S31 1 ]
+[n S30 . . ]
+"427
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 427: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
+"5256
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5256:     struct {
+[s S273 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . ADIE SSP1IE BCL1IE TX1IE RC1IE TMR1IE TMR2IE CCP1IE ]
+"5255
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5255: typedef union {
+[u S272 `S273 1 ]
+[n S272 . . ]
+"5267
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5267: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x717)));
+[v _PIE1bits `VS272 ~T0 @X0 0 e@1815 ]
+"5128
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5128:     struct {
+[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S267 . ADIF SSP1IF BCL1IF TX1IF RC1IF TMR1IF TMR2IF CCP1IF ]
+"5127
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5127: typedef union {
+[u S266 `S267 1 ]
+[n S266 . . ]
+"5139
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5139: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x70D)));
+[v _PIR1bits `VS266 ~T0 @X0 0 e@1805 ]
+"331 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 331: void ADC_ISR(void);
+[v _ADC_ISR `(v ~T0 @X0 0 ef ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -582,29 +621,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
 "55
-[; ;mcc_generated_files/interrupt_manager.c: 55:     if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
-[e $ ! && == -> . . _PIE0bits 0 2 `i -> 1 `i == -> . . _PIR0bits 0 2 `i -> 1 `i 512  ]
+[; ;mcc_generated_files/interrupt_manager.c: 55:     if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+[e $ ! && == -> . . _PIE0bits 0 3 `i -> 1 `i == -> . . _PIR0bits 0 3 `i -> 1 `i 513  ]
 "56
 [; ;mcc_generated_files/interrupt_manager.c: 56:     {
 {
 "57
-[; ;mcc_generated_files/interrupt_manager.c: 57:         PIN_MANAGER_IOC();
-[e ( _PIN_MANAGER_IOC ..  ]
+[; ;mcc_generated_files/interrupt_manager.c: 57:         TMR0_ISR();
+[e ( _TMR0_ISR ..  ]
 "58
 [; ;mcc_generated_files/interrupt_manager.c: 58:     }
 }
-[e $U 513  ]
+[e $U 514  ]
 "59
-[; ;mcc_generated_files/interrupt_manager.c: 59:     else
-[e :U 512 ]
+[; ;mcc_generated_files/interrupt_manager.c: 59:     else if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
+[e :U 513 ]
+[e $ ! && == -> . . _PIE0bits 0 2 `i -> 1 `i == -> . . _PIR0bits 0 2 `i -> 1 `i 515  ]
 "60
 [; ;mcc_generated_files/interrupt_manager.c: 60:     {
 {
+"61
+[; ;mcc_generated_files/interrupt_manager.c: 61:         PIN_MANAGER_IOC();
+[e ( _PIN_MANAGER_IOC ..  ]
 "62
 [; ;mcc_generated_files/interrupt_manager.c: 62:     }
 }
-[e :U 513 ]
+[e $U 516  ]
 "63
-[; ;mcc_generated_files/interrupt_manager.c: 63: }
-[e :UE 511 ]
+[; ;mcc_generated_files/interrupt_manager.c: 63:     else if(INTCONbits.PEIE == 1)
+[e :U 515 ]
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 517  ]
+"64
+[; ;mcc_generated_files/interrupt_manager.c: 64:     {
+{
+"65
+[; ;mcc_generated_files/interrupt_manager.c: 65:         if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
+[e $ ! && == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 518  ]
+"66
+[; ;mcc_generated_files/interrupt_manager.c: 66:         {
+{
+"67
+[; ;mcc_generated_files/interrupt_manager.c: 67:             ADC_ISR();
+[e ( _ADC_ISR ..  ]
+"68
+[; ;mcc_generated_files/interrupt_manager.c: 68:         }
+}
+[e $U 519  ]
+"69
+[; ;mcc_generated_files/interrupt_manager.c: 69:         else
+[e :U 518 ]
+"70
+[; ;mcc_generated_files/interrupt_manager.c: 70:         {
+{
+"72
+[; ;mcc_generated_files/interrupt_manager.c: 72:         }
+}
+[e :U 519 ]
+"73
+[; ;mcc_generated_files/interrupt_manager.c: 73:     }
+}
+[e $U 520  ]
+"74
+[; ;mcc_generated_files/interrupt_manager.c: 74:     else
+[e :U 517 ]
+"75
+[; ;mcc_generated_files/interrupt_manager.c: 75:     {
+{
+"77
+[; ;mcc_generated_files/interrupt_manager.c: 77:     }
+}
+[e :U 520 ]
+[e :U 516 ]
+[e :U 514 ]
+"78
+[; ;mcc_generated_files/interrupt_manager.c: 78: }
+[e :UE 512 ]
 }

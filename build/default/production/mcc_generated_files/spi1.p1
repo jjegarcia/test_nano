@@ -1,40 +1,80 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"27 ./main.h
-[; ;./main.h: 27:     struct {
-[s S513 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S513 . SPI_READ DISPLAY_READING PUSH_HANDLER UART_RECEIVED TIMER_TICK ]
-"24
-[; ;./main.h: 24: union {
-[u S512 `uc 1 `S513 1 ]
-[n S512 . byte bits ]
-[p mainexit ]
-"77 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 77: void SYSTEM_Initialize(void);
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"420 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 420:     struct {
-[s S31 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S31 . INTEDG . PEIE GIE ]
-"419
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 419: typedef union {
-[u S30 `S31 1 ]
-[n S30 . . ]
-"427
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 427: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
-"111 /Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"755 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 755:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S45 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 ]
-"754
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 754: typedef union {
+"50 mcc_generated_files/spi1.c
+[; ;mcc_generated_files/spi1.c: 50: typedef struct {
+[s S509 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S509 . con1 stat add operation ]
+"6526 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 6526: extern volatile unsigned char SSP1CLKPPS __attribute__((address(0x1EC5)));
+[v _SSP1CLKPPS `Vuc ~T0 @X0 0 e@7877 ]
+"6592
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 6592: extern volatile unsigned char SSP1DATPPS __attribute__((address(0x1EC6)));
+[v _SSP1DATPPS `Vuc ~T0 @X0 0 e@7878 ]
+"7978
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 7978: extern volatile unsigned char RC6PPS __attribute__((address(0x1F26)));
+[v _RC6PPS `Vuc ~T0 @X0 0 e@7974 ]
+"7862
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 7862: extern volatile unsigned char RC4PPS __attribute__((address(0x1F24)));
+[v _RC4PPS `Vuc ~T0 @X0 0 e@7972 ]
+"1662
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 1662: extern volatile unsigned char SSP1STAT __attribute__((address(0x18F)));
+[v _SSP1STAT `Vuc ~T0 @X0 0 e@399 ]
+"2026
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 2026: extern volatile unsigned char SSP1CON1 __attribute__((address(0x190)));
+[v _SSP1CON1 `Vuc ~T0 @X0 0 e@400 ]
+"1472
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 1472: extern volatile unsigned char SSP1ADD __attribute__((address(0x18D)));
+[v _SSP1ADD `Vuc ~T0 @X0 0 e@397 ]
+"693
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 693:     struct {
+[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S45 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"692
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 692: typedef union {
 [u S44 `S45 1 ]
 [n S44 . . ]
-"764
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 764: extern volatile LATAbits_t LATAbits __attribute__((address(0x018)));
-[v _LATAbits `VS44 ~T0 @X0 0 e@24 ]
+"704
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 704: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x014)));
+[v _TRISCbits `VS44 ~T0 @X0 0 e@20 ]
+"2032
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 2032:     struct {
+[s S112 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S112 . SSPM CKP SSPEN SSPOV WCOL ]
+"2039
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 2039:     struct {
+[s S113 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S113 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"2045
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 2045:     struct {
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . SSPM01 SSPM11 SSPM21 SSPM31 CKP1 SSPEN1 SSPOV1 WCOL1 ]
+"2031
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 2031: typedef union {
+[u S111 `S112 1 `S113 1 `S114 1 ]
+[n S111 . . . . ]
+"2056
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 2056: extern volatile SSP1CON1bits_t SSP1CON1bits __attribute__((address(0x190)));
+[v _SSP1CON1bits `VS111 ~T0 @X0 0 e@400 ]
+"77 mcc_generated_files/spi1.c
+[; ;mcc_generated_files/spi1.c: 77: _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration)
+[c E355 0 .. ]
+[n E355 . SPI1_DEFAULT  ]
+"2146 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 2146: extern volatile unsigned char SSP1CON2 __attribute__((address(0x191)));
+[v _SSP1CON2 `Vuc ~T0 @X0 0 e@401 ]
+"1452
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 1452: extern volatile unsigned char SSP1BUF __attribute__((address(0x18C)));
+[v _SSP1BUF `Vuc ~T0 @X0 0 e@396 ]
+"5128
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5128:     struct {
+[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S269 . ADIF SSP1IF BCL1IF TX1IF RC1IF TMR1IF TMR2IF CCP1IF ]
+"5127
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5127: typedef union {
+[u S268 `S269 1 ]
+[n S268 . . ]
+"5139
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5139: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x70D)));
+[v _PIR1bits `VS268 ~T0 @X0 0 e@1805 ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -581,72 +621,326 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9570
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 9570: __asm("TOSH equ 01FEFh");
 [; <" TOSH equ 01FEFh ;# ">
-"34 ./main.h
-[; ;./main.h: 34: } FLAGS;
-[v _FLAGS `S512 ~T0 @X0 1 e ]
-"36
-[; ;./main.h: 36: char serialReadValue;
-[v _serialReadValue `uc ~T0 @X0 1 e ]
-"37
-[; ;./main.h: 37: char spiReadValue;
-[v _spiReadValue `uc ~T0 @X0 1 e ]
-"38
-[; ;./main.h: 38: char requestType;
-[v _requestType `uc ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"50 main.c
-[; ;main.c: 50: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"58 mcc_generated_files/spi1.c
+[; ;mcc_generated_files/spi1.c: 58: static const spi1_configuration_t spi1_configuration[] = {
+[v _spi1_configuration `CS509 ~T0 @X0 -> -> 1 `i `ux s ]
+[i _spi1_configuration
+:U ..
+:U ..
+-> -> 0 `i `uc
+-> -> 64 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+"62
+[; ;mcc_generated_files/spi1.c: 62: void SPI1_Initialize(void)
+[v _SPI1_Initialize `(v ~T0 @X0 1 ef ]
+"63
+[; ;mcc_generated_files/spi1.c: 63: {
 {
-[e :U _main ]
+[e :U _SPI1_Initialize ]
 [f ]
-"52
-[; ;main.c: 52:     SYSTEM_Initialize();
-[e ( _SYSTEM_Initialize ..  ]
-"58
-[; ;main.c: 58:     (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"61
-[; ;main.c: 61:     (INTCONbits.PEIE = 1);
-[e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
+"65
+[; ;mcc_generated_files/spi1.c: 65:     SSP1CLKPPS = 22;
+[e = _SSP1CLKPPS -> -> 22 `i `uc ]
+"66
+[; ;mcc_generated_files/spi1.c: 66:     SSP1DATPPS = 21;
+[e = _SSP1DATPPS -> -> 21 `i `uc ]
+"67
+[; ;mcc_generated_files/spi1.c: 67:     RC6PPS = 7;
+[e = _RC6PPS -> -> 7 `i `uc ]
 "68
-[; ;main.c: 68:     printf("hey");
-[e ( _printf :s 1C ]
-"69
-[; ;main.c: 69:     while (1) {
-[e :U 516 ]
-{
+[; ;mcc_generated_files/spi1.c: 68:     RC4PPS = 8;
+[e = _RC4PPS -> -> 8 `i `uc ]
 "70
-[; ;main.c: 70:         if (FLAGS.bits.PUSH_HANDLER) {
-[e $ ! != -> . . _FLAGS 1 2 `i -> 0 `i 518  ]
-{
+[; ;mcc_generated_files/spi1.c: 70:     SSP1STAT = 0x40;
+[e = _SSP1STAT -> -> 64 `i `uc ]
 "71
-[; ;main.c: 71:             FLAGS.bits.PUSH_HANDLER = 0;
-[e = . . _FLAGS 1 2 -> -> 0 `i `uc ]
+[; ;mcc_generated_files/spi1.c: 71:     SSP1CON1 = 0x00;
+[e = _SSP1CON1 -> -> 0 `i `uc ]
 "72
-[; ;main.c: 72:             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
-[e :U 521 ]
-{
-[e = . . _LATAbits 0 2 -> ~ -> . . _LATAbits 0 2 `i `uc ]
-}
-[e :U 520 ]
+[; ;mcc_generated_files/spi1.c: 72:     SSP1ADD = 0x01;
+[e = _SSP1ADD -> -> 1 `i `uc ]
 "73
-[; ;main.c: 73:             printf("toggling");
-[e ( _printf :s 2C ]
+[; ;mcc_generated_files/spi1.c: 73:     TRISCbits.TRISC6 = 0;
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
 "74
-[; ;main.c: 74:         }
-}
-[e :U 518 ]
+[; ;mcc_generated_files/spi1.c: 74:     SSP1CON1bits.SSPEN = 0;
+[e = . . _SSP1CON1bits 0 2 -> -> 0 `i `uc ]
 "75
-[; ;main.c: 75:     }
+[; ;mcc_generated_files/spi1.c: 75: }
+[e :UE 510 ]
 }
+"77
+[; ;mcc_generated_files/spi1.c: 77: _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration)
+[v _SPI1_Open `(a ~T0 @X0 1 ef1`E355 ]
+"78
+[; ;mcc_generated_files/spi1.c: 78: {
+{
+[e :U _SPI1_Open ]
+"77
+[; ;mcc_generated_files/spi1.c: 77: _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration)
+[v _spi1UniqueConfiguration `E355 ~T0 @X0 1 r1 ]
+"78
+[; ;mcc_generated_files/spi1.c: 78: {
+[f ]
+"79
+[; ;mcc_generated_files/spi1.c: 79:     if(!SSP1CON1bits.SSPEN)
+[e $ ! ! != -> . . _SSP1CON1bits 0 2 `i -> 0 `i 512  ]
+"80
+[; ;mcc_generated_files/spi1.c: 80:     {
+{
+"81
+[; ;mcc_generated_files/spi1.c: 81:         SSP1STAT = spi1_configuration[spi1UniqueConfiguration].stat;
+[e = _SSP1STAT . *U + &U _spi1_configuration * -> _spi1UniqueConfiguration `ux -> -> # *U &U _spi1_configuration `ui `ux 1 ]
+"82
+[; ;mcc_generated_files/spi1.c: 82:         SSP1CON1 = spi1_configuration[spi1UniqueConfiguration].con1;
+[e = _SSP1CON1 . *U + &U _spi1_configuration * -> _spi1UniqueConfiguration `ux -> -> # *U &U _spi1_configuration `ui `ux 0 ]
+"83
+[; ;mcc_generated_files/spi1.c: 83:         SSP1CON2 = 0x00;
+[e = _SSP1CON2 -> -> 0 `i `uc ]
+"84
+[; ;mcc_generated_files/spi1.c: 84:         SSP1ADD = spi1_configuration[spi1UniqueConfiguration].add;
+[e = _SSP1ADD . *U + &U _spi1_configuration * -> _spi1UniqueConfiguration `ux -> -> # *U &U _spi1_configuration `ui `ux 2 ]
+"85
+[; ;mcc_generated_files/spi1.c: 85:         TRISCbits.TRISC6 = spi1_configuration[spi1UniqueConfiguration].operation;
+[e = . . _TRISCbits 0 6 . *U + &U _spi1_configuration * -> _spi1UniqueConfiguration `ux -> -> # *U &U _spi1_configuration `ui `ux 3 ]
+"86
+[; ;mcc_generated_files/spi1.c: 86:         SSP1CON1bits.SSPEN = 1;
+[e = . . _SSP1CON1bits 0 2 -> -> 1 `i `uc ]
+"87
+[; ;mcc_generated_files/spi1.c: 87:         return 1;
+[e ) -> -> 1 `i `a ]
+[e $UE 511  ]
+"88
+[; ;mcc_generated_files/spi1.c: 88:     }
+}
+[e :U 512 ]
+"89
+[; ;mcc_generated_files/spi1.c: 89:     return 0;
+[e ) -> -> 0 `i `a ]
+[e $UE 511  ]
+"90
+[; ;mcc_generated_files/spi1.c: 90: }
+[e :UE 511 ]
+}
+"92
+[; ;mcc_generated_files/spi1.c: 92: void SPI1_Close(void)
+[v _SPI1_Close `(v ~T0 @X0 1 ef ]
+"93
+[; ;mcc_generated_files/spi1.c: 93: {
+{
+[e :U _SPI1_Close ]
+[f ]
+"94
+[; ;mcc_generated_files/spi1.c: 94:     SSP1CON1bits.SSPEN = 0;
+[e = . . _SSP1CON1bits 0 2 -> -> 0 `i `uc ]
+"95
+[; ;mcc_generated_files/spi1.c: 95: }
+[e :UE 513 ]
+}
+"97
+[; ;mcc_generated_files/spi1.c: 97: uint8_t SPI1_ExchangeByte(uint8_t data)
+[v _SPI1_ExchangeByte `(uc ~T0 @X0 1 ef1`uc ]
+"98
+[; ;mcc_generated_files/spi1.c: 98: {
+{
+[e :U _SPI1_ExchangeByte ]
+"97
+[; ;mcc_generated_files/spi1.c: 97: uint8_t SPI1_ExchangeByte(uint8_t data)
+[v _data `uc ~T0 @X0 1 r1 ]
+"98
+[; ;mcc_generated_files/spi1.c: 98: {
+[f ]
+"99
+[; ;mcc_generated_files/spi1.c: 99:     SSP1BUF = data;
+[e = _SSP1BUF _data ]
+"100
+[; ;mcc_generated_files/spi1.c: 100:     while(!PIR1bits.SSP1IF);
+[e $U 515  ]
+[e :U 516 ]
 [e :U 515 ]
-[e $U 516  ]
+[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 516  ]
 [e :U 517 ]
-"76
-[; ;main.c: 76: }
+"101
+[; ;mcc_generated_files/spi1.c: 101:     PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"102
+[; ;mcc_generated_files/spi1.c: 102:     return SSP1BUF;
+[e ) _SSP1BUF ]
+[e $UE 514  ]
+"103
+[; ;mcc_generated_files/spi1.c: 103: }
 [e :UE 514 ]
 }
-[p f _printf 8388608 ]
-[a 1C 104 101 121 0 ]
-[a 2C 116 111 103 103 108 105 110 103 0 ]
+"105
+[; ;mcc_generated_files/spi1.c: 105: void SPI1_ExchangeBlock(void *block, size_t blockSize)
+[v _SPI1_ExchangeBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"106
+[; ;mcc_generated_files/spi1.c: 106: {
+{
+[e :U _SPI1_ExchangeBlock ]
+"105
+[; ;mcc_generated_files/spi1.c: 105: void SPI1_ExchangeBlock(void *block, size_t blockSize)
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"106
+[; ;mcc_generated_files/spi1.c: 106: {
+[f ]
+"107
+[; ;mcc_generated_files/spi1.c: 107:     uint8_t *data = block;
+[v _data `*uc ~T0 @X0 1 a ]
+[e = _data -> _block `*uc ]
+"108
+[; ;mcc_generated_files/spi1.c: 108:     while(blockSize--)
+[e $U 519  ]
+[e :U 520 ]
+"109
+[; ;mcc_generated_files/spi1.c: 109:     {
+{
+"110
+[; ;mcc_generated_files/spi1.c: 110:         SSP1BUF = *data;
+[e = _SSP1BUF *U _data ]
+"111
+[; ;mcc_generated_files/spi1.c: 111:         while(!PIR1bits.SSP1IF);
+[e $U 522  ]
+[e :U 523 ]
+[e :U 522 ]
+[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 523  ]
+[e :U 524 ]
+"112
+[; ;mcc_generated_files/spi1.c: 112:         PIR1bits.SSP1IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"113
+[; ;mcc_generated_files/spi1.c: 113:         *data++ = SSP1BUF;
+[e = *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x _SSP1BUF ]
+"114
+[; ;mcc_generated_files/spi1.c: 114:     }
+}
+[e :U 519 ]
+"108
+[; ;mcc_generated_files/spi1.c: 108:     while(blockSize--)
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 520  ]
+[e :U 521 ]
+"115
+[; ;mcc_generated_files/spi1.c: 115: }
+[e :UE 518 ]
+}
+"118
+[; ;mcc_generated_files/spi1.c: 118: void SPI1_WriteBlock(void *block, size_t blockSize)
+[v _SPI1_WriteBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"119
+[; ;mcc_generated_files/spi1.c: 119: {
+{
+[e :U _SPI1_WriteBlock ]
+"118
+[; ;mcc_generated_files/spi1.c: 118: void SPI1_WriteBlock(void *block, size_t blockSize)
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"119
+[; ;mcc_generated_files/spi1.c: 119: {
+[f ]
+"120
+[; ;mcc_generated_files/spi1.c: 120:     uint8_t *data = block;
+[v _data `*uc ~T0 @X0 1 a ]
+[e = _data -> _block `*uc ]
+"121
+[; ;mcc_generated_files/spi1.c: 121:     while(blockSize--)
+[e $U 526  ]
+[e :U 527 ]
+"122
+[; ;mcc_generated_files/spi1.c: 122:     {
+{
+"123
+[; ;mcc_generated_files/spi1.c: 123:         SPI1_ExchangeByte(*data++);
+[e ( _SPI1_ExchangeByte (1 *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+"124
+[; ;mcc_generated_files/spi1.c: 124:     }
+}
+[e :U 526 ]
+"121
+[; ;mcc_generated_files/spi1.c: 121:     while(blockSize--)
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 527  ]
+[e :U 528 ]
+"125
+[; ;mcc_generated_files/spi1.c: 125: }
+[e :UE 525 ]
+}
+"127
+[; ;mcc_generated_files/spi1.c: 127: void SPI1_ReadBlock(void *block, size_t blockSize)
+[v _SPI1_ReadBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"128
+[; ;mcc_generated_files/spi1.c: 128: {
+{
+[e :U _SPI1_ReadBlock ]
+"127
+[; ;mcc_generated_files/spi1.c: 127: void SPI1_ReadBlock(void *block, size_t blockSize)
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"128
+[; ;mcc_generated_files/spi1.c: 128: {
+[f ]
+"129
+[; ;mcc_generated_files/spi1.c: 129:     uint8_t *data = block;
+[v _data `*uc ~T0 @X0 1 a ]
+[e = _data -> _block `*uc ]
+"130
+[; ;mcc_generated_files/spi1.c: 130:     while(blockSize--)
+[e $U 530  ]
+[e :U 531 ]
+"131
+[; ;mcc_generated_files/spi1.c: 131:     {
+{
+"132
+[; ;mcc_generated_files/spi1.c: 132:         *data++ = SPI1_ExchangeByte(0);
+[e = *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ( _SPI1_ExchangeByte (1 -> -> 0 `i `uc ]
+"133
+[; ;mcc_generated_files/spi1.c: 133:     }
+}
+[e :U 530 ]
+"130
+[; ;mcc_generated_files/spi1.c: 130:     while(blockSize--)
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 531  ]
+[e :U 532 ]
+"134
+[; ;mcc_generated_files/spi1.c: 134: }
+[e :UE 529 ]
+}
+"136
+[; ;mcc_generated_files/spi1.c: 136: void SPI1_WriteByte(uint8_t byte)
+[v _SPI1_WriteByte `(v ~T0 @X0 1 ef1`uc ]
+"137
+[; ;mcc_generated_files/spi1.c: 137: {
+{
+[e :U _SPI1_WriteByte ]
+"136
+[; ;mcc_generated_files/spi1.c: 136: void SPI1_WriteByte(uint8_t byte)
+[v _byte `uc ~T0 @X0 1 r1 ]
+"137
+[; ;mcc_generated_files/spi1.c: 137: {
+[f ]
+"138
+[; ;mcc_generated_files/spi1.c: 138:     SSP1BUF = byte;
+[e = _SSP1BUF _byte ]
+"139
+[; ;mcc_generated_files/spi1.c: 139: }
+[e :UE 533 ]
+}
+"141
+[; ;mcc_generated_files/spi1.c: 141: uint8_t SPI1_ReadByte(void)
+[v _SPI1_ReadByte `(uc ~T0 @X0 1 ef ]
+"142
+[; ;mcc_generated_files/spi1.c: 142: {
+{
+[e :U _SPI1_ReadByte ]
+[f ]
+"143
+[; ;mcc_generated_files/spi1.c: 143:     return SSP1BUF;
+[e ) _SSP1BUF ]
+[e $UE 534  ]
+"144
+[; ;mcc_generated_files/spi1.c: 144: }
+[e :UE 534 ]
+}

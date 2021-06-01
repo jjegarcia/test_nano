@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/pin_manager.c"
+# 1 "mcc_generated_files/tmr2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/pin_manager.c" 2
-# 49 "mcc_generated_files/pin_manager.c"
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 54 "mcc_generated_files/pin_manager.h"
+# 1 "mcc_generated_files/tmr2.c" 2
+# 51 "mcc_generated_files/tmr2.c"
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6024,139 +6022,276 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
-# 55 "mcc_generated_files/pin_manager.h" 2
-# 210 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 222 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 235 "mcc_generated_files/pin_manager.h"
-void IOCCF2_ISR(void);
-# 258 "mcc_generated_files/pin_manager.h"
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 282 "mcc_generated_files/pin_manager.h"
-extern void (*IOCCF2_InterruptHandler)(void);
-# 306 "mcc_generated_files/pin_manager.h"
-void IOCCF2_DefaultInterruptHandler(void);
-# 50 "mcc_generated_files/pin_manager.c" 2
+# 51 "mcc_generated_files/tmr2.c" 2
+
+# 1 "mcc_generated_files/tmr2.h" 1
+# 55 "mcc_generated_files/tmr2.h"
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
+# 55 "mcc_generated_files/tmr2.h" 2
+# 79 "mcc_generated_files/tmr2.h"
+typedef enum
+{
+# 89 "mcc_generated_files/tmr2.h"
+   TMR2_ROP_STARTS_TMRON,
 
 
 
 
-void (*IOCCF2_InterruptHandler)(void);
-
-void PIN_MANAGER_Initialize(void) {
-
-
-
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
+   TMR2_ROP_STARTS_TMRON_ERSHIGH,
 
 
 
 
-    TRISA = 0x3B;
-    TRISB = 0x70;
-    TRISC = 0xAF;
+   TMR2_ROP_STARTS_TMRON_ERSLOW,
 
 
 
 
-    ANSELC = 0x9B;
-    ANSELB = 0xD0;
-    ANSELA = 0x13;
+   TMR2_ROP_RESETS_ERSBOTHEDGE,
 
 
 
 
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x04;
+   TMR2_ROP_RESETS_ERSRISINGEDGE,
 
 
 
 
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
+   TMR2_ROP_RESETS_ERSFALLINGEDGE,
 
 
 
 
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
+   TMR2_ROP_RESETS_ERSLOW,
 
 
 
 
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
+   TMR2_ROP_RESETS_ERSHIGH,
+# 135 "mcc_generated_files/tmr2.h"
+   TMR2_OS_STARTS_TMRON,
+
+
+
+
+   TMR2_OS_STARTS_ERSRISINGEDGE ,
+
+
+
+
+   TMR2_OS_STARTS_ERSFALLINGEDGE ,
+
+
+
+
+   TMR2_OS_STARTS_ERSBOTHEDGE,
 
 
 
 
 
-
-    IOCCFbits.IOCCF2 = 0;
-
-    IOCCNbits.IOCCN2 = 1;
-
-    IOCCPbits.IOCCP2 = 0;
+   TMR2_OS_STARTS_ERSFIRSTRISINGEDGE,
 
 
 
 
-    IOCCF2_SetInterruptHandler(IOCCF2_DefaultInterruptHandler);
+
+   TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE,
 
 
-    PIE0bits.IOCIE = 1;
 
 
-    ADACTPPS = 0x12;
-    T1CKIPPS = 0x05;
-    RX1PPS = 0x0D;
-    SSP1CLKPPS = 0x16;
-    RB7PPS = 0x05;
-    RC4PPS = 0x08;
-    RC6PPS = 0x07;
-    SSP1DATPPS = 0x15;
+
+   TMR2_OS_STARTS_ERSRISINGEDGEDETECT,
+
+
+
+
+   TMR2_OS_STARTS_ERSFALLINGEDGEDETECT,
+
+
+
+
+   TMR2_OS_STARTS_TMRON_ERSHIGH = 0x16,
+
+
+
+
+   TMR2_OS_STARTS_TMRON_ERSLOW = 0x17,
+# 192 "mcc_generated_files/tmr2.h"
+   TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT = 0x11,
+
+
+
+
+   TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT = 0x12,
+
+
+
+
+
+   TMR2_MS_STARTS_TMRON_ERSBOTHEDGE = 0x13
+
+} TMR2_HLT_MODE;
+# 220 "mcc_generated_files/tmr2.h"
+typedef enum
+{
+
+
+
+
+    TMR2_T2INPPS,
+
+
+
+    TMR2_CCP1_OUT,
+
+
+
+    TMR2_CCP2_OUT,
+
+
+
+    TMR2_PWM3_OUT,
+
+
+
+    TMR2_PWM4_OUT,
+
+} TMR2_HLT_EXT_RESET_SOURCE;
+# 286 "mcc_generated_files/tmr2.h"
+void TMR2_Initialize(void);
+# 322 "mcc_generated_files/tmr2.h"
+void TMR2_ModeSet(TMR2_HLT_MODE mode);
+# 357 "mcc_generated_files/tmr2.h"
+void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset);
+# 386 "mcc_generated_files/tmr2.h"
+void TMR2_Start(void);
+# 415 "mcc_generated_files/tmr2.h"
+void TMR2_StartTimer(void);
+# 447 "mcc_generated_files/tmr2.h"
+void TMR2_Stop(void);
+# 479 "mcc_generated_files/tmr2.h"
+void TMR2_StopTimer(void);
+# 514 "mcc_generated_files/tmr2.h"
+uint8_t TMR2_Counter8BitGet(void);
+# 549 "mcc_generated_files/tmr2.h"
+uint8_t TMR2_ReadTimer(void);
+# 588 "mcc_generated_files/tmr2.h"
+void TMR2_Counter8BitSet(uint8_t timerVal);
+# 627 "mcc_generated_files/tmr2.h"
+void TMR2_WriteTimer(uint8_t timerVal);
+# 679 "mcc_generated_files/tmr2.h"
+void TMR2_Period8BitSet(uint8_t periodVal);
+# 731 "mcc_generated_files/tmr2.h"
+void TMR2_LoadPeriodRegister(uint8_t periodVal);
+# 769 "mcc_generated_files/tmr2.h"
+_Bool TMR2_HasOverflowOccured(void);
+# 52 "mcc_generated_files/tmr2.c" 2
+# 62 "mcc_generated_files/tmr2.c"
+void TMR2_Initialize(void)
+{
+
+
+
+    T2CLKCON = 0x03;
+
+
+    T2HLT = 0x00;
+
+
+    T2RST = 0x00;
+
+
+    T2PR = 0xFF;
+
+
+    T2TMR = 0x00;
+
+
+    PIR1bits.TMR2IF = 0;
+
+
+    T2CON = 0x80;
 }
 
-void PIN_MANAGER_IOC(void) {
+void TMR2_ModeSet(TMR2_HLT_MODE mode)
+{
 
-    if (IOCCFbits.IOCCF2 == 1) {
-        IOCCF2_ISR();
+    T2HLTbits.MODE = mode;
+}
+
+void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset)
+{
+
+    T2RSTbits.RSEL = reset;
+}
+
+void TMR2_Start(void)
+{
+
+    T2CONbits.TMR2ON = 1;
+}
+
+void TMR2_StartTimer(void)
+{
+    TMR2_Start();
+}
+
+void TMR2_Stop(void)
+{
+
+    T2CONbits.TMR2ON = 0;
+}
+
+void TMR2_StopTimer(void)
+{
+    TMR2_Stop();
+}
+
+uint8_t TMR2_Counter8BitGet(void)
+{
+    uint8_t readVal;
+
+    readVal = TMR2;
+
+    return readVal;
+}
+
+uint8_t TMR2_ReadTimer(void)
+{
+    return TMR2_Counter8BitGet();
+}
+
+void TMR2_Counter8BitSet(uint8_t timerVal)
+{
+
+    TMR2 = timerVal;
+}
+
+void TMR2_WriteTimer(uint8_t timerVal)
+{
+    TMR2_Counter8BitSet(timerVal);
+}
+
+void TMR2_Period8BitSet(uint8_t periodVal)
+{
+   PR2 = periodVal;
+}
+
+void TMR2_LoadPeriodRegister(uint8_t periodVal)
+{
+   TMR2_Period8BitSet(periodVal);
+}
+
+_Bool TMR2_HasOverflowOccured(void)
+{
+
+    _Bool status = PIR1bits.TMR2IF;
+    if(status)
+    {
+
+        PIR1bits.TMR2IF = 0;
     }
-}
-
-
-
-
-void IOCCF2_ISR(void) {
-
-
-
-
-    if (IOCCF2_InterruptHandler) {
-        IOCCF2_InterruptHandler();
-    }
-    IOCCFbits.IOCCF2 = 0;
-}
-
-
-
-
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)) {
-    IOCCF2_InterruptHandler = InterruptHandler;
-}
-
-
-
-
-void IOCCF2_DefaultInterruptHandler(void) {
-    FLAGS.bits.PUSH_HANDLER = 1;
-
-
+    return status;
 }

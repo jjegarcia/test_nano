@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/pin_manager.c"
+# 1 "mcc_generated_files/pwm3.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/pin_manager.c" 2
-# 49 "mcc_generated_files/pin_manager.c"
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 54 "mcc_generated_files/pin_manager.h"
+# 1 "mcc_generated_files/pwm3.c" 2
+# 51 "mcc_generated_files/pwm3.c"
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6024,139 +6022,39 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
-# 55 "mcc_generated_files/pin_manager.h" 2
-# 210 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 222 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 235 "mcc_generated_files/pin_manager.h"
-void IOCCF2_ISR(void);
-# 258 "mcc_generated_files/pin_manager.h"
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 282 "mcc_generated_files/pin_manager.h"
-extern void (*IOCCF2_InterruptHandler)(void);
-# 306 "mcc_generated_files/pin_manager.h"
-void IOCCF2_DefaultInterruptHandler(void);
-# 50 "mcc_generated_files/pin_manager.c" 2
+# 51 "mcc_generated_files/pwm3.c" 2
 
+# 1 "mcc_generated_files/pwm3.h" 1
+# 102 "mcc_generated_files/pwm3.h"
+ void PWM3_Initialize(void);
+# 129 "mcc_generated_files/pwm3.h"
+ void PWM3_LoadDutyValue(uint16_t dutyValue);
+# 52 "mcc_generated_files/pwm3.c" 2
 
 
 
-void (*IOCCF2_InterruptHandler)(void);
 
-void PIN_MANAGER_Initialize(void) {
 
 
+ void PWM3_Initialize(void)
+ {
 
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
 
+    PWM3CON = 0x80;
 
 
+    PWM3DCH = 0x7F;
 
-    TRISA = 0x3B;
-    TRISB = 0x70;
-    TRISC = 0xAF;
 
+    PWM3DCL = 0xC0;
 
+ }
 
+ void PWM3_LoadDutyValue(uint16_t dutyValue)
+ {
 
-    ANSELC = 0x9B;
-    ANSELB = 0xD0;
-    ANSELA = 0x13;
+     PWM3DCH = (dutyValue & 0x03FC)>>2;
 
 
-
-
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x04;
-
-
-
-
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-
-
-
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
-
-
-
-
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
-
-
-
-
-
-
-    IOCCFbits.IOCCF2 = 0;
-
-    IOCCNbits.IOCCN2 = 1;
-
-    IOCCPbits.IOCCP2 = 0;
-
-
-
-
-    IOCCF2_SetInterruptHandler(IOCCF2_DefaultInterruptHandler);
-
-
-    PIE0bits.IOCIE = 1;
-
-
-    ADACTPPS = 0x12;
-    T1CKIPPS = 0x05;
-    RX1PPS = 0x0D;
-    SSP1CLKPPS = 0x16;
-    RB7PPS = 0x05;
-    RC4PPS = 0x08;
-    RC6PPS = 0x07;
-    SSP1DATPPS = 0x15;
-}
-
-void PIN_MANAGER_IOC(void) {
-
-    if (IOCCFbits.IOCCF2 == 1) {
-        IOCCF2_ISR();
-    }
-}
-
-
-
-
-void IOCCF2_ISR(void) {
-
-
-
-
-    if (IOCCF2_InterruptHandler) {
-        IOCCF2_InterruptHandler();
-    }
-    IOCCFbits.IOCCF2 = 0;
-}
-
-
-
-
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)) {
-    IOCCF2_InterruptHandler = InterruptHandler;
-}
-
-
-
-
-void IOCCF2_DefaultInterruptHandler(void) {
-    FLAGS.bits.PUSH_HANDLER = 1;
-
-
-}
+     PWM3DCL = (dutyValue & 0x0003)<<6;
+ }

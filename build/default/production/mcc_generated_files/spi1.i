@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/pin_manager.c"
+# 1 "mcc_generated_files/spi1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,98 +6,158 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/pin_manager.c" 2
-# 49 "mcc_generated_files/pin_manager.c"
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 54 "mcc_generated_files/pin_manager.h"
-# 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 1 3
-# 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/xc8debug.h" 1 3
-
-
-
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 1 3
+# 1 "mcc_generated_files/spi1.c" 2
+# 47 "mcc_generated_files/spi1.c"
+# 1 "mcc_generated_files/spi1.h" 1
+# 54 "mcc_generated_files/spi1.h"
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 1 3
 
 
 
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/musl_xc8.h" 1 3
-# 5 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 2 3
+# 5 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 2 3
 
 
 
 
 
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/features.h" 1 3
-# 11 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 2 3
-# 21 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 3
+# 11 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 2 3
+# 24 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 3
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 1 3
-# 18 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-typedef long int wchar_t;
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
 # 122 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
 typedef unsigned size_t;
+# 137 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef long ssize_t;
 # 168 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
 typedef __int24 int24_t;
 # 204 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
 typedef __uint24 uint24_t;
-# 22 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 2 3
+# 246 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 2 3
+# 52 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
 
-int atoi (const char *);
-long atol (const char *);
-long long atoll (const char *);
-double atof (const char *);
-
-float strtof (const char *restrict, char **restrict);
-double strtod (const char *restrict, char **restrict);
-long double strtold (const char *restrict, char **restrict);
-
-
-
-long strtol (const char *restrict, char **restrict, int);
-unsigned long strtoul (const char *restrict, char **restrict, int);
-long long strtoll (const char *restrict, char **restrict, int);
-unsigned long long strtoull (const char *restrict, char **restrict, int);
-
-int rand (void);
-void srand (unsigned);
-
-          void abort (void);
-int atexit (void (*) (void));
-          void exit (int);
-          void _Exit (int);
-
-void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-int abs (int);
-long labs (long);
-long long llabs (long long);
-
-typedef struct { int quot, rem; } div_t;
-typedef struct { long quot, rem; } ldiv_t;
-typedef struct { long long quot, rem; } lldiv_t;
-
-div_t div (int, int);
-ldiv_t ldiv (long, long);
-lldiv_t lldiv (long long, long long);
-
-typedef struct { unsigned int quot, rem; } udiv_t;
-typedef struct { unsigned long quot, rem; } uldiv_t;
-udiv_t udiv (unsigned int, unsigned int);
-uldiv_t uldiv (unsigned long, unsigned long);
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
 
 
 
 
 
-size_t __ctype_get_mb_cur_max(void);
-# 5 "/Applications/microchip/xc8/v2.32/pic/include/c99/xc8debug.h" 2 3
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
 
 
 
@@ -105,12 +165,8 @@ size_t __ctype_get_mb_cur_max(void);
 
 
 
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 24 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
-# 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/builtins.h" 1 3
-
-
+char *tempnam(const char *, const char *);
+# 54 "mcc_generated_files/spi1.h" 2
 
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdint.h" 1 3
 # 22 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdint.h" 3
@@ -196,7 +252,113 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 145 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdint.h" 2 3
-# 5 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/builtins.h" 2 3
+# 55 "mcc_generated_files/spi1.h" 2
+
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
+# 56 "mcc_generated_files/spi1.h" 2
+
+
+
+typedef enum {
+    SPI1_DEFAULT
+} spi1_modes_t;
+
+void SPI1_Initialize(void);
+_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
+void SPI1_Close(void);
+uint8_t SPI1_ExchangeByte(uint8_t data);
+void SPI1_ExchangeBlock(void *block, size_t blockSize);
+void SPI1_WriteBlock(void *block, size_t blockSize);
+void SPI1_ReadBlock(void *block, size_t blockSize);
+void SPI1_WriteByte(uint8_t byte);
+uint8_t SPI1_ReadByte(void);
+# 47 "mcc_generated_files/spi1.c" 2
+
+# 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 1 3
+# 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/xc8debug.h" 1 3
+
+
+
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 1 3
+# 21 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 3
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 1 3
+# 18 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef long int wchar_t;
+# 22 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdlib.h" 2 3
+
+int atoi (const char *);
+long atol (const char *);
+long long atoll (const char *);
+double atof (const char *);
+
+float strtof (const char *restrict, char **restrict);
+double strtod (const char *restrict, char **restrict);
+long double strtold (const char *restrict, char **restrict);
+
+
+
+long strtol (const char *restrict, char **restrict, int);
+unsigned long strtoul (const char *restrict, char **restrict, int);
+long long strtoll (const char *restrict, char **restrict, int);
+unsigned long long strtoull (const char *restrict, char **restrict, int);
+
+int rand (void);
+void srand (unsigned);
+
+          void abort (void);
+int atexit (void (*) (void));
+          void exit (int);
+          void _Exit (int);
+
+void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+
+__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+int abs (int);
+long labs (long);
+long long llabs (long long);
+
+typedef struct { int quot, rem; } div_t;
+typedef struct { long quot, rem; } ldiv_t;
+typedef struct { long long quot, rem; } lldiv_t;
+
+div_t div (int, int);
+ldiv_t ldiv (long, long);
+lldiv_t lldiv (long long, long long);
+
+typedef struct { unsigned int quot, rem; } udiv_t;
+typedef struct { unsigned long quot, rem; } uldiv_t;
+udiv_t udiv (unsigned int, unsigned int);
+uldiv_t uldiv (unsigned long, unsigned long);
+
+
+
+
+
+size_t __ctype_get_mb_cur_max(void);
+# 5 "/Applications/microchip/xc8/v2.32/pic/include/c99/xc8debug.h" 2 3
+
+
+
+
+
+
+
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 24 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
+# 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/builtins.h" 1 3
+
+
+
+
 
 
 #pragma intrinsic(__nop)
@@ -6024,139 +6186,101 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
-# 55 "mcc_generated_files/pin_manager.h" 2
-# 210 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 222 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 235 "mcc_generated_files/pin_manager.h"
-void IOCCF2_ISR(void);
-# 258 "mcc_generated_files/pin_manager.h"
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 282 "mcc_generated_files/pin_manager.h"
-extern void (*IOCCF2_InterruptHandler)(void);
-# 306 "mcc_generated_files/pin_manager.h"
-void IOCCF2_DefaultInterruptHandler(void);
-# 50 "mcc_generated_files/pin_manager.c" 2
+# 48 "mcc_generated_files/spi1.c" 2
 
 
+typedef struct {
+    uint8_t con1;
+    uint8_t stat;
+    uint8_t add;
+    uint8_t operation;
+} spi1_configuration_t;
 
 
-void (*IOCCF2_InterruptHandler)(void);
+static const spi1_configuration_t spi1_configuration[] = {
+    { 0x0, 0x40, 0x1, 0 }
+};
 
-void PIN_MANAGER_Initialize(void) {
+void SPI1_Initialize(void)
+{
 
+    SSP1CLKPPS = 22;
+    SSP1DATPPS = 21;
+    RC6PPS = 7;
+    RC4PPS = 8;
 
-
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-
-
-
-
-    TRISA = 0x3B;
-    TRISB = 0x70;
-    TRISC = 0xAF;
-
-
-
-
-    ANSELC = 0x9B;
-    ANSELB = 0xD0;
-    ANSELA = 0x13;
-
-
-
-
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x04;
-
-
-
-
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-
-
-
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
-
-
-
-
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
-
-
-
-
-
-
-    IOCCFbits.IOCCF2 = 0;
-
-    IOCCNbits.IOCCN2 = 1;
-
-    IOCCPbits.IOCCP2 = 0;
-
-
-
-
-    IOCCF2_SetInterruptHandler(IOCCF2_DefaultInterruptHandler);
-
-
-    PIE0bits.IOCIE = 1;
-
-
-    ADACTPPS = 0x12;
-    T1CKIPPS = 0x05;
-    RX1PPS = 0x0D;
-    SSP1CLKPPS = 0x16;
-    RB7PPS = 0x05;
-    RC4PPS = 0x08;
-    RC6PPS = 0x07;
-    SSP1DATPPS = 0x15;
+    SSP1STAT = 0x40;
+    SSP1CON1 = 0x00;
+    SSP1ADD = 0x01;
+    TRISCbits.TRISC6 = 0;
+    SSP1CON1bits.SSPEN = 0;
 }
 
-void PIN_MANAGER_IOC(void) {
+_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration)
+{
+    if(!SSP1CON1bits.SSPEN)
+    {
+        SSP1STAT = spi1_configuration[spi1UniqueConfiguration].stat;
+        SSP1CON1 = spi1_configuration[spi1UniqueConfiguration].con1;
+        SSP1CON2 = 0x00;
+        SSP1ADD = spi1_configuration[spi1UniqueConfiguration].add;
+        TRISCbits.TRISC6 = spi1_configuration[spi1UniqueConfiguration].operation;
+        SSP1CON1bits.SSPEN = 1;
+        return 1;
+    }
+    return 0;
+}
 
-    if (IOCCFbits.IOCCF2 == 1) {
-        IOCCF2_ISR();
+void SPI1_Close(void)
+{
+    SSP1CON1bits.SSPEN = 0;
+}
+
+uint8_t SPI1_ExchangeByte(uint8_t data)
+{
+    SSP1BUF = data;
+    while(!PIR1bits.SSP1IF);
+    PIR1bits.SSP1IF = 0;
+    return SSP1BUF;
+}
+
+void SPI1_ExchangeBlock(void *block, size_t blockSize)
+{
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        SSP1BUF = *data;
+        while(!PIR1bits.SSP1IF);
+        PIR1bits.SSP1IF = 0;
+        *data++ = SSP1BUF;
     }
 }
 
 
-
-
-void IOCCF2_ISR(void) {
-
-
-
-
-    if (IOCCF2_InterruptHandler) {
-        IOCCF2_InterruptHandler();
+void SPI1_WriteBlock(void *block, size_t blockSize)
+{
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        SPI1_ExchangeByte(*data++);
     }
-    IOCCFbits.IOCCF2 = 0;
 }
 
-
-
-
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)) {
-    IOCCF2_InterruptHandler = InterruptHandler;
+void SPI1_ReadBlock(void *block, size_t blockSize)
+{
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        *data++ = SPI1_ExchangeByte(0);
+    }
 }
 
+void SPI1_WriteByte(uint8_t byte)
+{
+    SSP1BUF = byte;
+}
 
-
-
-void IOCCF2_DefaultInterruptHandler(void) {
-    FLAGS.bits.PUSH_HANDLER = 1;
-
-
+uint8_t SPI1_ReadByte(void)
+{
+    return SSP1BUF;
 }

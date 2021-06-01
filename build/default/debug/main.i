@@ -6528,12 +6528,29 @@ void OSCILLATOR_Initialize(void);
 # 102 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 45 "main.c" 2
+# 1 "./main.h" 1
+# 24 "./main.h"
+union {
+    unsigned char byte;
+
+    struct {
+        unsigned SPI_READ : 1;
+        unsigned DISPLAY_READING : 1;
+        unsigned PUSH_HANDLER : 1;
+        unsigned UART_RECEIVED: 1;
+        unsigned TIMER_TICK: 1;
+    } bits;
+} FLAGS;
+
+char serialReadValue;
+char spiReadValue;
+char requestType;
+# 46 "main.c" 2
 
 
 
 
-void main(void)
-{
+void main(void) {
 
     SYSTEM_Initialize();
 
@@ -6552,14 +6569,11 @@ void main(void)
 
 
     printf("hey");
-    while (1)
-    {
-
-
-
-
-
-        printf("toggling");
-        _delay((unsigned long)((1000)*(1000000/4000.0)));
+    while (1) {
+        if (FLAGS.bits.PUSH_HANDLER) {
+            FLAGS.bits.PUSH_HANDLER = 0;
+            do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
+            printf("toggling");
+        }
     }
 }

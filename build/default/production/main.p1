@@ -1,7 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"27 ./main.h
+[; ;./main.h: 27:     struct {
+[s S513 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S513 . SPI_READ DISPLAY_READING PUSH_HANDLER UART_RECEIVED TIMER_TICK ]
+"24
+[; ;./main.h: 24: union {
+[u S512 `uc 1 `S513 1 ]
+[n S512 . byte bits ]
 [p mainexit ]
-"71 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 71: void SYSTEM_Initialize(void);
+"77 ./mcc_generated_files/mcc.h
+[; ;./mcc_generated_files/mcc.h: 77: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "420 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 420:     struct {
@@ -16,10 +24,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
 "111 /Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
-"12 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
-[p i __delay ]
+"755 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 755:     struct {
+[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S45 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 ]
+"754
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 754: typedef union {
+[u S44 `S45 1 ]
+[n S44 . . ]
+"764
+[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 764: extern volatile LATAbits_t LATAbits __attribute__((address(0x018)));
+[v _LATAbits `VS44 ~T0 @X0 0 e@24 ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -566,12 +581,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9570
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 9570: __asm("TOSH equ 01FEFh");
 [; <" TOSH equ 01FEFh ;# ">
+"34 ./main.h
+[; ;./main.h: 34: } FLAGS;
+[v _FLAGS `S512 ~T0 @X0 1 e ]
+"36
+[; ;./main.h: 36: char serialReadValue;
+[v _serialReadValue `uc ~T0 @X0 1 e ]
+"37
+[; ;./main.h: 37: char spiReadValue;
+[v _spiReadValue `uc ~T0 @X0 1 e ]
+"38
+[; ;./main.h: 38: char requestType;
+[v _requestType `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"49 main.c
-[; ;main.c: 49: void main(void)
+"50 main.c
+[; ;main.c: 50: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
-"50
-[; ;main.c: 50: {
 {
 [e :U _main ]
 [f ]
@@ -588,26 +613,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 68:     printf("hey");
 [e ( _printf :s 1C ]
 "69
-[; ;main.c: 69:     while (1)
-[e :U 513 ]
-"70
-[; ;main.c: 70:     {
+[; ;main.c: 69:     while (1) {
+[e :U 516 ]
 {
-"76
-[; ;main.c: 76:         printf("toggling");
-[e ( _printf :s 2C ]
-"77
-[; ;main.c: 77:         _delay((unsigned long)((1000)*(1000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-"78
-[; ;main.c: 78:     }
+"70
+[; ;main.c: 70:         if (FLAGS.bits.PUSH_HANDLER) {
+[e $ ! != -> . . _FLAGS 1 2 `i -> 0 `i 518  ]
+{
+"71
+[; ;main.c: 71:             FLAGS.bits.PUSH_HANDLER = 0;
+[e = . . _FLAGS 1 2 -> -> 0 `i `uc ]
+"72
+[; ;main.c: 72:             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
+[e :U 521 ]
+{
+[e = . . _LATAbits 0 2 -> ~ -> . . _LATAbits 0 2 `i `uc ]
 }
-[e :U 512 ]
-[e $U 513  ]
-[e :U 514 ]
-"79
-[; ;main.c: 79: }
-[e :UE 511 ]
+[e :U 520 ]
+"73
+[; ;main.c: 73:             printf("toggling");
+[e ( _printf :s 2C ]
+"74
+[; ;main.c: 74:         }
+}
+[e :U 518 ]
+"75
+[; ;main.c: 75:     }
+}
+[e :U 515 ]
+[e $U 516  ]
+[e :U 517 ]
+"76
+[; ;main.c: 76: }
+[e :UE 514 ]
 }
 [p f _printf 8388608 ]
 [a 1C 104 101 121 0 ]

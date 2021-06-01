@@ -10,4 +10,5 @@ mcc_generated_files/tmr2.h  \
 mcc_generated_files/tmr0.h  \
 mcc_generated_files/pwm3.h  \
 mcc_generated_files/adc.h  \
-mcc_generated_files/eusart1.h 
+mcc_generated_files/eusart1.h  \
+main.h 

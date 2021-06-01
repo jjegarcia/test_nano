@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/pin_manager.c"
+# 1 "mcc_generated_files/tmr0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/pin_manager.c" 2
-# 49 "mcc_generated_files/pin_manager.c"
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 54 "mcc_generated_files/pin_manager.h"
+# 1 "mcc_generated_files/tmr0.c" 2
+# 51 "mcc_generated_files/tmr0.c"
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6024,139 +6022,138 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
-# 55 "mcc_generated_files/pin_manager.h" 2
-# 210 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 222 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 235 "mcc_generated_files/pin_manager.h"
-void IOCCF2_ISR(void);
-# 258 "mcc_generated_files/pin_manager.h"
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 282 "mcc_generated_files/pin_manager.h"
-extern void (*IOCCF2_InterruptHandler)(void);
-# 306 "mcc_generated_files/pin_manager.h"
-void IOCCF2_DefaultInterruptHandler(void);
-# 50 "mcc_generated_files/pin_manager.c" 2
+# 51 "mcc_generated_files/tmr0.c" 2
 
-
-
-
-void (*IOCCF2_InterruptHandler)(void);
-
-void PIN_MANAGER_Initialize(void) {
-
-
-
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-
-
-
-
-    TRISA = 0x3B;
-    TRISB = 0x70;
-    TRISC = 0xAF;
-
-
-
-
-    ANSELC = 0x9B;
-    ANSELB = 0xD0;
-    ANSELA = 0x13;
-
-
-
-
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x04;
-
-
-
-
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-
-
-
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
-
-
-
-
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
+# 1 "mcc_generated_files/tmr0.h" 1
+# 55 "mcc_generated_files/tmr0.h"
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
+# 55 "mcc_generated_files/tmr0.h" 2
+# 106 "mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+# 135 "mcc_generated_files/tmr0.h"
+void TMR0_StartTimer(void);
+# 167 "mcc_generated_files/tmr0.h"
+void TMR0_StopTimer(void);
+# 202 "mcc_generated_files/tmr0.h"
+uint8_t TMR0_ReadTimer(void);
+# 241 "mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint8_t timerVal);
+# 278 "mcc_generated_files/tmr0.h"
+void TMR0_Reload(uint8_t periodVal);
+# 297 "mcc_generated_files/tmr0.h"
+void TMR0_ISR(void);
+# 315 "mcc_generated_files/tmr0.h"
+void TMR0_CallBack(void);
+# 333 "mcc_generated_files/tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 351 "mcc_generated_files/tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 369 "mcc_generated_files/tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 52 "mcc_generated_files/tmr0.c" 2
 
 
 
 
 
 
-    IOCCFbits.IOCCF2 = 0;
 
-    IOCCNbits.IOCCN2 = 1;
+void (*TMR0_InterruptHandler)(void);
 
-    IOCCPbits.IOCCP2 = 0;
-
-
+void TMR0_Initialize(void)
+{
 
 
-    IOCCF2_SetInterruptHandler(IOCCF2_DefaultInterruptHandler);
+
+    T0CON1 = 0x80;
 
 
-    PIE0bits.IOCIE = 1;
+    TMR0H = 0x4E;
 
 
-    ADACTPPS = 0x12;
-    T1CKIPPS = 0x05;
-    RX1PPS = 0x0D;
-    SSP1CLKPPS = 0x16;
-    RB7PPS = 0x05;
-    RC4PPS = 0x08;
-    RC6PPS = 0x07;
-    SSP1DATPPS = 0x15;
+    TMR0L = 0x00;
+
+
+    PIR0bits.TMR0IF = 0;
+
+
+    PIE0bits.TMR0IE = 1;
+
+
+    TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
+
+
+    T0CON0 = 0x80;
 }
 
-void PIN_MANAGER_IOC(void) {
+void TMR0_StartTimer(void)
+{
 
-    if (IOCCFbits.IOCCF2 == 1) {
-        IOCCF2_ISR();
+    T0CON0bits.T0EN = 1;
+}
+
+void TMR0_StopTimer(void)
+{
+
+    T0CON0bits.T0EN = 0;
+}
+
+uint8_t TMR0_ReadTimer(void)
+{
+    uint8_t readVal;
+
+
+    readVal = TMR0L;
+
+    return readVal;
+}
+
+void TMR0_WriteTimer(uint8_t timerVal)
+{
+
+    TMR0L = timerVal;
+ }
+
+void TMR0_Reload(uint8_t periodVal)
+{
+
+   TMR0H = periodVal;
+}
+
+void TMR0_ISR(void)
+{
+    static volatile uint16_t CountCallBack = 0;
+
+
+    PIR0bits.TMR0IF = 0;
+
+    if (++CountCallBack >= 36864)
+    {
+
+        TMR0_CallBack();
+
+
+        CountCallBack = 0;
+    }
+
+
+}
+
+void TMR0_CallBack(void)
+{
+
+
+    if(TMR0_InterruptHandler)
+    {
+        TMR0_InterruptHandler();
     }
 }
 
-
-
-
-void IOCCF2_ISR(void) {
-
-
-
-
-    if (IOCCF2_InterruptHandler) {
-        IOCCF2_InterruptHandler();
-    }
-    IOCCFbits.IOCCF2 = 0;
+void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
+    TMR0_InterruptHandler = InterruptHandler;
 }
 
-
-
-
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)) {
-    IOCCF2_InterruptHandler = InterruptHandler;
-}
-
-
-
-
-void IOCCF2_DefaultInterruptHandler(void) {
-    FLAGS.bits.PUSH_HANDLER = 1;
+void TMR0_DefaultInterruptHandler(void){
 
 
 }
