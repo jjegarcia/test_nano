@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Test_Nano.X.production.hex">
+  <executable name="dist/default/production/test_nano.production.hex">
     <memory name="program">
       <units>words</units>
       <length>4096</length>
-      <used>508</used>
-      <free>3588</free>
+      <used>518</used>
+      <free>3578</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

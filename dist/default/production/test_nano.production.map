@@ -2,11 +2,11 @@ Microchip MPLAB XC8 Compiler V2.32
 
 Linker command line:
 
--W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/debug\Test_Nano.X.debug.sym \
-  --cmf=dist/default/debug\Test_Nano.X.debug.cmf -z -Q16F15244 \
-  -oC:\Users\lauri\AppData\Local\Temp\xcAseb4.4 --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/debug/Test_Nano.X.debug.map -E1 -ver=XC8 Compiler \
+-W-3 --edf=/Applications/microchip/xc8/v2.32/pic/dat/en_msgs.txt -cn \
+  -h+dist/default/production/test_nano.production.sym \
+  --cmf=dist/default/production/test_nano.production.cmf -z -Q16F15244 \
+  -o/tmp/xcTqHe3H9 --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/production/test_nano.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=02043h-021EFh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -39,8 +39,8 @@ Linker command line:
   -ACONFIG=08007h-0800Bh -DCONFIG=2 -AIDLOC=08000h-08003h -DIDLOC=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\lauri\AppData\Local\Temp\xcAseb4.o \
-  dist/default/debug\Test_Nano.X.debug.o 
+  -pfunctab=ENTRY -k /tmp/xcASiwAKh.o \
+  dist/default/production/test_nano.production.o 
 
 Object code version is 3.11
 
@@ -49,11 +49,11 @@ Machine type is 16F15244
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\lauri\AppData\Local\Temp\xcAseb4.o
+/tmp/xcASiwAKh.o
                 end_init                             14       14        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        5        0       4
-dist/default/debug\Test_Nano.X.debug.o
+dist/default/production/test_nano.production.o
                 cinit                                16       16        C        8       0
                 intentry                              4        4       10        8       0
                 config                             8007     8007        5        0       4
@@ -404,13 +404,13 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  0001C2  0001C6         8       0  CODE        2
-                bssBANK0                       000020  000043  000063        20       1  BANK0       1
-                cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 stringtext1                    0001C6  000009  0001CF       38C       0  STRCODE     2
+                text8                          000205  000003  000208       40A       0  CODE        2
                 text17                         0001CF  000032  000201       39E       0  CODE        2
                 stringtext2                    000201  000004  000205       402       0  STRCODE     2
-                text8                          000205  000003  000208       40A       0  CODE        2
+                bssBANK0                       000020  000043  000063        20       1  BANK0       1
+                cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
+                intentry                       000004  0001C2  0001C6         8       0  CODE        2
 
 
 UNUSED ADDRESS RANGES
@@ -1020,16 +1020,21 @@ wtemp0                                          (abs)        0007E
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
-		_vfpfcnvrt     		CODE           	0022	0000	122
-		_vfprintf      		CODE           	0112	0000	40
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+		_fputc         		CODE           	009C	0000	63
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c estimated size: 162
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c estimated size: 63
 
 mcc_generated_files/interrupt_manager.c
 		_INTERRUPT_InterruptManager		CODE           	0004	0000	16
 
 mcc_generated_files/interrupt_manager.c estimated size: 16
+
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+		_vfpfcnvrt     		CODE           	0022	0000	122
+		_vfprintf      		CODE           	0112	0000	40
+
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c estimated size: 162
 
 mcc_generated_files/pin_manager.c
 		_PIN_MANAGER_Initialize		CODE           	00DB	0000	55
@@ -1062,15 +1067,10 @@ mcc_generated_files/mcc.c
 
 mcc_generated_files/mcc.c estimated size: 21
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
 		_printf        		CODE           	0181	0000	18
 
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c estimated size: 18
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
-		_fputc         		CODE           	009C	0000	63
-
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c estimated size: 63
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c estimated size: 18
 
 main.c
 		_main          		CODE           	013A	0000	37

@@ -513,8 +513,8 @@ text17 39E 401 CODE 39E 0
 stringtext2 402 409 STRCODE 402 0
 text8 40A 40F CODE 40A 0
 %locals
-dist/default/debug\Test_Nano.X.debug.o
-C:\Users\lauri\AppData\Local\Temp\xcAseb4.s
+dist/default/debug/test_nano.debug.o
+/tmp/xcg4S9EoH.s
 2114 16 0 CODE 0
 2117 16 0 CODE 0
 2156 16 0 CODE 0
@@ -543,12 +543,12 @@ main.c
 68 13F 0 CODE 0
 76 147 0 CODE 0
 77 14F 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
 5 181 0 CODE 0
 9 181 0 CODE 0
 10 186 0 CODE 0
 13 192 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
 1390 112 0 CODE 0
 1395 114 0 CODE 0
 1396 118 0 CODE 0
@@ -575,7 +575,7 @@ C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 1385 92 0 CODE 0
 1385 98 0 CODE 0
 1387 9B 0 CODE 0
-C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
+/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
 8 9C 0 CODE 0
 12 9C 0 CODE 0
 13 A6 0 CODE 0
