@@ -12,38 +12,52 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/debug/test_nano.debug.o
-cinit CODE 0 16 16 C 2
-text1 CODE 0 181 181 12 2
-text2 CODE 0 112 112 28 2
-text3 CODE 0 22 22 7A 2
-text4 CODE 0 9C 9C 3F 2
-text5 CODE 0 1DE 1DE 6 2
-text6 CODE 0 1BC 1BC A 2
-text7 CODE 0 1A2 1A2 D 2
-text8 CODE 0 205 205 3 2
-text9 CODE 0 DB DB 37 2
-text10 CODE 0 1E4 1E4 6 2
-text11 CODE 0 1FC 1FC 5 2
-text12 CODE 0 15F 15F 22 2
-text13 CODE 0 1EA 1EA 6 2
-text14 CODE 0 1F0 1F0 6 2
-text15 CODE 0 1F6 1F6 6 2
-text17 CODE 0 1CF 1CF 9 2
-text18 CODE 0 193 193 F 2
-text19 CODE 0 1AF 1AF D 2
-nvBANK0 BANK0 1 5B 5B 8 1
-maintext CODE 0 13A 13A 25 2
+cinit CODE 0 33 33 C 2
+text1 CODE 0 220 220 12 2
+text2 CODE 0 13C 13C 28 2
+text3 CODE 0 3F 3F 7A 2
+text4 CODE 0 FD FD 3F 2
+text5 CODE 0 2A5 2A5 6 2
+text6 CODE 0 27B 27B A 2
+text7 CODE 0 1AB 1AB 1F 2
+text8 CODE 0 2DC 2DC 3 2
+text9 CODE 0 260 260 E 2
+text10 CODE 0 1E1 1E1 16 2
+text11 CODE 0 20C 20C 14 2
+text12 CODE 0 2AB 2AB 6 2
+text13 CODE 0 1F7 1F7 15 2
+text14 CODE 0 297 297 8 2
+text15 CODE 0 B9 B9 44 2
+text16 CODE 0 2B1 2B1 6 2
+text17 CODE 0 2CF 2CF 5 2
+text18 CODE 0 189 189 22 2
+text19 CODE 0 2B7 2B7 6 2
+text20 CODE 0 2BD 2BD 6 2
+text21 CODE 0 2C3 2C3 6 2
+text22 CODE 0 232 232 10 2
+text23 CODE 0 2C9 2C9 6 2
+text25 CODE 0 1CA 1CA 17 2
+text26 CODE 0 26E 26E D 2
+text27 CODE 0 2DF 2DF 1 2
+text28 CODE 0 28E 28E 9 2
+text29 CODE 0 242 242 F 2
+text30 CODE 0 2E0 2E0 1 2
+text31 CODE 0 251 251 F 2
+text32 CODE 0 2E1 2E1 1 2
+nvBANK0 BANK0 1 5D 5D E 1
+maintext CODE 0 164 164 25 2
 cstackCOMMON COMMON 1 70 70 E 1
-cstackBANK0 BANK0 1 49 49 12 1
-stringtext1 STRCODE 0 1C6 1C6 9 2
-stringtext2 STRCODE 0 201 201 4 2
-intentry CODE 0 4 4 10 2
-bssBANK0 BANK0 1 20 20 29 1
-clrtext CODE 0 1D8 1D8 6 2
+cstackBANK0 BANK0 1 4B 4B 12 1
+stringtext1 STRCODE 0 2D4 2D4 4 2
+stringtext2 STRCODE 0 285 285 9 2
+stringtext3 STRCODE 0 2D8 2D8 4 2
+intentry CODE 0 4 4 2D 2
+bssBANK0 BANK0 1 20 20 2B 1
+clrtext CODE 0 29F 29F 6 2
 config CONFIG 4 8007 8007 5 2
-$/tmp/xcrpAUVgh.o
+$/tmp/xcqhFpAM7.o
 reset_vec CODE 0 0 0 2 2
-end_init CODE 0 14 14 2 2
+end_init CODE 0 31 31 2 2
 config CONFIG 4 8007 8007 5 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -51,14 +65,14 @@ config CONFIG 4 8007 8007 5 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 63-6F 1
+RAM 6B-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
 RAM 220-26F 1
 RAM 2A0-2EF 1
 RAM 320-32F 1
-BANK0 63-6F 1
+BANK0 6B-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
@@ -66,9 +80,9 @@ BANK4 220-26F 1
 BANK5 2A0-2EF 1
 BANK6 320-32F 1
 CONST 2-3 2
-CONST 208-FFF 2
+CONST 2E2-FFF 2
 ENTRY 2-3 2
-ENTRY 208-FFF 2
+ENTRY 2E2-FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -124,9 +138,9 @@ SFR60 1E00-1E6F 1
 SFR61 1E80-1EEF 1
 SFR62 1F00-1F6F 1
 SFR63 1F80-1FEF 1
-STACK 2043-21EF 1
+STACK 204B-21EF 1
 CODE 2-3 2
-CODE 208-FFF 2
+CODE 2E2-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -139,9 +153,9 @@ SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-21EF 1
 STRCODE 2-3 2
-STRCODE 208-FFF 2
+STRCODE 2E2-FFF 2
 STRING 2-3 2
-STRING 208-FFF 2
+STRING 2E2-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -156,165 +170,263 @@ STRING 208-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug/test_nano.debug.o
-16 cinit CODE >2114:/tmp/xcg4S9EoH.s
-16 cinit CODE >2117:/tmp/xcg4S9EoH.s
-16 cinit CODE >2156:/tmp/xcg4S9EoH.s
-17 cinit CODE >2157:/tmp/xcg4S9EoH.s
-18 cinit CODE >2158:/tmp/xcg4S9EoH.s
-19 cinit CODE >2159:/tmp/xcg4S9EoH.s
-1A cinit CODE >2160:/tmp/xcg4S9EoH.s
-1B cinit CODE >2161:/tmp/xcg4S9EoH.s
-1E cinit CODE >2167:/tmp/xcg4S9EoH.s
-1E cinit CODE >2169:/tmp/xcg4S9EoH.s
-1F cinit CODE >2170:/tmp/xcg4S9EoH.s
-20 cinit CODE >2171:/tmp/xcg4S9EoH.s
+33 cinit CODE >4428:/tmp/xcI1D4Kic.s
+33 cinit CODE >4431:/tmp/xcI1D4Kic.s
+33 cinit CODE >4473:/tmp/xcI1D4Kic.s
+34 cinit CODE >4474:/tmp/xcI1D4Kic.s
+35 cinit CODE >4475:/tmp/xcI1D4Kic.s
+36 cinit CODE >4476:/tmp/xcI1D4Kic.s
+37 cinit CODE >4477:/tmp/xcI1D4Kic.s
+38 cinit CODE >4478:/tmp/xcI1D4Kic.s
+3B cinit CODE >4484:/tmp/xcI1D4Kic.s
+3B cinit CODE >4486:/tmp/xcI1D4Kic.s
+3C cinit CODE >4487:/tmp/xcI1D4Kic.s
+3D cinit CODE >4488:/tmp/xcI1D4Kic.s
 4 intentry CODE >52:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
 6 intentry CODE >55:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
 F intentry CODE >57:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
-12 intentry CODE >63:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
-1AF text19 CODE >166:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1AF text19 CODE >169:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1B2 text19 CODE >169:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1BB text19 CODE >170:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-193 text18 CODE >144:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-193 text18 CODE >149:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-19A text18 CODE >151:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-19F text18 CODE >153:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1A1 text18 CODE >154:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1CF text17 CODE >132:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1CF text17 CODE >135:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1D4 text17 CODE >137:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1D7 text17 CODE >139:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1F6 text15 CODE >174:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1F6 text15 CODE >175:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1FB text15 CODE >176:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1F0 text14 CODE >166:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1F0 text14 CODE >167:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1F5 text14 CODE >168:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1EA text13 CODE >170:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1EA text13 CODE >171:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1EF text13 CODE >172:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-15F text12 CODE >66:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-15F text12 CODE >71:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-162 text12 CODE >74:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-164 text12 CODE >77:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-166 text12 CODE >80:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-168 text12 CODE >83:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-169 text12 CODE >86:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-170 text12 CODE >87:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-177 text12 CODE >88:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-17E text12 CODE >90:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-180 text12 CODE >92:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1FC text11 CODE >59:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1FC text11 CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1FE text11 CODE >64:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1FF text11 CODE >66:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-200 text11 CODE >67:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1E4 text10 CODE >159:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1E4 text10 CODE >160:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-1E9 text10 CODE >161:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-DB text9 CODE >57:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-DB text9 CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-DD text9 CODE >63:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-DE text9 CODE >64:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-DF text9 CODE >69:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-E1 text9 CODE >70:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-E3 text9 CODE >71:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-E5 text9 CODE >76:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-E8 text9 CODE >77:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-EA text9 CODE >78:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-EC text9 CODE >83:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-ED text9 CODE >84:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-EE text9 CODE >85:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-F0 text9 CODE >90:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-F1 text9 CODE >91:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-F2 text9 CODE >92:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-F3 text9 CODE >97:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-F5 text9 CODE >98:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-F7 text9 CODE >99:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-F9 text9 CODE >104:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-FB text9 CODE >105:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-FD text9 CODE >106:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-FF text9 CODE >113:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-100 text9 CODE >115:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-101 text9 CODE >117:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-102 text9 CODE >122:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-109 text9 CODE >125:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-10B text9 CODE >128:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-10E text9 CODE >129:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-111 text9 CODE >130:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
-205 text8 CODE >69:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-205 text8 CODE >72:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-207 text8 CODE >73:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1A2 text7 CODE >50:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1A2 text7 CODE >53:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1A5 text7 CODE >54:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1A8 text7 CODE >55:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1AB text7 CODE >56:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1AE text7 CODE >57:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
-1BC text6 CODE >132:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1BD text6 CODE >134:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1BD text6 CODE >136:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1C2 text6 CODE >138:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1C5 text6 CODE >139:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1DE text5 CODE >146:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1DF text5 CODE >148:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-1E3 text5 CODE >149:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
-9C text4 CODE >8:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-9C text4 CODE >12:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-A6 text4 CODE >13:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-AA text4 CODE >14:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-AB text4 CODE >15:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-CA text4 CODE >15:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-CE text4 CODE >15:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-D2 text4 CODE >20:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-D8 text4 CODE >20:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-DA text4 CODE >24:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
-22 text3 CODE >692:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-23 text3 CODE >702:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-35 text3 CODE >703:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-3B text3 CODE >703:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-3D text3 CODE >705:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-41 text3 CODE >706:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-45 text3 CODE >1372:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-56 text3 CODE >1373:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-5C text3 CODE >1373:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-5E text3 CODE >1374:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-69 text3 CODE >1375:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-6E text3 CODE >1379:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-74 text3 CODE >1379:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-76 text3 CODE >1380:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-79 text3 CODE >1384:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-92 text3 CODE >1385:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-98 text3 CODE >1385:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-9B text3 CODE >1387:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-112 text2 CODE >1390:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-114 text2 CODE >1395:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-118 text2 CODE >1396:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-11A text2 CODE >1397:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-11B text2 CODE >1398:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-12C text2 CODE >1397:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-135 text2 CODE >1400:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-139 text2 CODE >1404:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
-181 text1 CODE >5:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
-181 text1 CODE >9:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
-186 text1 CODE >10:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
-192 text1 CODE >13:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
-13A maintext CODE >49:/Users/jgarc609/github/test_nano/main.c
-13A maintext CODE >52:/Users/jgarc609/github/test_nano/main.c
-13D maintext CODE >58:/Users/jgarc609/github/test_nano/main.c
-13E maintext CODE >61:/Users/jgarc609/github/test_nano/main.c
-13F maintext CODE >68:/Users/jgarc609/github/test_nano/main.c
-147 maintext CODE >76:/Users/jgarc609/github/test_nano/main.c
-14F maintext CODE >77:/Users/jgarc609/github/test_nano/main.c
-1D8 clrtext CODE >2145:/tmp/xcg4S9EoH.s
-1D8 clrtext CODE >2146:/tmp/xcg4S9EoH.s
-1D9 clrtext CODE >2147:/tmp/xcg4S9EoH.s
-1D9 clrtext CODE >2148:/tmp/xcg4S9EoH.s
-1DA clrtext CODE >2149:/tmp/xcg4S9EoH.s
-1DB clrtext CODE >2150:/tmp/xcg4S9EoH.s
-1DC clrtext CODE >2151:/tmp/xcg4S9EoH.s
-1DD clrtext CODE >2152:/tmp/xcg4S9EoH.s
+12 intentry CODE >58:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+13 intentry CODE >59:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+1B intentry CODE >61:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+1E intentry CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+1F intentry CODE >63:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+23 intentry CODE >65:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+2B intentry CODE >67:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+2E intentry CODE >68:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+2F intentry CODE >77:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+2F intentry CODE >78:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+2E1 text32 CODE >160:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+2E1 text32 CODE >163:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+251 text31 CODE >145:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+251 text31 CODE >148:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+253 text31 CODE >150:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+25A text31 CODE >152:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+25F text31 CODE >154:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+2E0 text30 CODE >172:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+2E0 text30 CODE >175:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+242 text29 CODE >150:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+242 text29 CODE >155:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+249 text29 CODE >157:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+24E text29 CODE >159:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+250 text29 CODE >160:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+28E text28 CODE >138:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+28E text28 CODE >141:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+293 text28 CODE >143:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+296 text28 CODE >145:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+2DF text27 CODE >154:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+2DF text27 CODE >157:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+26E text26 CODE >140:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+26E text26 CODE >144:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+275 text26 CODE >146:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+27A text26 CODE >148:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1CA text25 CODE >121:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1CA text25 CODE >126:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1CC text25 CODE >128:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1D4 text25 CODE >128:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1D6 text25 CODE >128:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1DA text25 CODE >131:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1DD text25 CODE >134:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1E0 text25 CODE >138:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+2C9 text23 CODE >156:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+2C9 text23 CODE >157:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+2CE text23 CODE >158:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+232 text22 CODE >67:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+232 text22 CODE >72:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+234 text22 CODE >75:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+235 text22 CODE >78:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+236 text22 CODE >81:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+238 text22 CODE >84:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+23A text22 CODE >87:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+241 text22 CODE >88:/Users/jgarc609/github/test_nano/mcc_generated_files/adc.c
+2C3 text21 CODE >174:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2C3 text21 CODE >175:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2C8 text21 CODE >176:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2BD text20 CODE >166:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2BD text20 CODE >167:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2C2 text20 CODE >168:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2B7 text19 CODE >170:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2B7 text19 CODE >171:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2BC text19 CODE >172:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+189 text18 CODE >66:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+189 text18 CODE >71:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+18C text18 CODE >74:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+18E text18 CODE >77:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+190 text18 CODE >80:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+192 text18 CODE >83:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+193 text18 CODE >86:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+19A text18 CODE >87:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+1A1 text18 CODE >88:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+1A8 text18 CODE >90:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+1AA text18 CODE >92:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2CF text17 CODE >65:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+2CF text17 CODE >68:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+2D1 text17 CODE >70:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+2D2 text17 CODE >72:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+2D3 text17 CODE >73:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+2B1 text16 CODE >165:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+2B1 text16 CODE >166:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+2B6 text16 CODE >167:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+B9 text15 CODE >57:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+B9 text15 CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+BB text15 CODE >63:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+BC text15 CODE >64:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+BD text15 CODE >69:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+BF text15 CODE >70:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+C1 text15 CODE >71:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+C3 text15 CODE >76:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+C6 text15 CODE >77:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+C8 text15 CODE >78:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+CA text15 CODE >83:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+CB text15 CODE >84:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+CC text15 CODE >85:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+CE text15 CODE >90:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+CF text15 CODE >91:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+D0 text15 CODE >92:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+D1 text15 CODE >97:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+D3 text15 CODE >98:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+D5 text15 CODE >99:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+D7 text15 CODE >104:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+D9 text15 CODE >105:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+DB text15 CODE >106:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+DD text15 CODE >113:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+DE text15 CODE >115:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+DF text15 CODE >117:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+E0 text15 CODE >122:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+E7 text15 CODE >125:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+E9 text15 CODE >128:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+EC text15 CODE >129:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+EE text15 CODE >130:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+F0 text15 CODE >131:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+F2 text15 CODE >132:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+F5 text15 CODE >133:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+F7 text15 CODE >134:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+F9 text15 CODE >135:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+FC text15 CODE >136:/Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+297 text14 CODE >58:/Users/jgarc609/github/test_nano/mcc_generated_files/pwm3.c
+297 text14 CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/pwm3.c
+29A text14 CODE >65:/Users/jgarc609/github/test_nano/mcc_generated_files/pwm3.c
+29C text14 CODE >68:/Users/jgarc609/github/test_nano/mcc_generated_files/pwm3.c
+29E text14 CODE >70:/Users/jgarc609/github/test_nano/mcc_generated_files/pwm3.c
+1F7 text13 CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+1F7 text13 CODE >65:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+1FA text13 CODE >66:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+1FC text13 CODE >67:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+1FF text13 CODE >68:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+201 text13 CODE >70:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+204 text13 CODE >71:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+205 text13 CODE >72:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+207 text13 CODE >73:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+209 text13 CODE >74:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+20B text13 CODE >75:/Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+2AB text12 CODE >150:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+2AB text12 CODE >151:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+2B0 text12 CODE >152:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+20C text11 CODE >61:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+20C text11 CODE >66:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+20F text11 CODE >69:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+211 text11 CODE >72:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+212 text11 CODE >75:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+214 text11 CODE >78:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+215 text11 CODE >81:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+21C text11 CODE >84:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+21F text11 CODE >85:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr0.c
+1E1 text10 CODE >63:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1E1 text10 CODE >68:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1E3 text10 CODE >71:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1E4 text10 CODE >74:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1E5 text10 CODE >77:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1E7 text10 CODE >80:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1E9 text10 CODE >83:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1EB text10 CODE >86:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1F3 text10 CODE >89:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+1F6 text10 CODE >90:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr1.c
+260 text9 CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+260 text9 CODE >67:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+263 text9 CODE >70:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+264 text9 CODE >73:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+265 text9 CODE >76:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+267 text9 CODE >79:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+268 text9 CODE >82:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+26A text9 CODE >85:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+26D text9 CODE >86:/Users/jgarc609/github/test_nano/mcc_generated_files/tmr2.c
+2DC text8 CODE >75:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+2DC text8 CODE >78:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+2DE text8 CODE >79:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1AB text7 CODE >50:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1AB text7 CODE >53:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1AE text7 CODE >54:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1B1 text7 CODE >55:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1B4 text7 CODE >56:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1B7 text7 CODE >57:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1BA text7 CODE >58:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1BD text7 CODE >59:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1C0 text7 CODE >60:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1C3 text7 CODE >61:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1C6 text7 CODE >62:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+1C9 text7 CODE >63:/Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
+27B text6 CODE >132:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+27C text6 CODE >134:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+27C text6 CODE >136:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+281 text6 CODE >138:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+284 text6 CODE >139:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2A5 text5 CODE >146:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2A6 text5 CODE >148:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+2AA text5 CODE >149:/Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+FD text4 CODE >8:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+FD text4 CODE >12:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+107 text4 CODE >13:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+10B text4 CODE >14:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+10C text4 CODE >15:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+12B text4 CODE >15:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+12F text4 CODE >15:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+133 text4 CODE >20:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+139 text4 CODE >20:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+13B text4 CODE >24:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
+3F text3 CODE >692:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+40 text3 CODE >702:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+52 text3 CODE >703:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+58 text3 CODE >703:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+5A text3 CODE >705:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+5E text3 CODE >706:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+62 text3 CODE >1372:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+73 text3 CODE >1373:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+79 text3 CODE >1373:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+7B text3 CODE >1374:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+86 text3 CODE >1375:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+8B text3 CODE >1379:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+91 text3 CODE >1379:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+93 text3 CODE >1380:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+96 text3 CODE >1384:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+AF text3 CODE >1385:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+B5 text3 CODE >1385:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+B8 text3 CODE >1387:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+13C text2 CODE >1390:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+13E text2 CODE >1395:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+142 text2 CODE >1396:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+144 text2 CODE >1397:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+145 text2 CODE >1398:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+156 text2 CODE >1397:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+15F text2 CODE >1400:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+163 text2 CODE >1404:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
+220 text1 CODE >5:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
+220 text1 CODE >9:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
+225 text1 CODE >10:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
+231 text1 CODE >13:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
+164 maintext CODE >49:/Users/jgarc609/github/test_nano/main.c
+164 maintext CODE >52:/Users/jgarc609/github/test_nano/main.c
+167 maintext CODE >58:/Users/jgarc609/github/test_nano/main.c
+168 maintext CODE >61:/Users/jgarc609/github/test_nano/main.c
+169 maintext CODE >68:/Users/jgarc609/github/test_nano/main.c
+171 maintext CODE >76:/Users/jgarc609/github/test_nano/main.c
+179 maintext CODE >77:/Users/jgarc609/github/test_nano/main.c
+29F clrtext CODE >4462:/tmp/xcI1D4Kic.s
+29F clrtext CODE >4463:/tmp/xcI1D4Kic.s
+2A0 clrtext CODE >4464:/tmp/xcI1D4Kic.s
+2A0 clrtext CODE >4465:/tmp/xcI1D4Kic.s
+2A1 clrtext CODE >4466:/tmp/xcI1D4Kic.s
+2A2 clrtext CODE >4467:/tmp/xcI1D4Kic.s
+2A3 clrtext CODE >4468:/tmp/xcI1D4Kic.s
+2A4 clrtext CODE >4469:/tmp/xcI1D4Kic.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -328,94 +440,132 @@ DA text4 CODE >24:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fp
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 1 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__Hspace_0 208 0 ABS 0 - -
+__Hspace_0 2E2 0 ABS 0 - -
 __Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10013 0 ABS 0 - -
+__size_of_ADC_DefaultInterruptHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_PWM3CON 316 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_PWM3DCH 315 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_PWM3DCL 314 0 ABS 0 - dist/default/debug/test_nano.debug.o
 EUSART1_SetErrorHandler@interruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
-_EUSART1_Initialize 2BE 0 CODE 0 text12 dist/default/debug/test_nano.debug.o
+_EUSART1_Initialize 312 0 CODE 0 text18 dist/default/debug/test_nano.debug.o
 __size_of_IOCCF2_DefaultInterruptHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_IOCCF2_InterruptHandler 61 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
+_IOCCF2_InterruptHandler 69 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_PIN_MANAGER_IOC 3B0 0 CODE 0 text17 dist/default/debug/test_nano.debug.o
-__end_of_WDT_Initialize 410 0 CODE 0 text8 dist/default/debug/test_nano.debug.o
+_T1CONbits 20E 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__end_of_PIN_MANAGER_IOC 52E 0 CODE 0 text28 dist/default/debug/test_nano.debug.o
+__end_of_WDT_Initialize 5BE 0 CODE 0 text8 dist/default/debug/test_nano.debug.o
 __Hstrings 0 0 ABS 0 strings -
-?_vfprintf 4E 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+?_vfprintf 50 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
 _LATA 18 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _LATB 19 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _LATC 1A 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T2PR 28D 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_TMR2 28C 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _WPUA 1F39 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _WPUB 1F44 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _WPUC 1F4F 0 ABS 0 - dist/default/debug/test_nano.debug.o
-___sp 0 0 STACK 2 stack /tmp/xcrpAUVgh.o
-_main 274 0 CODE 0 maintext dist/default/debug/test_nano.debug.o
+___sp 0 0 STACK 2 stack /tmp/xcqhFpAM7.o
+_main 2C8 0 CODE 0 maintext dist/default/debug/test_nano.debug.o
 _nout 40 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
 _prec 44 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
 btemp 7E 0 ABS 0 - dist/default/debug/test_nano.debug.o
-start 28 0 CODE 0 init /tmp/xcrpAUVgh.o
+_T1CKIPPS 1E92 0 ABS 0 - dist/default/debug/test_nano.debug.o
+start 62 0 CODE 0 init /tmp/xcqhFpAM7.o
+_TMR0_InterruptHandler 5D 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
 __size_of_main 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__end_of_SPI1_Initialize 418 0 CODE 0 text13 dist/default/debug/test_nano.debug.o
+__end_of_TMR0_SetInterruptHandler 562 0 CODE 0 text12 dist/default/debug/test_nano.debug.o
+__end_of_ADC_DefaultInterruptHandler 5C4 0 CODE 0 text32 dist/default/debug/test_nano.debug.o
 __Hpowerup 0 0 CODE 0 powerup -
-__end_of_vfpfcnvrt 138 0 CODE 0 text3 dist/default/debug/test_nano.debug.o
+__end_of_spi1_configuration 5B0 0 STRCODE 0 stringtext1 dist/default/debug/test_nano.debug.o
+__size_of_TMR1_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__end_of_vfpfcnvrt 172 0 CODE 0 text3 dist/default/debug/test_nano.debug.o
+_TMR2_Initialize 4C0 0 CODE 0 text9 dist/default/debug/test_nano.debug.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcrpAUVgh.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcrpAUVgh.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcrpAUVgh.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcrpAUVgh.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcrpAUVgh.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcrpAUVgh.o
+TMR0_SetInterruptHandler@InterruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
+__size_of_ADC_SetInterruptHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcqhFpAM7.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcqhFpAM7.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcqhFpAM7.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcqhFpAM7.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcqhFpAM7.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcqhFpAM7.o
 __size_of_EUSART1_SetErrorHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_IOCCF2_ISR 326 0 CODE 0 text18 dist/default/debug/test_nano.debug.o
+_IOCCF2_ISR 484 0 CODE 0 text29 dist/default/debug/test_nano.debug.o
+__size_of_ADC_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 wtemp0 7E 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Hfunctab 0 0 ENTRY 0 functab -
 _RC1STAbits 11D 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_PIN_MANAGER_IOC 39E 0 CODE 0 text17 dist/default/debug/test_nano.debug.o
+_PIN_MANAGER_IOC 51C 0 CODE 0 text28 dist/default/debug/test_nano.debug.o
 EUSART1_Write@txData 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
 __Hclrtext 0 0 ABS 0 clrtext -
-_vfpfcnvrt 44 0 CODE 0 text3 dist/default/debug/test_nano.debug.o
+_vfpfcnvrt 7E 0 CODE 0 text3 dist/default/debug/test_nano.debug.o
+_SPI1_Initialize 3EE 0 CODE 0 text13 dist/default/debug/test_nano.debug.o
+_ADCON0 9D 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_ADCON1 9E 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_ADRESH 9C 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_ADRESL 9B 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_spi1_configuration 5A8 0 STRCODE 0 stringtext1 dist/default/debug/test_nano.debug.o
 _ANSELA 1F38 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _ANSELB 1F43 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _ANSELC 1F4E 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of_INTERRUPT_InterruptManager 28 0 CODE 0 intentry dist/default/debug/test_nano.debug.o
+_TMR0_DefaultInterruptHandler 5BE 0 CODE 0 text27 dist/default/debug/test_nano.debug.o
+__end_of_INTERRUPT_InterruptManager 62 0 CODE 0 intentry dist/default/debug/test_nano.debug.o
+_ADACTPPS 1EC3 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Lmaintext 0 0 ABS 0 maintext -
-?_printf 56 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+?_printf 58 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
 __LnvBANK0 0 0 ABS 0 nvBANK0 -
 EUSART1_SetFramingErrorHandler@interruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
-__end_of_IOCCF2_DefaultInterruptHandler 378 0 CODE 0 text19 dist/default/debug/test_nano.debug.o
+__end_of_IOCCF2_DefaultInterruptHandler 5C2 0 CODE 0 text30 dist/default/debug/test_nano.debug.o
 _INLVLA 1F3C 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _INLVLB 1F47 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _INLVLC 1F52 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of_IOCCF2_ISR 344 0 CODE 0 text18 dist/default/debug/test_nano.debug.o
-___stackhi 21EF 0 ABS 0 - /tmp/xcrpAUVgh.o
-___stacklo 2043 0 ABS 0 - /tmp/xcrpAUVgh.o
+__end_of_IOCCF2_ISR 4A2 0 CODE 0 text29 dist/default/debug/test_nano.debug.o
+___stackhi 21EF 0 ABS 0 - /tmp/xcqhFpAM7.o
+___stacklo 204B 0 ABS 0 - /tmp/xcqhFpAM7.o
 __size_of_fputc 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_putch 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_PIN_MANAGER_Initialize 1B6 0 CODE 0 text9 dist/default/debug/test_nano.debug.o
-start_initialization 2C 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
-_eusart1RxLastError 48 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
+__size_of_TMR2_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_PIN_MANAGER_Initialize 172 0 CODE 0 text15 dist/default/debug/test_nano.debug.o
+start_initialization 66 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
+_eusart1RxLastError 4A 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
 _ODCONA 1F3A 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _ODCONB 1F45 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _ODCONC 1F50 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _OSCFRQ 893 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_TRISCbits 14 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_ADC_ISR 4A2 0 CODE 0 text31 dist/default/debug/test_nano.debug.o
 _RB7PPS 1F1F 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _RC1REG 119 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _RC1STA 11D 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_RC4PPS 1F24 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_RC6PPS 1F26 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_PIN_MANAGER_IOC 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of_SYSTEM_Initialize 35E 0 CODE 0 text7 dist/default/debug/test_nano.debug.o
+__end_of_SYSTEM_Initialize 394 0 CODE 0 text7 dist/default/debug/test_nano.debug.o
 _RX1PPS 1ECB 0 ABS 0 - dist/default/debug/test_nano.debug.o
-clear_ram0 3B0 0 CODE 0 clrtext dist/default/debug/test_nano.debug.o
-__pcstackBANK0 49 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+clear_ram0 53E 0 CODE 0 clrtext dist/default/debug/test_nano.debug.o
+__pcstackBANK0 4B 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+_T0CON0 59E 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T0CON1 59F 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T1GATE 210 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T1GCON 20F 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T2CLKCON 290 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _TX1REG 11A 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _TX1STA 11E 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of_printf 326 0 CODE 0 text1 dist/default/debug/test_nano.debug.o
+__size_of_SPI1_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__end_of_printf 464 0 CODE 0 text1 dist/default/debug/test_nano.debug.o
 _EUSART1_DefaultFramingErrorHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _EUSART1_DefaultOverrunErrorHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_EUSART1_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _WDTCON 80C 0 ABS 0 - dist/default/debug/test_nano.debug.o
 fputc@fp 74 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
-___int_sp 0 0 STACK 2 stack /tmp/xcrpAUVgh.o
-_EUSART1_Write 378 0 CODE 0 text6 dist/default/debug/test_nano.debug.o
+___int_sp 0 0 STACK 2 stack /tmp/xcqhFpAM7.o
+__end_of_PWM3_Initialize 53E 0 CODE 0 text14 dist/default/debug/test_nano.debug.o
+_EUSART1_Write 4F6 0 CODE 0 text6 dist/default/debug/test_nano.debug.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -426,7 +576,7 @@ __Hbank6 0 0 ABS 0 bank6 -
 __Hbank7 0 0 BANK7 1 bank7 -
 __Hbank8 0 0 BANK8 1 bank8 -
 __Hbank9 0 0 BANK9 1 bank9 -
-__Hcinit 44 0 CODE 0 cinit -
+__Hcinit 7E 0 CODE 0 cinit -
 __size_of_OSCILLATOR_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Hsfr11 0 0 ABS 0 sfr11 -
@@ -542,6 +692,7 @@ __Hmaintext 0 0 ABS 0 maintext -
 _BAUD1CON 11F 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 10018 0 CONFIG 4 config -
+_T2HLTbits 28F 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -552,7 +703,8 @@ __Lbank6 0 0 ABS 0 bank6 -
 __Lbank7 0 0 BANK7 1 bank7 -
 __Lbank8 0 0 BANK8 1 bank8 -
 __Lbank9 0 0 BANK9 1 bank9 -
-__Lcinit 2C 0 CODE 0 cinit -
+__Lcinit 66 0 CODE 0 cinit -
+_T1GCONbits 20F 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Lsfr12 0 0 ABS 0 sfr12 -
@@ -608,14 +760,14 @@ __Lsfr61 0 0 ABS 0 sfr61 -
 __Lsfr62 0 0 ABS 0 sfr62 -
 __Lsfr63 0 0 ABS 0 sfr63 -
 __Lstack 0 0 STACK 2 stack -
-_EUSART1_FramingErrorHandler 5F 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
-_EUSART1_OverrunErrorHandler 5D 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
+_EUSART1_FramingErrorHandler 67 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
+_EUSART1_OverrunErrorHandler 65 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
 __size_of_EUSART1_SetFramingErrorHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_EUSART1_SetOverrunErrorHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _INTCONbits B 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
-__Hinit 28 0 CODE 0 init -
+__Hinit 62 0 CODE 0 init -
 __Hsfr0 0 0 ABS 0 sfr0 -
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
@@ -629,7 +781,7 @@ __Hsfr9 0 0 ABS 0 sfr9 -
 __Htext 0 0 ABS 0 text -
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
-__Linit 28 0 CODE 0 init -
+__Linit 62 0 CODE 0 init -
 __Lsfr0 0 0 ABS 0 sfr0 -
 __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
@@ -641,49 +793,81 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-__pstringtext1 38C 0 STRCODE 0 stringtext1 dist/default/debug/test_nano.debug.o
-__pstringtext2 402 0 STRCODE 0 stringtext2 dist/default/debug/test_nano.debug.o
-__pstringtext3 0 0 STRCODE 0 stringtext3 dist/default/debug/test_nano.debug.o
-__pnvBANK0 5B 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
-__end_of_IOCCF2_SetInterruptHandler 3D4 0 CODE 0 text10 dist/default/debug/test_nano.debug.o
+__pstringtext1 5A8 0 STRCODE 0 stringtext1 dist/default/debug/test_nano.debug.o
+__pstringtext2 50A 0 STRCODE 0 stringtext2 dist/default/debug/test_nano.debug.o
+__pstringtext3 5B0 0 STRCODE 0 stringtext3 dist/default/debug/test_nano.debug.o
+__pstringtext4 0 0 STRCODE 0 stringtext4 dist/default/debug/test_nano.debug.o
+__pnvBANK0 5D 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
+_SSP1CON1 190 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_SSP1CON2 191 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_SSP1STAT 18F 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__end_of_IOCCF2_SetInterruptHandler 56E 0 CODE 0 text16 dist/default/debug/test_nano.debug.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 int$flags 7E 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_IOCCF2_DefaultInterruptHandler 35E 0 CODE 0 text19 dist/default/debug/test_nano.debug.o
+_IOCCF2_DefaultInterruptHandler 5C0 0 CODE 0 text30 dist/default/debug/test_nano.debug.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_WDT_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__S0 208 0 ABS 0 - -
+_PR2 28D 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__S0 2E2 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
+__size_of_TMR0_ISR 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_ADC_InterruptHandler 61 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
+__size_of_TMR0_DefaultInterruptHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _EUSART1_DefaultErrorHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_SYSTEM_Initialize 344 0 CODE 0 text7 dist/default/debug/test_nano.debug.o
+__end_of_TMR0_DefaultInterruptHandler 5C0 0 CODE 0 text27 dist/default/debug/test_nano.debug.o
+_T2RSTbits 291 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_PWM3_Initialize 52E 0 CODE 0 text14 dist/default/debug/test_nano.debug.o
+_TMR0_CallBack 4DC 0 CODE 0 text26 dist/default/debug/test_nano.debug.o
+_ADC_DefaultInterruptHandler 5C2 0 CODE 0 text32 dist/default/debug/test_nano.debug.o
+_SYSTEM_Initialize 356 0 CODE 0 text7 dist/default/debug/test_nano.debug.o
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcrpAUVgh.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcqhFpAM7.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
+ADC_SetInterruptHandler@InterruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
 __size_of_IOCCF2_ISR 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Lstringtext1 0 0 ABS 0 stringtext1 -
 __Lstringtext2 0 0 ABS 0 stringtext2 -
 __Lstringtext3 0 0 ABS 0 stringtext3 -
+__Lstringtext4 0 0 ABS 0 stringtext4 -
 IOCCF2_SetInterruptHandler@InterruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
 vfpfcnvrt@fmt 7A 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
 _INTERRUPT_InterruptManager 8 0 CODE 0 intentry dist/default/debug/test_nano.debug.o
+_ADC_Initialize 464 0 CODE 0 text22 dist/default/debug/test_nano.debug.o
 _PIE0bits 716 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_PIE1bits 717 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_EUSART1_Write 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__ptext10 3C8 0 CODE 0 text10 dist/default/debug/test_nano.debug.o
-__ptext11 3F8 0 CODE 0 text11 dist/default/debug/test_nano.debug.o
-__ptext12 2BE 0 CODE 0 text12 dist/default/debug/test_nano.debug.o
-__ptext13 3D4 0 CODE 0 text13 dist/default/debug/test_nano.debug.o
-__ptext14 3E0 0 CODE 0 text14 dist/default/debug/test_nano.debug.o
-__ptext15 3EC 0 CODE 0 text15 dist/default/debug/test_nano.debug.o
-__ptext17 39E 0 CODE 0 text17 dist/default/debug/test_nano.debug.o
-__ptext18 326 0 CODE 0 text18 dist/default/debug/test_nano.debug.o
-__ptext19 35E 0 CODE 0 text19 dist/default/debug/test_nano.debug.o
+_TMR0_ISR 394 0 CODE 0 text25 dist/default/debug/test_nano.debug.o
+__ptext10 3C2 0 CODE 0 text10 dist/default/debug/test_nano.debug.o
+__ptext11 418 0 CODE 0 text11 dist/default/debug/test_nano.debug.o
+__ptext12 556 0 CODE 0 text12 dist/default/debug/test_nano.debug.o
+__ptext13 3EE 0 CODE 0 text13 dist/default/debug/test_nano.debug.o
+__ptext14 52E 0 CODE 0 text14 dist/default/debug/test_nano.debug.o
+__ptext15 172 0 CODE 0 text15 dist/default/debug/test_nano.debug.o
+__ptext16 562 0 CODE 0 text16 dist/default/debug/test_nano.debug.o
+__ptext17 59E 0 CODE 0 text17 dist/default/debug/test_nano.debug.o
+__ptext18 312 0 CODE 0 text18 dist/default/debug/test_nano.debug.o
+__ptext19 56E 0 CODE 0 text19 dist/default/debug/test_nano.debug.o
+__ptext20 57A 0 CODE 0 text20 dist/default/debug/test_nano.debug.o
+__ptext21 586 0 CODE 0 text21 dist/default/debug/test_nano.debug.o
+__ptext22 464 0 CODE 0 text22 dist/default/debug/test_nano.debug.o
+__ptext23 592 0 CODE 0 text23 dist/default/debug/test_nano.debug.o
+__ptext25 394 0 CODE 0 text25 dist/default/debug/test_nano.debug.o
+__ptext26 4DC 0 CODE 0 text26 dist/default/debug/test_nano.debug.o
+__ptext27 5BE 0 CODE 0 text27 dist/default/debug/test_nano.debug.o
+__ptext28 51C 0 CODE 0 text28 dist/default/debug/test_nano.debug.o
+__ptext29 484 0 CODE 0 text29 dist/default/debug/test_nano.debug.o
+__ptext30 5C0 0 CODE 0 text30 dist/default/debug/test_nano.debug.o
+__ptext31 4A2 0 CODE 0 text31 dist/default/debug/test_nano.debug.o
+__ptext32 5C2 0 CODE 0 text32 dist/default/debug/test_nano.debug.o
 _IOCCFbits 1F55 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _IOCCNbits 1F54 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _IOCCPbits 1F53 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of_PIN_MANAGER_Initialize 224 0 CODE 0 text9 dist/default/debug/test_nano.debug.o
-_EUSART1_ErrorHandler 5B 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
+__end_of_PIN_MANAGER_Initialize 1FA 0 CODE 0 text15 dist/default/debug/test_nano.debug.o
+__end_of_TMR0_Initialize 440 0 CODE 0 text11 dist/default/debug/test_nano.debug.o
+_EUSART1_ErrorHandler 63 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -738,100 +922,136 @@ __Lbank60 0 0 BANK60 1 bank60 -
 __Lbank61 0 0 BANK61 1 bank61 -
 __Lbank62 0 0 BANK62 1 bank62 -
 __Lbank63 0 0 BANK63 1 bank63 -
-__pmaintext 274 0 CODE 0 maintext dist/default/debug/test_nano.debug.o
+__pmaintext 2C8 0 CODE 0 maintext dist/default/debug/test_nano.debug.o
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-_printf 302 0 CODE 0 text1 dist/default/debug/test_nano.debug.o
-_LATAbits 18 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_EUSART1_SetErrorHandler 3EC 0 CODE 0 text15 dist/default/debug/test_nano.debug.o
-__end_of_EUSART1_SetErrorHandler 3F8 0 CODE 0 text15 dist/default/debug/test_nano.debug.o
+_printf 440 0 CODE 0 text1 dist/default/debug/test_nano.debug.o
+_ADC_SetInterruptHandler 592 0 CODE 0 text23 dist/default/debug/test_nano.debug.o
+__end_of_TMR0_ISR 3C2 0 CODE 0 text25 dist/default/debug/test_nano.debug.o
+_EUSART1_SetErrorHandler 586 0 CODE 0 text21 dist/default/debug/test_nano.debug.o
+TMR0_ISR@CountCallBack 48 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
+__end_of_ADC_SetInterruptHandler 59E 0 CODE 0 text23 dist/default/debug/test_nano.debug.o
+__end_of_EUSART1_SetErrorHandler 592 0 CODE 0 text21 dist/default/debug/test_nano.debug.o
+_TMR0_SetInterruptHandler 556 0 CODE 0 text12 dist/default/debug/test_nano.debug.o
 __size_of_vfprintf 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of_EUSART1_SetFramingErrorHandler 3EC 0 CODE 0 text14 dist/default/debug/test_nano.debug.o
-__end_of_EUSART1_SetOverrunErrorHandler 3E0 0 CODE 0 text13 dist/default/debug/test_nano.debug.o
-__end_of_EUSART1_Write 38C 0 CODE 0 text6 dist/default/debug/test_nano.debug.o
+__end_of_EUSART1_SetFramingErrorHandler 586 0 CODE 0 text20 dist/default/debug/test_nano.debug.o
+__end_of_EUSART1_SetOverrunErrorHandler 57A 0 CODE 0 text19 dist/default/debug/test_nano.debug.o
+__end_of_EUSART1_Write 50A 0 CODE 0 text6 dist/default/debug/test_nano.debug.o
+_SSP1CLKPPS 1EC5 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _OSCTUNE 892 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_SSP1DATPPS 1EC6 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_ADCON0bits 9D 0 ABS 0 - dist/default/debug/test_nano.debug.o
 ?_vfpfcnvrt 7A 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
+__size_of_PWM3_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__end_of_ADC_Initialize 484 0 CODE 0 text22 dist/default/debug/test_nano.debug.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR0bits 70C 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _PIR1bits 70D 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__Lend_init 28 0 CODE 0 end_init -
+__Lend_init 62 0 CODE 0 end_init -
+__size_of_TMR0_CallBack 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-printf@ap 58 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
-end_of_initialization 3C 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
-__Hintentry 28 0 CODE 0 intentry -
+printf@ap 5A 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+end_of_initialization 76 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
+_TMR0_Initialize 418 0 CODE 0 text11 dist/default/debug/test_nano.debug.o
+__Hintentry 62 0 CODE 0 intentry -
 __size_of_printf 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 fputc@c 72 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
 _TX1STAbits 11E 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __size_of_IOCCF2_SetInterruptHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Lstrings 0 0 ABS 0 strings -
-vfprintf@fmt 4E 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+vfprintf@fmt 50 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 vfpfcnvrt@ap 7B 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
 vfpfcnvrt@fp 7C 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
-__ptext1 302 0 CODE 0 text1 dist/default/debug/test_nano.debug.o
-__ptext2 224 0 CODE 0 text2 dist/default/debug/test_nano.debug.o
-__ptext3 44 0 CODE 0 text3 dist/default/debug/test_nano.debug.o
-__ptext4 138 0 CODE 0 text4 dist/default/debug/test_nano.debug.o
-__ptext5 3BC 0 CODE 0 text5 dist/default/debug/test_nano.debug.o
-__ptext6 378 0 CODE 0 text6 dist/default/debug/test_nano.debug.o
-__ptext7 344 0 CODE 0 text7 dist/default/debug/test_nano.debug.o
-__ptext8 40A 0 CODE 0 text8 dist/default/debug/test_nano.debug.o
-__ptext9 1B6 0 CODE 0 text9 dist/default/debug/test_nano.debug.o
-vfprintf@ap 50 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
-vfprintf@fp 53 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
-vfprintf@cfmt 54 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
-_vfprintf 224 0 CODE 0 text2 dist/default/debug/test_nano.debug.o
+__ptext1 440 0 CODE 0 text1 dist/default/debug/test_nano.debug.o
+__ptext2 278 0 CODE 0 text2 dist/default/debug/test_nano.debug.o
+__ptext3 7E 0 CODE 0 text3 dist/default/debug/test_nano.debug.o
+__ptext4 1FA 0 CODE 0 text4 dist/default/debug/test_nano.debug.o
+__ptext5 54A 0 CODE 0 text5 dist/default/debug/test_nano.debug.o
+__ptext6 4F6 0 CODE 0 text6 dist/default/debug/test_nano.debug.o
+__ptext7 356 0 CODE 0 text7 dist/default/debug/test_nano.debug.o
+__ptext8 5B8 0 CODE 0 text8 dist/default/debug/test_nano.debug.o
+__ptext9 4C0 0 CODE 0 text9 dist/default/debug/test_nano.debug.o
+vfprintf@ap 52 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+vfprintf@fp 55 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+vfprintf@cfmt 56 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+__size_of_ADC_ISR 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_vfprintf 278 0 CODE 0 text2 dist/default/debug/test_nano.debug.o
+__end_of_TMR0_CallBack 4F6 0 CODE 0 text26 dist/default/debug/test_nano.debug.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__end_of_TMR1_Initialize 3EE 0 CODE 0 text10 dist/default/debug/test_nano.debug.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __Hstringtext1 0 0 ABS 0 stringtext1 -
 __Hstringtext2 0 0 ABS 0 stringtext2 -
 __Hstringtext3 0 0 ABS 0 stringtext3 -
-__end_of_vfprintf 274 0 CODE 0 text2 dist/default/debug/test_nano.debug.o
+__Hstringtext4 0 0 ABS 0 stringtext4 -
+__end_of_vfprintf 2C8 0 CODE 0 text2 dist/default/debug/test_nano.debug.o
 _SLRCONA 1F3B 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _SLRCONB 1F46 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _SLRCONC 1F51 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of__initialization 3C 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
+__end_of__initialization 76 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
 __Lfunctab 0 0 ENTRY 0 functab -
-_IOCCF2_SetInterruptHandler 3C8 0 CODE 0 text10 dist/default/debug/test_nano.debug.o
+_IOCCF2_SetInterruptHandler 562 0 CODE 0 text16 dist/default/debug/test_nano.debug.o
 _SP1BRGH 11C 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _SP1BRGL 11B 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Lclrtext 0 0 ABS 0 clrtext -
+_SSP1CON1bits 190 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_timer1ReloadVal 5F 0 BANK0 1 nvBANK0 dist/default/debug/test_nano.debug.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
-__Hend_init 2C 0 CODE 0 end_init -
-_EUSART1_SetFramingErrorHandler 3E0 0 CODE 0 text14 dist/default/debug/test_nano.debug.o
-_EUSART1_SetOverrunErrorHandler 3D4 0 CODE 0 text13 dist/default/debug/test_nano.debug.o
+_T0CON0bits 59E 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_SSP1ADD 18D 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_SSP1BUF 18C 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__Hend_init 66 0 CODE 0 end_init -
+__size_of_TMR0_SetInterruptHandler 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_EUSART1_SetFramingErrorHandler 57A 0 CODE 0 text20 dist/default/debug/test_nano.debug.o
+_EUSART1_SetOverrunErrorHandler 56E 0 CODE 0 text19 dist/default/debug/test_nano.debug.o
 putch@txData 71 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
-__end_of_main 2BE 0 CODE 0 maintext dist/default/debug/test_nano.debug.o
-printf@fmt 56 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
-__end_of_fputc 1B6 0 CODE 0 text4 dist/default/debug/test_nano.debug.o
+__end_of_main 312 0 CODE 0 maintext dist/default/debug/test_nano.debug.o
+printf@fmt 58 0 BANK0 1 cstackBANK0 dist/default/debug/test_nano.debug.o
+__end_of_fputc 278 0 CODE 0 text4 dist/default/debug/test_nano.debug.o
 _OSCEN 891 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T1CLK 211 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T1CON 20E 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T2CON 28E 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T2HLT 28F 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T2RST 291 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_T2TMR 28C 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_TMR0H 59D 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_TMR0L 59C 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_TMR1H 20D 0 ABS 0 - dist/default/debug/test_nano.debug.o
+_TMR1L 20C 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _TRISA 12 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _TRISB 13 0 ABS 0 - dist/default/debug/test_nano.debug.o
 _TRISC 14 0 ABS 0 - dist/default/debug/test_nano.debug.o
-__end_of_putch 3C8 0 CODE 0 text5 dist/default/debug/test_nano.debug.o
+__end_of_putch 556 0 CODE 0 text5 dist/default/debug/test_nano.debug.o
+__size_of_TMR0_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
+_TMR1_Initialize 3C2 0 CODE 0 text10 dist/default/debug/test_nano.debug.o
 _flags 46 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
-_fputc 138 0 CODE 0 text4 dist/default/debug/test_nano.debug.o
-_putch 3BC 0 CODE 0 text5 dist/default/debug/test_nano.debug.o
+_fputc 1FA 0 CODE 0 text4 dist/default/debug/test_nano.debug.o
+_putch 54A 0 CODE 0 text5 dist/default/debug/test_nano.debug.o
 _width 42 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/debug/test_nano.debug.o
-_WDT_Initialize 40A 0 CODE 0 text8 dist/default/debug/test_nano.debug.o
+_WDT_Initialize 5B8 0 CODE 0 text8 dist/default/debug/test_nano.debug.o
 __pintentry 8 0 CODE 0 intentry dist/default/debug/test_nano.debug.o
-__end_of_EUSART1_Initialize 302 0 CODE 0 text12 dist/default/debug/test_nano.debug.o
-__end_of_OSCILLATOR_Initialize 402 0 CODE 0 text11 dist/default/debug/test_nano.debug.o
-__initialization 2C 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
+__end_of_EUSART1_Initialize 356 0 CODE 0 text18 dist/default/debug/test_nano.debug.o
+__end_of_OSCILLATOR_Initialize 5A8 0 CODE 0 text17 dist/default/debug/test_nano.debug.o
+__initialization 66 0 CODE 0 cinit dist/default/debug/test_nano.debug.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/debug/test_nano.debug.o
+_T2CONbits 28E 0 ABS 0 - dist/default/debug/test_nano.debug.o
+__end_of_ADC_ISR 4C0 0 CODE 0 text31 dist/default/debug/test_nano.debug.o
 EUSART1_SetOverrunErrorHandler@interruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/debug/test_nano.debug.o
-_OSCILLATOR_Initialize 3F8 0 CODE 0 text11 dist/default/debug/test_nano.debug.o
+_OSCILLATOR_Initialize 59E 0 CODE 0 text17 dist/default/debug/test_nano.debug.o
+__end_of_TMR2_Initialize 4DC 0 CODE 0 text9 dist/default/debug/test_nano.debug.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -857,14 +1077,14 @@ _OSCILLATOR_Initialize 3F8 0 CODE 0 text11 dist/default/debug/test_nano.debug.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text8 0 205 40A 3 2
-text17 0 1CF 39E 32 2
+text8 0 2DC 5B8 6 2
+text28 0 28E 51C 46 2
 cstackCOMMON 1 70 70 E 1
-stringtext1 0 1C6 38C 9 2
-stringtext2 0 201 402 4 2
-intentry 0 4 8 1C2 2
+stringtext1 0 2D4 5A8 8 2
+stringtext2 0 285 50A 9 2
+intentry 0 4 8 281 2
 reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 43 1
+bssBANK0 1 20 20 4B 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

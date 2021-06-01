@@ -62,11 +62,11 @@ void TMR0_Initialize(void)
 {
     // Set TMR0 to the options selected in the User Interface
 
-    // T0CS T0CKI_PIN; T0CKPS 1:1; T0ASYNC synchronised; 
-    T0CON1 = 0x00;
+    // T0CS LFINTOSC; T0CKPS 1:1; T0ASYNC synchronised; 
+    T0CON1 = 0x80;
 
-    // TMR0H 255; 
-    TMR0H = 0xFF;
+    // TMR0H 78; 
+    TMR0H = 0x4E;
 
     // TMR0L 0; 
     TMR0L = 0x00;
@@ -112,24 +112,40 @@ void TMR0_WriteTimer(uint8_t timerVal)
     TMR0L = timerVal;
  }
 
-//void TMR0_Reload(uint8_t periodVal)
-//{
-//   // Write to Timer0 registers, high register only
-//   TMR0H = periodVal;
-//}
+void TMR0_Reload(uint8_t periodVal)
+{
+   // Write to Timer0 registers, high register only
+   TMR0H = periodVal;
+}
 
 void TMR0_ISR(void)
 {
+    static volatile uint16_t CountCallBack = 0;
+
     // clear the TMR0 interrupt flag
     PIR0bits.TMR0IF = 0;
-    if(TMR0_InterruptHandler)
+    // callback function - called every 36864th pass
+    if (++CountCallBack >= TMR0_INTERRUPT_TICKER_FACTOR)
     {
-        TMR0_InterruptHandler();
+        // ticker function call
+        TMR0_CallBack();
+
+        // reset ticker counter
+        CountCallBack = 0;
     }
 
     // add your TMR0 interrupt custom code
 }
 
+void TMR0_CallBack(void)
+{
+    // Add your custom callback code here
+
+    if(TMR0_InterruptHandler)
+    {
+        TMR0_InterruptHandler();
+    }
+}
 
 void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
     TMR0_InterruptHandler = InterruptHandler;

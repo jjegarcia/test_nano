@@ -56,8 +56,7 @@ typedef struct {
 
 //con1 == SSPxCON1, stat == SSPxSTAT, add == SSPxADD, operation == Master/Slave
 static const spi1_configuration_t spi1_configuration[] = {   
-    { 0x5, 0x40, 0x0, 1 },
-    { 0x0, 0x40, 0x0, 0 }
+    { 0x0, 0x40, 0x1, 0 }
 };
 
 void SPI1_Initialize(void)
@@ -70,7 +69,7 @@ void SPI1_Initialize(void)
     //SPI setup
     SSP1STAT = 0x40;
     SSP1CON1 = 0x00;
-    SSP1ADD = 0x00;
+    SSP1ADD = 0x01;
     TRISCbits.TRISC6 = 0;
     SSP1CON1bits.SSPEN = 0;
 }
@@ -103,17 +102,17 @@ uint8_t SPI1_ExchangeByte(uint8_t data)
     return SSP1BUF;
 }
 
-//void SPI1_ExchangeBlock(void *block, size_t blockSize)
-//{
-//    uint8_t *data = block;
-//    while(blockSize--)
-//    {
-//        SSP1BUF = *data;
-//        while(!PIR1bits.SSP1IF);
-//        PIR1bits.SSP1IF = 0;
-//        *data++ = SSP1BUF;
-//    }
-//}
+void SPI1_ExchangeBlock(void *block, size_t blockSize)
+{
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        SSP1BUF = *data;
+        while(!PIR1bits.SSP1IF);
+        PIR1bits.SSP1IF = 0;
+        *data++ = SSP1BUF;
+    }
+}
 
 // Half Duplex SPI Functions
 void SPI1_WriteBlock(void *block, size_t blockSize)
@@ -125,14 +124,14 @@ void SPI1_WriteBlock(void *block, size_t blockSize)
     }
 }
 
-//void SPI1_ReadBlock(void *block, size_t blockSize)
-//{
-//    uint8_t *data = block;
-//    while(blockSize--)
-//    {
-//        *data++ = SPI1_ExchangeByte(0);
-//    }
-//}
+void SPI1_ReadBlock(void *block, size_t blockSize)
+{
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        *data++ = SPI1_ExchangeByte(0);
+    }
+}
 
 void SPI1_WriteByte(uint8_t byte)
 {

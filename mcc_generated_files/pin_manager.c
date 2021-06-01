@@ -68,14 +68,14 @@ void PIN_MANAGER_Initialize(void)
     */
     TRISA = 0x3B;
     TRISB = 0x70;
-    TRISC = 0xFF;
+    TRISC = 0xAF;
 
     /**
     ANSELx registers
     */
-    ANSELC = 0xFB;
+    ANSELC = 0x9B;
     ANSELB = 0xD0;
-    ANSELA = 0x33;
+    ANSELA = 0x13;
 
     /**
     WPUx registers
@@ -125,8 +125,14 @@ void PIN_MANAGER_Initialize(void)
     PIE0bits.IOCIE = 1; 
     
 	
+    ADACTPPS = 0x12;   //RC2->ADC:ADACT;    
+    T1CKIPPS = 0x05;   //RA5->TMR1:T1CKI;    
     RX1PPS = 0x0D;   //RB5->EUSART1:RX1;    
+    SSP1CLKPPS = 0x16;   //RC6->MSSP1:SCK1;    
     RB7PPS = 0x05;   //RB7->EUSART1:TX1;    
+    RC4PPS = 0x08;   //RC4->MSSP1:SDO1;    
+    RC6PPS = 0x07;   //RC6->MSSP1:SCK1;    
+    SSP1DATPPS = 0x15;   //RC5->MSSP1:SDI1;    
 }
   
 void PIN_MANAGER_IOC(void)
@@ -166,7 +172,6 @@ void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)){
 void IOCCF2_DefaultInterruptHandler(void){
     // add your IOCCF2 interrupt custom code
     // or set custom function using IOCCF2_SetInterruptHandler()
-    LED0_Toggle();
 }
 
 /**

@@ -19,7 +19,7 @@
 #pragma config WDTE = OFF
 #pragma config BOREN = ON
 #pragma config BORV = LO
-#pragma config PPS1WAY = ON
+#pragma config PPS1WAY = OFF
 #pragma config STVREN = ON
 
 
