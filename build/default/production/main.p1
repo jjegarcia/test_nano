@@ -35,6 +35,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "764
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 764: extern volatile LATAbits_t LATAbits __attribute__((address(0x018)));
 [v _LATAbits `VS44 ~T0 @X0 0 e@24 ]
+"348 ./mcc_generated_files/eusart1.h
+[; ;./mcc_generated_files/eusart1.h: 348: void EUSART1_Write(uint8_t txData);
+[v _EUSART1_Write `(v ~T0 @X0 0 ef1`uc ]
+[v F183 `(v ~T0 @X0 1 tf1`ul ]
+"12 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/builtins.h
+[v __delay `JF183 ~T0 @X0 0 e ]
+[p i __delay ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -634,19 +641,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 73:             printf("toggling");
 [e ( _printf :s 2C ]
 "74
-[; ;main.c: 74:         }
-}
-[e :U 518 ]
+[; ;main.c: 74:             EUSART1_Write(0b11001100);
+[e ( _EUSART1_Write (1 -> -> 204 `i `uc ]
 "75
-[; ;main.c: 75:     }
+[; ;main.c: 75:         }
+}
+[e $U 522  ]
+"76
+[; ;main.c: 76:         else
+[e :U 518 ]
+"77
+[; ;main.c: 77:         {
+{
+"78
+[; ;main.c: 78:             printf("looping");
+[e ( _printf :s 3C ]
+"79
+[; ;main.c: 79:             _delay((unsigned long)((1000)*(1000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+"80
+[; ;main.c: 80:         }
+}
+[e :U 522 ]
+"81
+[; ;main.c: 81:     }
 }
 [e :U 515 ]
 [e $U 516  ]
 [e :U 517 ]
-"76
-[; ;main.c: 76: }
+"82
+[; ;main.c: 82: }
 [e :UE 514 ]
 }
 [p f _printf 8388608 ]
 [a 1C 104 101 121 0 ]
+[a 3C 108 111 111 112 105 110 103 0 ]
 [a 2C 116 111 103 103 108 105 110 103 0 ]

@@ -71,6 +71,12 @@ void main(void) {
             FLAGS.bits.PUSH_HANDLER = 0;
             LED0_Toggle();
             printf("toggling");
+            EUSART1_Write(0b11001100);
+        }
+        else
+        {
+            printf("looping");
+            __delay_ms(1000);
         }
     }
 }

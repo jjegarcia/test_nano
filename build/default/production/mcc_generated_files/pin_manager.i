@@ -6038,6 +6038,24 @@ extern void (*IOCCF2_InterruptHandler)(void);
 # 306 "mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
 # 50 "mcc_generated_files/pin_manager.c" 2
+# 1 "mcc_generated_files/../main.h" 1
+# 24 "mcc_generated_files/../main.h"
+union {
+    unsigned char byte;
+
+    struct {
+        unsigned SPI_READ : 1;
+        unsigned DISPLAY_READING : 1;
+        unsigned PUSH_HANDLER : 1;
+        unsigned UART_RECEIVED: 1;
+        unsigned TIMER_TICK: 1;
+    } bits;
+} FLAGS;
+
+char serialReadValue;
+char spiReadValue;
+char requestType;
+# 51 "mcc_generated_files/pin_manager.c" 2
 
 
 

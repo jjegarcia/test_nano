@@ -6501,26 +6501,43 @@ typedef union {
     };
     uint8_t status;
 }eusart1_status_t;
-# 111 "mcc_generated_files/eusart1.h"
+
+
+
+
+extern volatile uint8_t eusart1TxBufferRemaining;
+extern volatile uint8_t eusart1RxCount;
+
+
+
+
+extern void (*EUSART1_RxDefaultInterruptHandler)(void);
+# 117 "mcc_generated_files/eusart1.h"
 void EUSART1_Initialize(void);
-# 159 "mcc_generated_files/eusart1.h"
+# 165 "mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_tx_ready(void);
-# 207 "mcc_generated_files/eusart1.h"
+# 213 "mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_rx_ready(void);
-# 254 "mcc_generated_files/eusart1.h"
+# 260 "mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_tx_done(void);
-# 302 "mcc_generated_files/eusart1.h"
+# 308 "mcc_generated_files/eusart1.h"
 eusart1_status_t EUSART1_get_last_status(void);
-# 322 "mcc_generated_files/eusart1.h"
+# 328 "mcc_generated_files/eusart1.h"
 uint8_t EUSART1_Read(void);
-# 342 "mcc_generated_files/eusart1.h"
+# 348 "mcc_generated_files/eusart1.h"
 void EUSART1_Write(uint8_t txData);
-# 362 "mcc_generated_files/eusart1.h"
+# 370 "mcc_generated_files/eusart1.h"
+void EUSART1_Receive_ISR(void);
+# 391 "mcc_generated_files/eusart1.h"
+void EUSART1_RxDataHandler(void);
+# 409 "mcc_generated_files/eusart1.h"
 void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 380 "mcc_generated_files/eusart1.h"
+# 427 "mcc_generated_files/eusart1.h"
 void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 398 "mcc_generated_files/eusart1.h"
+# 445 "mcc_generated_files/eusart1.h"
 void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
+# 466 "mcc_generated_files/eusart1.h"
+void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 63 "mcc_generated_files/mcc.h" 2
 # 77 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
@@ -6546,6 +6563,10 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
         if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
         {
             ADC_ISR();
+        }
+        else if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
+        {
+            EUSART1_RxDefaultInterruptHandler();
         }
         else
         {

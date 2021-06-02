@@ -63,8 +63,8 @@ void TMR2_Initialize(void)
 {
     // Set TMR2 to the options selected in the User Interface
 
-    // T2CS HFINTOSC; 
-    T2CLKCON = 0x03;
+    // T2CS FOSC/4; 
+    T2CLKCON = 0x01;
 
     // T2PSYNC Not Synchronized; T2MODE Software control; T2CKPOL Rising Edge; T2CKSYNC Not Synchronized; 
     T2HLT = 0x00;
@@ -81,8 +81,8 @@ void TMR2_Initialize(void)
     // Clearing IF flag.
     PIR1bits.TMR2IF = 0;
 
-    // T2CKPS 1:1; T2OUTPS 1:1; TMR2ON on; 
-    T2CON = 0x80;
+    // T2CKPS 1:1; T2OUTPS 1:4; TMR2ON on; 
+    T2CON = 0x83;
 }
 
 void TMR2_ModeSet(TMR2_HLT_MODE mode)

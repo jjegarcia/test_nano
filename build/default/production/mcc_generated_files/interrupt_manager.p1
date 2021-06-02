@@ -65,6 +65,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "331 mcc_generated_files/adc.h
 [; ;mcc_generated_files/adc.h: 331: void ADC_ISR(void);
 [v _ADC_ISR `(v ~T0 @X0 0 ef ]
+[v F4009 `(v ~T0 @X0 0 tf ]
+"95 mcc_generated_files/eusart1.h
+[; ;mcc_generated_files/eusart1.h: 95: extern void (*EUSART1_RxDefaultInterruptHandler)(void);
+[v _EUSART1_RxDefaultInterruptHandler `*F4009 ~T0 @X0 0 e ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -668,32 +672,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 519  ]
 "69
-[; ;mcc_generated_files/interrupt_manager.c: 69:         else
+[; ;mcc_generated_files/interrupt_manager.c: 69:         else if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
 [e :U 518 ]
+[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 520  ]
 "70
 [; ;mcc_generated_files/interrupt_manager.c: 70:         {
 {
+"71
+[; ;mcc_generated_files/interrupt_manager.c: 71:             EUSART1_RxDefaultInterruptHandler();
+[e ( *U _EUSART1_RxDefaultInterruptHandler ..  ]
 "72
 [; ;mcc_generated_files/interrupt_manager.c: 72:         }
 }
-[e :U 519 ]
+[e $U 521  ]
 "73
-[; ;mcc_generated_files/interrupt_manager.c: 73:     }
-}
-[e $U 520  ]
+[; ;mcc_generated_files/interrupt_manager.c: 73:         else
+[e :U 520 ]
 "74
-[; ;mcc_generated_files/interrupt_manager.c: 74:     else
-[e :U 517 ]
-"75
-[; ;mcc_generated_files/interrupt_manager.c: 75:     {
+[; ;mcc_generated_files/interrupt_manager.c: 74:         {
 {
+"76
+[; ;mcc_generated_files/interrupt_manager.c: 76:         }
+}
+[e :U 521 ]
+[e :U 519 ]
 "77
 [; ;mcc_generated_files/interrupt_manager.c: 77:     }
 }
-[e :U 520 ]
+[e $U 522  ]
+"78
+[; ;mcc_generated_files/interrupt_manager.c: 78:     else
+[e :U 517 ]
+"79
+[; ;mcc_generated_files/interrupt_manager.c: 79:     {
+{
+"81
+[; ;mcc_generated_files/interrupt_manager.c: 81:     }
+}
+[e :U 522 ]
 [e :U 516 ]
 [e :U 514 ]
-"78
-[; ;mcc_generated_files/interrupt_manager.c: 78: }
+"82
+[; ;mcc_generated_files/interrupt_manager.c: 82: }
 [e :UE 512 ]
 }
