@@ -16,7 +16,7 @@
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
         Device            :  PIC16F15244
         Driver Version    :  2.00
-*/
+ */
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -39,15 +39,15 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 #include "mcc_generated_files/mcc.h"
+#include "main.h"
 
 /*
                          Main application
  */
-void main(void)
-{
+void main(void) {
     // initialize the device
     SYSTEM_Initialize();
 
@@ -66,17 +66,20 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
     printf("hey");
-    while (1)
-    {
-        // Add your application code
-//        LED0_Toggle();
-//        LED0_LAT=1;
-//        LATA2=1;
-//        LED0_SetLow();
-        printf("toggling");
-        __delay_ms(1000);
+    while (1) {
+        if (FLAGS.bits.PUSH_HANDLER) {
+            FLAGS.bits.PUSH_HANDLER = 0;
+            LED0_Toggle();
+            printf("toggling");
+            EUSART1_Write(0b11001100);
+        }
+        else
+        {
+            printf("looping");
+            __delay_ms(1000);
+        }
     }
 }
 /**
  End of File
-*/
+ */

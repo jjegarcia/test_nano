@@ -21,7 +21,7 @@
         MPLAB             :  MPLAB X 5.45
 
     Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
-*/
+ */
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -44,63 +44,62 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 #include "pin_manager.h"
+#include "../main.h"
 
 
 
 
 void (*IOCCF2_InterruptHandler)(void);
 
-
-void PIN_MANAGER_Initialize(void)
-{
+void PIN_MANAGER_Initialize(void) {
     /**
     LATx registers
-    */
+     */
     LATA = 0x00;
     LATB = 0x00;
     LATC = 0x00;
 
     /**
     TRISx registers
-    */
+     */
     TRISA = 0x3B;
     TRISB = 0x70;
-    TRISC = 0xFF;
+    TRISC = 0xAF;
 
     /**
     ANSELx registers
-    */
-    ANSELC = 0xFB;
+     */
+    ANSELC = 0x9B;
     ANSELB = 0xD0;
-    ANSELA = 0x33;
+    ANSELA = 0x13;
 
     /**
     WPUx registers
-    */
+     */
     WPUB = 0x00;
     WPUA = 0x00;
     WPUC = 0x04;
 
     /**
     ODx registers
-    */
+     */
     ODCONA = 0x00;
     ODCONB = 0x00;
     ODCONC = 0x00;
 
     /**
     SLRCONx registers
-    */
+     */
     SLRCONA = 0x37;
     SLRCONB = 0xF0;
     SLRCONC = 0xFF;
 
     /**
     INLVLx registers
-    */
+     */
     INLVLA = 0x3F;
     INLVLB = 0xF0;
     INLVLC = 0xFF;
@@ -108,7 +107,7 @@ void PIN_MANAGER_Initialize(void)
 
     /**
     IOCx registers 
-    */
+     */
     //interrupt on change for group IOCCF - flag
     IOCCFbits.IOCCF2 = 0;
     //interrupt on change for group IOCCN - negative
@@ -120,34 +119,37 @@ void PIN_MANAGER_Initialize(void)
 
     // register default IOC callback functions at runtime; use these methods to register a custom function
     IOCCF2_SetInterruptHandler(IOCCF2_DefaultInterruptHandler);
-   
+
     // Enable IOCI interrupt 
-    PIE0bits.IOCIE = 1; 
-    
-	
-    RX1PPS = 0x0D;   //RB5->EUSART1:RX1;    
-    RB7PPS = 0x05;   //RB7->EUSART1:TX1;    
+    PIE0bits.IOCIE = 1;
+
+
+    ADACTPPS = 0x12; //RC2->ADC:ADACT;    
+    T1CKIPPS = 0x05; //RA5->TMR1:T1CKI;    
+    RX1PPS = 0x0D; //RB5->EUSART1:RX1;    
+    SSP1CLKPPS = 0x16; //RC6->MSSP1:SCK1;    
+    RB7PPS = 0x05; //RB7->EUSART1:TX1;    
+    RC4PPS = 0x08; //RC4->MSSP1:SDO1;    
+    RC6PPS = 0x07; //RC6->MSSP1:SCK1;    
+    SSP1DATPPS = 0x15; //RC5->MSSP1:SDI1;    
 }
-  
-void PIN_MANAGER_IOC(void)
-{   
-	// interrupt on change for pin IOCCF2
-    if(IOCCFbits.IOCCF2 == 1)
-    {
-        IOCCF2_ISR();  
-    }	
+
+void PIN_MANAGER_IOC(void) {
+    // interrupt on change for pin IOCCF2
+    if (IOCCFbits.IOCCF2 == 1) {
+        IOCCF2_ISR();
+    }
 }
 
 /**
    IOCCF2 Interrupt Service Routine
-*/
+ */
 void IOCCF2_ISR(void) {
 
     // Add custom IOCCF2 code
 
     // Call the interrupt handler for the callback registered at runtime
-    if(IOCCF2_InterruptHandler)
-    {
+    if (IOCCF2_InterruptHandler) {
         IOCCF2_InterruptHandler();
     }
     IOCCFbits.IOCCF2 = 0;
@@ -155,20 +157,20 @@ void IOCCF2_ISR(void) {
 
 /**
   Allows selecting an interrupt handler for IOCCF2 at application runtime
-*/
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)){
+ */
+void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)) {
     IOCCF2_InterruptHandler = InterruptHandler;
 }
 
 /**
   Default interrupt handler for IOCCF2
-*/
-void IOCCF2_DefaultInterruptHandler(void){
+ */
+void IOCCF2_DefaultInterruptHandler(void) {
+    FLAGS.bits.PUSH_HANDLER = 1;
     // add your IOCCF2 interrupt custom code
     // or set custom function using IOCCF2_SetInterruptHandler()
-    LED0_Toggle();
 }
 
 /**
  End of File
-*/
+ */

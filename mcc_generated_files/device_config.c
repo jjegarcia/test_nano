@@ -58,7 +58,7 @@
 #pragma config WDTE = OFF    // WDT Operating Mode bits->WDT disabled; SEN is ignored
 #pragma config BOREN = ON    // Brown-out Reset Enable bits->Brown-out Reset Enabled, SBOREN bit is ignored
 #pragma config BORV = LO    // Brown-out Reset Voltage Selection bit->Brown-out Reset Voltage (VBOR) set to 1.9V
-#pragma config PPS1WAY = ON    // PPSLOCKED One-Way Set Enable bit->The PPSLOCKED bit can be cleared and set only once in software
+#pragma config PPS1WAY = OFF    // PPSLOCKED One-Way Set Enable bit->The PPSLOCKED bit can be set and cleared repeatedly by software (subject to unlock sequence)
 #pragma config STVREN = ON    // Stack Overflow/Underflow Reset Enable bit->Stack Overflow or Underflow will cause a reset
 
 // CONFIG4

@@ -18,7 +18,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [p x BORV  =  LO     ]
 "61
-[p x PPS1WAY  =  ON     ]
+[p x PPS1WAY  =  OFF     ]
 "62
 [p x STVREN  =  ON     ]
 "65

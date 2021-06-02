@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Test_Nano.X
+PROJECTNAME=test_nano
 
 # Active Configuration
 DEFAULTCONF=default
