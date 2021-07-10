@@ -67,14 +67,20 @@ void main(void) {
     //INTERRUPT_PeripheralInterruptDisable();
     printf("hey");
     while (1) {
-        if (FLAGS.bits.PUSH_HANDLER) {
-            FLAGS.bits.PUSH_HANDLER = 0;
-            LED0_Toggle();
+        if (FLAGS.bits.PUSH_BUTTON) {
+            FLAGS.bits.PUSH_BUTTON = 0;
             printf("toggling");
-            EUSART1_Write(0b11001100);
+             LED0_Toggle();
+            EUSART1_Write(0x4F);
+             EUSART1_Write(0x4F);
+           
         }
-        else
-        {
+        if (FLAGS.bits.UART_RECEIVED) {
+            FLAGS.bits.UART_RECEIVED = 0;
+            LED0_Toggle();
+            printf("Serial Rx");
+
+        } else {
             printf("looping");
             __delay_ms(1000);
         }

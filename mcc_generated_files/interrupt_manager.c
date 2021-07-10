@@ -21,7 +21,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.31 and above or later
         MPLAB 	          :  MPLAB X 5.45
-*/
+ */
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -44,42 +44,25 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 #include "interrupt_manager.h"
 #include "mcc.h"
+#include "../main.h"
 
-void __interrupt() INTERRUPT_InterruptManager (void)
-{
+void __interrupt() INTERRUPT_InterruptManager(void) {
     // interrupt handler
-    if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
-    {
-        TMR0_ISR();
-    }
-    else if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
-    {
+    if (PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1) {
         PIN_MANAGER_IOC();
+        FLAGS.bits.PUSH_BUTTON = 1;
     }
-    else if(INTCONbits.PEIE == 1)
-    {
-        if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-        {
-            ADC_ISR();
-        } 
-        else if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
-        {
+    if (INTCONbits.PEIE == 1) {
+        if (PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1) {
             EUSART1_RxDefaultInterruptHandler();
-        } 
-        else
-        {
-            //Unhandled Interrupt
+            FLAGS.bits.UART_RECEIVED = 1;
         }
-    }      
-    else
-    {
-        //Unhandled Interrupt
     }
 }
 /**
  End of File
-*/
+ */
