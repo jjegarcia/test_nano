@@ -27,7 +27,7 @@ union {
     struct {
         unsigned SPI_READ : 1;
         unsigned DISPLAY_READING : 1;
-        unsigned PUSH_HANDLER : 1;
+        unsigned PUSH_BUTTON : 1;
         unsigned UART_RECEIVED: 1;
         unsigned TIMER_TICK: 1;
     } bits;

@@ -6025,44 +6025,28 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
 # 55 "mcc_generated_files/pin_manager.h" 2
-# 210 "mcc_generated_files/pin_manager.h"
+# 178 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 222 "mcc_generated_files/pin_manager.h"
+# 190 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 235 "mcc_generated_files/pin_manager.h"
+# 203 "mcc_generated_files/pin_manager.h"
 void IOCCF2_ISR(void);
-# 258 "mcc_generated_files/pin_manager.h"
+# 226 "mcc_generated_files/pin_manager.h"
 void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 282 "mcc_generated_files/pin_manager.h"
+# 250 "mcc_generated_files/pin_manager.h"
 extern void (*IOCCF2_InterruptHandler)(void);
-# 306 "mcc_generated_files/pin_manager.h"
+# 274 "mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
 # 50 "mcc_generated_files/pin_manager.c" 2
-# 1 "mcc_generated_files/../main.h" 1
-# 24 "mcc_generated_files/../main.h"
-union {
-    unsigned char byte;
-
-    struct {
-        unsigned SPI_READ : 1;
-        unsigned DISPLAY_READING : 1;
-        unsigned PUSH_HANDLER : 1;
-        unsigned UART_RECEIVED: 1;
-        unsigned TIMER_TICK: 1;
-    } bits;
-} FLAGS;
-
-char serialReadValue;
-char spiReadValue;
-char requestType;
-# 51 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
 void (*IOCCF2_InterruptHandler)(void);
 
-void PIN_MANAGER_Initialize(void) {
+
+void PIN_MANAGER_Initialize(void)
+{
 
 
 
@@ -6080,14 +6064,14 @@ void PIN_MANAGER_Initialize(void) {
 
 
 
-    ANSELC = 0x9B;
-    ANSELB = 0xD0;
-    ANSELA = 0x13;
+    ANSELC = 0x8B;
+    ANSELB = 0x50;
+    ANSELA = 0x33;
 
 
 
 
-    WPUB = 0x00;
+    WPUB = 0xA0;
     WPUA = 0x00;
     WPUC = 0x04;
 
@@ -6119,9 +6103,9 @@ void PIN_MANAGER_Initialize(void) {
 
     IOCCFbits.IOCCF2 = 0;
 
-    IOCCNbits.IOCCN2 = 1;
+    IOCCNbits.IOCCN2 = 0;
 
-    IOCCPbits.IOCCP2 = 0;
+    IOCCPbits.IOCCP2 = 1;
 
 
 
@@ -6132,8 +6116,6 @@ void PIN_MANAGER_Initialize(void) {
     PIE0bits.IOCIE = 1;
 
 
-    ADACTPPS = 0x12;
-    T1CKIPPS = 0x05;
     RX1PPS = 0x0D;
     SSP1CLKPPS = 0x16;
     RB7PPS = 0x05;
@@ -6142,9 +6124,11 @@ void PIN_MANAGER_Initialize(void) {
     SSP1DATPPS = 0x15;
 }
 
-void PIN_MANAGER_IOC(void) {
+void PIN_MANAGER_IOC(void)
+{
 
-    if (IOCCFbits.IOCCF2 == 1) {
+    if(IOCCFbits.IOCCF2 == 1)
+    {
         IOCCF2_ISR();
     }
 }
@@ -6157,7 +6141,8 @@ void IOCCF2_ISR(void) {
 
 
 
-    if (IOCCF2_InterruptHandler) {
+    if(IOCCF2_InterruptHandler)
+    {
         IOCCF2_InterruptHandler();
     }
     IOCCFbits.IOCCF2 = 0;
@@ -6166,15 +6151,14 @@ void IOCCF2_ISR(void) {
 
 
 
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)) {
+void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)){
     IOCCF2_InterruptHandler = InterruptHandler;
 }
 
 
 
 
-void IOCCF2_DefaultInterruptHandler(void) {
-    FLAGS.bits.PUSH_HANDLER = 1;
+void IOCCF2_DefaultInterruptHandler(void){
 
 
 }
