@@ -707,7 +707,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP1" name="spiComMode"/>
-         <value>SPI Mode 0</value>
+         <value>SPI Mode 1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP1" name="spiInputSampleFilter"/>
@@ -1051,7 +1051,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MSSP1" registerAlias="SSPSTAT"/>
-         <value>64</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP1" registerAlias="BCLI" settingAlias="enable"/>
@@ -1179,7 +1179,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP1" registerAlias="SSPSTAT" settingAlias="CKE"/>
-         <value>Active to Idle</value>
+         <value>Idle to Active</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP1" registerAlias="SSPSTAT" settingAlias="D_nA"/>
@@ -4682,58 +4682,58 @@
          <value>OFF</value>
       </entry>
    </tokenMap>
-   <generatedFileHashHistoryMap class="java.util.HashMap">
-      <entry>
-         <file>mcc_generated_files/interrupt_manager.h</file>
-         <hash>9179cabadfba7a42bd58a097bb565660e1cbf93ce9e905bb06c9cc78dabc509a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/spi1.c</file>
-         <hash>230472dafedbef456b051f0936e0705bd9731adf1e811d6da18548abacb83ce0</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/pin_manager.h</file>
-         <hash>fa181b3ece725843a5be7dbfc68924f05714e0aa7346b00ea59fd017391cc35c</hash>
-      </entry>
+   <generatedFileHashHistoryMap class="java.util.TreeMap">
       <entry>
          <file>main.c</file>
          <hash>95c9777d06a94a40ef1b8f0fd747302d75a99979379029bd41ef5b9749298011</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/eusart1.h</file>
-         <hash>c06ca80a75e7ec6f79f8d8a73705082e9e7ddbbc5f2da96188022e6d008ef06a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/spi1.h</file>
-         <hash>bc18ebbd14db4f7c9b9058df60606297916f7a1732158cf6f68dadd780e6af24</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/device_config.h</file>
-         <hash>3076513db209b7d4d5355a44b0951ba722d71f2d8f847966b4408bf1d512d9b8</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/mcc.h</file>
-         <hash>cbb9d222c8529c77007b424cfe1f0ea9ef40f3bdd87780884ef9d869ea193f6a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/eusart1.c</file>
-         <hash>cd71c13f998746c7bd50dfba15d6ee2d7b55d1c0f7471b622c95eca267ac7bcc</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/device_config.c</file>
          <hash>9a5f76360326f41ffb4419ec32097985d719e64868b20d5ec575baefa01d0a27</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files/device_config.h</file>
+         <hash>3076513db209b7d4d5355a44b0951ba722d71f2d8f847966b4408bf1d512d9b8</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/eusart1.c</file>
+         <hash>cd71c13f998746c7bd50dfba15d6ee2d7b55d1c0f7471b622c95eca267ac7bcc</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/eusart1.h</file>
+         <hash>c06ca80a75e7ec6f79f8d8a73705082e9e7ddbbc5f2da96188022e6d008ef06a</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files/interrupt_manager.c</file>
          <hash>48bbbc0ae908a96a338830197312408b90ea62ad3e7d146e27cfdf15d0aa8785</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/interrupt_manager.h</file>
+         <hash>9179cabadfba7a42bd58a097bb565660e1cbf93ce9e905bb06c9cc78dabc509a</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.c</file>
          <hash>c3db5b0e9682e38a0451b2c4ff7bcac30e01f01902ed60348f44e9e636139de7</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files/mcc.h</file>
+         <hash>cbb9d222c8529c77007b424cfe1f0ea9ef40f3bdd87780884ef9d869ea193f6a</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files/pin_manager.c</file>
          <hash>1ac3a970d824bb435dbf6e9fb0887dfad9042afa17f31a19a51aa38248a07513</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/pin_manager.h</file>
+         <hash>fa181b3ece725843a5be7dbfc68924f05714e0aa7346b00ea59fd017391cc35c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/spi1.c</file>
+         <hash>27b3aae3c4e8c7a7c1f870ceddd07e1a77b906bcd683a4d1c2c0cd0b80fe88e9</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/spi1.h</file>
+         <hash>bc18ebbd14db4f7c9b9058df60606297916f7a1732158cf6f68dadd780e6af24</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

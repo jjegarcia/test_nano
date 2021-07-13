@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F15244 ]
 [d frameptr 6 ]
-"79 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+"80 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [e E355 . `uc
 SPI1_DEFAULT 0
 ]
@@ -85,13 +85,13 @@ SPI1_DEFAULT 0
 [v _debouncePushButton debouncePushButton `(v  1 e 1 0 ]
 "65 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
-"79
+"80
 [v _SPI1_Open SPI1_Open `(a  1 e 1 0 ]
-"96
+"100
 [v _SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
-"129
+"139
 [v _SPI1_WriteByte SPI1_WriteByte `(v  1 e 1 0 ]
-"137
+"149
 [v _receiveSPICallback receiveSPICallback `(v  1 e 1 0 ]
 [s S22 . 1 `uc 1 SPI_READ 1 0 :1:0 
 `uc 1 DISPLAY_READING 1 0 :1:1 
@@ -384,12 +384,12 @@ SPI1_DEFAULT 0
 "54 /Users/jgarc609/github/test_nano/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"99
+"93
 } 0
 "246 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
 [v _receiveSerialCallback receiveSerialCallback `(v  1 e 1 0 ]
 {
-"251
+"250
 } 0
 "4 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/putchar.c
 [v _putchar putchar `(i  1 e 2 0 ]
@@ -397,10 +397,10 @@ SPI1_DEFAULT 0
 [v putchar@c c `i  1 p 2 0 ]
 "7
 } 0
-"137 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+"149 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [v _receiveSPICallback receiveSPICallback `(v  1 e 1 0 ]
 {
-"140
+"152
 } 0
 "179 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
 [v _pushButtonCallback pushButtonCallback `(v  1 e 1 0 ]
@@ -469,13 +469,14 @@ SPI1_DEFAULT 0
 [v EUSART1_Write@txData txData `uc  1 a 1 1 ]
 "163
 } 0
-"129 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+"139 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [v _SPI1_WriteByte SPI1_WriteByte `(v  1 e 1 0 ]
 {
 [v SPI1_WriteByte@byte byte `uc  1 a 1 wreg ]
 [v SPI1_WriteByte@byte byte `uc  1 a 1 wreg ]
+"141
 [v SPI1_WriteByte@byte byte `uc  1 a 1 1 ]
-"131
+"142
 } 0
 "187 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
 [v _debouncePushButton debouncePushButton `(v  1 e 1 0 ]
@@ -497,7 +498,7 @@ SPI1_DEFAULT 0
 "65 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
 {
-"77
+"78
 } 0
 "60 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -544,13 +545,14 @@ SPI1_DEFAULT 0
 [v EUSART1_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 1 ]
 "240
 } 0
-"79 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+"80 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [v _SPI1_Open SPI1_Open `(a  1 e 1 0 ]
 {
 [v SPI1_Open@spi1UniqueConfiguration spi1UniqueConfiguration `E355  1 a 1 wreg ]
 [v SPI1_Open@spi1UniqueConfiguration spi1UniqueConfiguration `E355  1 a 1 wreg ]
+"82
 [v SPI1_Open@spi1UniqueConfiguration spi1UniqueConfiguration `E355  1 a 1 4 ]
-"90
+"93
 } 0
 "54 /Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]

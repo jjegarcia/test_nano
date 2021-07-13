@@ -1191,13 +1191,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATAbits 0 2 -> ~ -> . . _LATAbits 0 2 `i `uc ]
 }
 [e :U 547 ]
-"249
-[; ;mcc_generated_files/eusart1.c: 249:     putchar(serialRead);
+"248
+[; ;mcc_generated_files/eusart1.c: 248:     putchar(serialRead);
 [e ( _putchar (1 -> _serialRead `i ]
-"250
-[; ;mcc_generated_files/eusart1.c: 250:     SPI1_WriteByte(serialRead);
+"249
+[; ;mcc_generated_files/eusart1.c: 249:     SPI1_WriteByte(serialRead);
 [e ( _SPI1_WriteByte (1 -> _serialRead `uc ]
-"251
-[; ;mcc_generated_files/eusart1.c: 251: }
+"250
+[; ;mcc_generated_files/eusart1.c: 250: }
 [e :UE 545 ]
 }

@@ -69,8 +69,9 @@ void main(void) {
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
+
+    SPI1_Open(SPI1_DEFAULT);
     
-   SPI1_Open(SPI1_DEFAULT);
     while (1) {
         if (FLAGS.bits.BUTTON_PUSHED) {
             debouncePushButton();
@@ -85,16 +86,9 @@ void main(void) {
             FLAGS.bits.UART_RECEIVED = 0;
         }
         if (FLAGS.bits.SPI_READ) {
-                        receiveSPICallback();
+            receiveSPICallback();
             FLAGS.bits.SPI_READ = 0;
         }
-
-//        __delay_ms(100);
-//       SPI1_WriteByte('u');
-//        printf("toggling");
-//        LED0_Toggle();
-
-
     }
 }
 /**

@@ -6445,7 +6445,8 @@ void main(void) {
 
 
 
-   SPI1_Open(SPI1_DEFAULT);
+    SPI1_Open(SPI1_DEFAULT);
+
     while (1) {
         if (FLAGS.bits.BUTTON_PUSHED) {
             debouncePushButton();
@@ -6460,15 +6461,8 @@ void main(void) {
             FLAGS.bits.UART_RECEIVED = 0;
         }
         if (FLAGS.bits.SPI_READ) {
-                        receiveSPICallback();
+            receiveSPICallback();
             FLAGS.bits.SPI_READ = 0;
         }
-
-
-
-
-
-
-
     }
 }

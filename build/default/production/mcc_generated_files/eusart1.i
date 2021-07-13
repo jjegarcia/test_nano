@@ -6457,7 +6457,6 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void)) {
 
 void receiveSerialCallback(void) {
     do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
-
     putchar(serialRead);
     SPI1_WriteByte(serialRead);
 }

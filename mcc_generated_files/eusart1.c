@@ -245,7 +245,6 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void)) {
 
 void receiveSerialCallback(void) {
     LED0_Toggle();
-    //printf(serialRead);
     putchar(serialRead);
     SPI1_WriteByte(serialRead);
 }
