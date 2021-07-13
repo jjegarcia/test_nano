@@ -43,6 +43,10 @@
 
 #include "mcc_generated_files/mcc.h"
 #include "main.h"
+#include "mcc_generated_files/eusart1.h"
+#include "mcc_generated_files/pin_manager.h"
+#include <time.h>
+#include "mcc_generated_files/spi1.h"
 
 /*
                          Main application
@@ -65,25 +69,32 @@ void main(void) {
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-    printf("hey");
+    
+   SPI1_Open(SPI1_DEFAULT);
     while (1) {
-        if (FLAGS.bits.PUSH_BUTTON) {
-            FLAGS.bits.PUSH_BUTTON = 0;
-            printf("toggling");
-             LED0_Toggle();
-            EUSART1_Write(0x4F);
-             EUSART1_Write(0x4F);
-           
+        if (FLAGS.bits.BUTTON_PUSHED) {
+            debouncePushButton();
+            if (FLAGS.bits.BUTTON_DEBOUNCED) {
+                pushButtonCallback();
+                FLAGS.bits.BUTTON_PUSHED = 0;
+                FLAGS.bits.BUTTON_PUSHED = 0;
+            }
         }
         if (FLAGS.bits.UART_RECEIVED) {
+            receiveSerialCallback();
             FLAGS.bits.UART_RECEIVED = 0;
-            LED0_Toggle();
-            printf("Serial Rx");
-
-        } else {
-            printf("looping");
-            __delay_ms(1000);
         }
+        if (FLAGS.bits.SPI_READ) {
+                        receiveSPICallback();
+            FLAGS.bits.SPI_READ = 0;
+        }
+
+//        __delay_ms(100);
+//       SPI1_WriteByte('u');
+//        printf("toggling");
+//        LED0_Toggle();
+
+
     }
 }
 /**

@@ -6040,6 +6040,8 @@ void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
 extern void (*IOCCF2_InterruptHandler)(void);
 # 274 "mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
+void pushButtonCallback(void);
+void debouncePushButton(void);
 # 52 "mcc_generated_files/mcc.h" 2
 
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
@@ -6216,8 +6218,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 54 "mcc_generated_files/spi1.h" 2
-
+# 55 "mcc_generated_files/spi1.h" 2
 
 
 
@@ -6226,6 +6227,7 @@ typedef enum {
     SPI1_DEFAULT
 } spi1_modes_t;
 
+uint8_t SPIRead;
 void SPI1_Initialize(void);
 _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
 void SPI1_Close(void);
@@ -6235,6 +6237,7 @@ void SPI1_WriteBlock(void *block, size_t blockSize);
 void SPI1_ReadBlock(void *block, size_t blockSize);
 void SPI1_WriteByte(uint8_t byte);
 uint8_t SPI1_ReadByte(void);
+void receiveSPICallback(void);
 # 57 "mcc_generated_files/mcc.h" 2
 # 1 "mcc_generated_files/eusart1.h" 1
 # 76 "mcc_generated_files/eusart1.h"
@@ -6253,37 +6256,43 @@ typedef union {
 
 extern volatile uint8_t eusart1TxBufferRemaining;
 extern volatile uint8_t eusart1RxCount;
+char serialRead;
+
 
 
 
 
 extern void (*EUSART1_RxDefaultInterruptHandler)(void);
-# 117 "mcc_generated_files/eusart1.h"
+# 119 "mcc_generated_files/eusart1.h"
 void EUSART1_Initialize(void);
-# 165 "mcc_generated_files/eusart1.h"
+# 167 "mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_tx_ready(void);
-# 213 "mcc_generated_files/eusart1.h"
+# 215 "mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_rx_ready(void);
-# 260 "mcc_generated_files/eusart1.h"
+# 262 "mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_tx_done(void);
-# 308 "mcc_generated_files/eusart1.h"
+# 310 "mcc_generated_files/eusart1.h"
 eusart1_status_t EUSART1_get_last_status(void);
-# 328 "mcc_generated_files/eusart1.h"
+# 330 "mcc_generated_files/eusart1.h"
 uint8_t EUSART1_Read(void);
-# 348 "mcc_generated_files/eusart1.h"
+# 350 "mcc_generated_files/eusart1.h"
 void EUSART1_Write(uint8_t txData);
-# 370 "mcc_generated_files/eusart1.h"
+# 372 "mcc_generated_files/eusart1.h"
 void EUSART1_Receive_ISR(void);
-# 391 "mcc_generated_files/eusart1.h"
+# 393 "mcc_generated_files/eusart1.h"
 void EUSART1_RxDataHandler(void);
-# 409 "mcc_generated_files/eusart1.h"
+# 411 "mcc_generated_files/eusart1.h"
 void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 427 "mcc_generated_files/eusart1.h"
+# 429 "mcc_generated_files/eusart1.h"
 void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 445 "mcc_generated_files/eusart1.h"
+# 447 "mcc_generated_files/eusart1.h"
 void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 466 "mcc_generated_files/eusart1.h"
+# 468 "mcc_generated_files/eusart1.h"
 void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
+
+void receiveSerialCallback(void);
+
+void EUSART1_RxCustomHandler(void);
 # 58 "mcc_generated_files/mcc.h" 2
 # 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);

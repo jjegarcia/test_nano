@@ -49,17 +49,20 @@
 #include "interrupt_manager.h"
 #include "mcc.h"
 #include "../main.h"
+#include "spi1.h"
 
-void __interrupt() INTERRUPT_InterruptManager(void) {
+void __interrupt() INTERRUPT_InterruptManager (void)
+{
     // interrupt handler
-    if (PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1) {
+    if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
+    {
         PIN_MANAGER_IOC();
-        FLAGS.bits.PUSH_BUTTON = 1;
     }
-    if (INTCONbits.PEIE == 1) {
-        if (PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1) {
+    if(INTCONbits.PEIE == 1)
+    {
+        if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
+        {
             EUSART1_RxDefaultInterruptHandler();
-            FLAGS.bits.UART_RECEIVED = 1;
         }
     }
 }

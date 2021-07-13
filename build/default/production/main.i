@@ -6040,6 +6040,8 @@ void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
 extern void (*IOCCF2_InterruptHandler)(void);
 # 274 "./mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
+void pushButtonCallback(void);
+void debouncePushButton(void);
 # 52 "./mcc_generated_files/mcc.h" 2
 
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
@@ -6216,8 +6218,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 54 "./mcc_generated_files/spi1.h" 2
-
+# 55 "./mcc_generated_files/spi1.h" 2
 
 
 
@@ -6226,6 +6227,7 @@ typedef enum {
     SPI1_DEFAULT
 } spi1_modes_t;
 
+uint8_t SPIRead;
 void SPI1_Initialize(void);
 _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
 void SPI1_Close(void);
@@ -6235,6 +6237,7 @@ void SPI1_WriteBlock(void *block, size_t blockSize);
 void SPI1_ReadBlock(void *block, size_t blockSize);
 void SPI1_WriteByte(uint8_t byte);
 uint8_t SPI1_ReadByte(void);
+void receiveSPICallback(void);
 # 57 "./mcc_generated_files/mcc.h" 2
 # 1 "./mcc_generated_files/eusart1.h" 1
 # 76 "./mcc_generated_files/eusart1.h"
@@ -6253,37 +6256,43 @@ typedef union {
 
 extern volatile uint8_t eusart1TxBufferRemaining;
 extern volatile uint8_t eusart1RxCount;
+char serialRead;
+
 
 
 
 
 extern void (*EUSART1_RxDefaultInterruptHandler)(void);
-# 117 "./mcc_generated_files/eusart1.h"
+# 119 "./mcc_generated_files/eusart1.h"
 void EUSART1_Initialize(void);
-# 165 "./mcc_generated_files/eusart1.h"
+# 167 "./mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_tx_ready(void);
-# 213 "./mcc_generated_files/eusart1.h"
+# 215 "./mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_rx_ready(void);
-# 260 "./mcc_generated_files/eusart1.h"
+# 262 "./mcc_generated_files/eusart1.h"
 _Bool EUSART1_is_tx_done(void);
-# 308 "./mcc_generated_files/eusart1.h"
+# 310 "./mcc_generated_files/eusart1.h"
 eusart1_status_t EUSART1_get_last_status(void);
-# 328 "./mcc_generated_files/eusart1.h"
+# 330 "./mcc_generated_files/eusart1.h"
 uint8_t EUSART1_Read(void);
-# 348 "./mcc_generated_files/eusart1.h"
+# 350 "./mcc_generated_files/eusart1.h"
 void EUSART1_Write(uint8_t txData);
-# 370 "./mcc_generated_files/eusart1.h"
+# 372 "./mcc_generated_files/eusart1.h"
 void EUSART1_Receive_ISR(void);
-# 391 "./mcc_generated_files/eusart1.h"
+# 393 "./mcc_generated_files/eusart1.h"
 void EUSART1_RxDataHandler(void);
-# 409 "./mcc_generated_files/eusart1.h"
+# 411 "./mcc_generated_files/eusart1.h"
 void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 427 "./mcc_generated_files/eusart1.h"
+# 429 "./mcc_generated_files/eusart1.h"
 void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 445 "./mcc_generated_files/eusart1.h"
+# 447 "./mcc_generated_files/eusart1.h"
 void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 466 "./mcc_generated_files/eusart1.h"
+# 468 "./mcc_generated_files/eusart1.h"
 void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
+
+void receiveSerialCallback(void);
+
+void EUSART1_RxCustomHandler(void);
 # 58 "./mcc_generated_files/mcc.h" 2
 # 72 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
@@ -6300,9 +6309,10 @@ union {
     struct {
         unsigned SPI_READ : 1;
         unsigned DISPLAY_READING : 1;
-        unsigned PUSH_BUTTON : 1;
-        unsigned UART_RECEIVED: 1;
-        unsigned TIMER_TICK: 1;
+        unsigned BUTTON_PUSHED : 1;
+        unsigned BUTTON_DEBOUNCED : 1;
+        unsigned UART_RECEIVED : 1;
+        unsigned TIMER_TICK : 1;
     } bits;
 } FLAGS;
 
@@ -6310,6 +6320,108 @@ char serialReadValue;
 char spiReadValue;
 char requestType;
 # 46 "main.c" 2
+
+
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 1 3
+# 33 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 3
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 1 3
+# 76 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef long long time_t;
+# 293 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef void * timer_t;
+
+
+
+
+typedef int clockid_t;
+
+
+
+
+typedef unsigned long clock_t;
+# 313 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+struct timespec { time_t tv_sec; long tv_nsec; };
+
+
+
+
+
+typedef int pid_t;
+# 411 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 34 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 2 3
+
+
+
+
+
+
+struct tm {
+ int tm_sec;
+ int tm_min;
+ int tm_hour;
+ int tm_mday;
+ int tm_mon;
+ int tm_year;
+ int tm_wday;
+ int tm_yday;
+ int tm_isdst;
+ long __tm_gmtoff;
+ const char *__tm_zone;
+};
+
+clock_t clock (void);
+time_t time (time_t *);
+double difftime (time_t, time_t);
+time_t mktime (struct tm *);
+size_t strftime (char *restrict, size_t, const char *restrict, const struct tm *restrict);
+struct tm *gmtime (const time_t *);
+struct tm *localtime (const time_t *);
+char *asctime (const struct tm *);
+char *ctime (const time_t *);
+int timespec_get(struct timespec *, int);
+# 73 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 3
+size_t strftime_l (char * restrict, size_t, const char * restrict, const struct tm * restrict, locale_t);
+
+struct tm *gmtime_r (const time_t *restrict, struct tm *restrict);
+struct tm *localtime_r (const time_t *restrict, struct tm *restrict);
+char *asctime_r (const struct tm *restrict, char *restrict);
+char *ctime_r (const time_t *, char *);
+
+void tzset (void);
+
+struct itimerspec {
+ struct timespec it_interval;
+ struct timespec it_value;
+};
+# 102 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 3
+int nanosleep (const struct timespec *, struct timespec *);
+int clock_getres (clockid_t, struct timespec *);
+int clock_gettime (clockid_t, struct timespec *);
+int clock_settime (clockid_t, const struct timespec *);
+int clock_nanosleep (clockid_t, int, const struct timespec *, struct timespec *);
+int clock_getcpuclockid (pid_t, clockid_t *);
+
+struct sigevent;
+int timer_create (clockid_t, struct sigevent *restrict, timer_t *restrict);
+int timer_delete (timer_t);
+int timer_settime (timer_t, int, const struct itimerspec *restrict, struct itimerspec *restrict);
+int timer_gettime (timer_t, struct itimerspec *);
+int timer_getoverrun (timer_t);
+
+extern char *tzname[2];
+
+
+
+
+
+char *strptime (const char *restrict, const char *restrict, struct tm *restrict);
+extern int daylight;
+extern long timezone;
+extern int getdate_err;
+struct tm *getdate (const char *);
+# 49 "main.c" 2
+
 
 
 
@@ -6332,24 +6444,31 @@ void main(void) {
 
 
 
-    printf("hey");
-    while (1) {
-        if (FLAGS.bits.PUSH_BUTTON) {
-            FLAGS.bits.PUSH_BUTTON = 0;
-            printf("toggling");
-             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
-            EUSART1_Write(0x4F);
-             EUSART1_Write(0x4F);
 
+   SPI1_Open(SPI1_DEFAULT);
+    while (1) {
+        if (FLAGS.bits.BUTTON_PUSHED) {
+            debouncePushButton();
+            if (FLAGS.bits.BUTTON_DEBOUNCED) {
+                pushButtonCallback();
+                FLAGS.bits.BUTTON_PUSHED = 0;
+                FLAGS.bits.BUTTON_PUSHED = 0;
+            }
         }
         if (FLAGS.bits.UART_RECEIVED) {
+            receiveSerialCallback();
             FLAGS.bits.UART_RECEIVED = 0;
-            do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
-            printf("Serial Rx");
-
-        } else {
-            printf("looping");
-            _delay((unsigned long)((1000)*(1000000/4000.0)));
         }
+        if (FLAGS.bits.SPI_READ) {
+                        receiveSPICallback();
+            FLAGS.bits.SPI_READ = 0;
+        }
+
+
+
+
+
+
+
     }
 }

@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"63 mcc_generated_files/spi1.h
-[; ;mcc_generated_files/spi1.h: 63: void SPI1_Initialize(void);
+"64 mcc_generated_files/spi1.h
+[; ;mcc_generated_files/spi1.h: 64: void SPI1_Initialize(void);
 [v _SPI1_Initialize `(v ~T0 @X0 0 ef ]
 "178 mcc_generated_files/pin_manager.h
 [; ;mcc_generated_files/pin_manager.h: 178: void PIN_MANAGER_Initialize (void);
@@ -11,8 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "97
 [; ;mcc_generated_files/mcc.h: 97: void WDT_Initialize(void);
 [v _WDT_Initialize `(v ~T0 @X0 0 ef ]
-"117 mcc_generated_files/eusart1.h
-[; ;mcc_generated_files/eusart1.h: 117: void EUSART1_Initialize(void);
+"119 mcc_generated_files/eusart1.h
+[; ;mcc_generated_files/eusart1.h: 119: void EUSART1_Initialize(void);
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
 "5793 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5793: extern volatile unsigned char OSCEN __attribute__((address(0x891)));
@@ -572,6 +572,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9570
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 9570: __asm("TOSH equ 01FEFh");
 [; <" TOSH equ 01FEFh ;# ">
+"63 mcc_generated_files/spi1.h
+[; ;mcc_generated_files/spi1.h: 63: uint8_t SPIRead;
+[v _SPIRead `uc ~T0 @X0 1 e ]
+"91 mcc_generated_files/eusart1.h
+[; ;mcc_generated_files/eusart1.h: 91: char serialRead;
+[v _serialRead `uc ~T0 @X0 1 e ]
 "50 mcc_generated_files/mcc.c
 [; ;mcc_generated_files/mcc.c: 50: void SYSTEM_Initialize(void)
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]

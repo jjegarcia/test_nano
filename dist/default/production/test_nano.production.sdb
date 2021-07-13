@@ -3,8 +3,12 @@
 [d edition pro ]
 [d chip 16F15244 ]
 [d frameptr 6 ]
-"77 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+"79 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [e E355 . `uc
+SPI1_DEFAULT 0
+]
+"73 /Users/jgarc609/github/test_nano/main.c
+[e E3871 . `uc
 SPI1_DEFAULT 0
 ]
 "692 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
@@ -17,27 +21,31 @@ SPI1_DEFAULT 0
 [v _fputs fputs `(i  1 e 2 0 ]
 "5 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
 [v _printf printf `(i  1 e 2 0 ]
+"4 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/putchar.c
+[v _putchar putchar `(i  1 e 2 0 ]
 "10 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "5 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 "4 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"50 /Users/jgarc609/github/test_nano/main.c
+"54 /Users/jgarc609/github/test_nano/main.c
 [v _main main `(v  1 e 1 0 ]
-"83 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+"86 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
 [v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
-"140
+"139
 [v _EUSART1_Read EUSART1_Read `(uc  1 e 1 0 ]
-"162
+"158
 [v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
-"176
+"169
 [v _putch putch `(v  1 e 1 0 ]
-"182
+"173
 [v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 1 0 ]
-"206
+"195
 [v _EUSART1_RxDataHandler EUSART1_RxDataHandler `(v  1 e 1 0 ]
-"216
+"200
+[v _EUSART1_RxCustomHandler EUSART1_RxCustomHandler `(v  1 e 1 0 ]
+"215
 [v _EUSART1_DefaultFramingErrorHandler EUSART1_DefaultFramingErrorHandler `(v  1 e 1 0 ]
 "218
 [v _EUSART1_DefaultOverrunErrorHandler EUSART1_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
@@ -49,9 +57,11 @@ SPI1_DEFAULT 0
 [v _EUSART1_SetOverrunErrorHandler EUSART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
 "238
 [v _EUSART1_SetErrorHandler EUSART1_SetErrorHandler `(v  1 e 1 0 ]
-"243
+"242
 [v _EUSART1_SetRxInterruptHandler EUSART1_SetRxInterruptHandler `(v  1 e 1 0 ]
-"53 /Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+"246
+[v _receiveSerialCallback receiveSerialCallback `(v  1 e 1 0 ]
+"54 /Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 "50 /Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -59,44 +69,57 @@ SPI1_DEFAULT 0
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "70
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
-"57 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+"60 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"136
+"139
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
-"148
+"151
 [v _IOCCF2_ISR IOCCF2_ISR `(v  1 e 1 0 ]
-"163
+"166
 [v _IOCCF2_SetInterruptHandler IOCCF2_SetInterruptHandler `(v  1 e 1 0 ]
-"170
+"173
 [v _IOCCF2_DefaultInterruptHandler IOCCF2_DefaultInterruptHandler `(v  1 e 1 0 ]
-"62 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+"179
+[v _pushButtonCallback pushButtonCallback `(v  1 e 1 0 ]
+"187
+[v _debouncePushButton debouncePushButton `(v  1 e 1 0 ]
+"65 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
-"97
+"79
+[v _SPI1_Open SPI1_Open `(a  1 e 1 0 ]
+"96
 [v _SPI1_ExchangeByte SPI1_ExchangeByte `(uc  1 e 1 0 ]
+"129
+[v _SPI1_WriteByte SPI1_WriteByte `(v  1 e 1 0 ]
+"137
+[v _receiveSPICallback receiveSPICallback `(v  1 e 1 0 ]
 [s S22 . 1 `uc 1 SPI_READ 1 0 :1:0 
 `uc 1 DISPLAY_READING 1 0 :1:1 
-`uc 1 PUSH_BUTTON 1 0 :1:2 
-`uc 1 UART_RECEIVED 1 0 :1:3 
-`uc 1 TIMER_TICK 1 0 :1:4 
+`uc 1 BUTTON_PUSHED 1 0 :1:2 
+`uc 1 BUTTON_DEBOUNCED 1 0 :1:3 
+`uc 1 UART_RECEIVED 1 0 :1:4 
+`uc 1 TIMER_TICK 1 0 :1:5 
 ]
-"34 /Users/jgarc609/github/test_nano/main.h
-[u S28 . 1 `uc 1 byte 1 0 `S22 1 bits 1 0 ]
-[v _FLAGS FLAGS `S28  1 e 1 0 ]
-[s S61 . 1 `uc 1 INTEDG 1 0 :1:0 
+"35 /Users/jgarc609/github/test_nano/main.h
+[u S29 . 1 `uc 1 byte 1 0 `S22 1 bits 1 0 ]
+[v _FLAGS FLAGS `S29  1 e 1 0 ]
+"91 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.h
+[v _serialRead serialRead `uc  1 e 1 0 ]
+[s S62 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "427 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
-[u S66 . 1 `S61 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES66  1 e 1 @11 ]
+[u S67 . 1 `S62 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES67  1 e 1 @11 ]
 "598
 [v _TRISA TRISA `VEuc  1 e 1 @18 ]
 "648
 [v _TRISB TRISB `VEuc  1 e 1 @19 ]
 "687
 [v _TRISC TRISC `VEuc  1 e 1 @20 ]
-[s S563 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S672 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -106,11 +129,11 @@ SPI1_DEFAULT 0
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "704
-[u S572 . 1 `S563 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES572  1 e 1 @20 ]
+[u S681 . 1 `S672 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES681  1 e 1 @20 ]
 "749
 [v _LATA LATA `VEuc  1 e 1 @24 ]
-[s S708 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S332 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -118,8 +141,8 @@ SPI1_DEFAULT 0
 `uc 1 LATA5 1 0 :1:5 
 ]
 "764
-[u S715 . 1 `S708 1 . 1 0 ]
-[v _LATAbits LATAbits `VES715  1 e 1 @24 ]
+[u S339 . 1 `S332 1 . 1 0 ]
+[v _LATAbits LATAbits `VES339  1 e 1 @24 ]
 "799
 [v _LATB LATB `VEuc  1 e 1 @25 ]
 "838
@@ -134,7 +157,7 @@ SPI1_DEFAULT 0
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
 "1276
 [v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
-[s S450 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S520 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -144,11 +167,11 @@ SPI1_DEFAULT 0
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1293
-[u S459 . 1 `S450 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES459  1 e 1 @285 ]
+[u S529 . 1 `S520 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES529  1 e 1 @285 ]
 "1338
 [v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
-[s S428 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S498 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -158,8 +181,8 @@ SPI1_DEFAULT 0
 `uc 1 CSRC 1 0 :1:7 
 ]
 "1355
-[u S437 . 1 `S428 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES437  1 e 1 @286 ]
+[u S507 . 1 `S498 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES507  1 e 1 @286 ]
 "1400
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
 "1452
@@ -170,19 +193,19 @@ SPI1_DEFAULT 0
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @399 ]
 "2026
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @400 ]
-[s S584 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S693 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "2056
-[s S590 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S699 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S595 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S704 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
 `uc 1 SSPM31 1 0 :1:3 
@@ -191,19 +214,19 @@ SPI1_DEFAULT 0
 `uc 1 SSPOV1 1 0 :1:6 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S604 . 1 `S584 1 . 1 0 `S590 1 . 1 0 `S595 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES604  1 e 1 @400 ]
+[u S713 . 1 `S693 1 . 1 0 `S699 1 . 1 0 `S704 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES713  1 e 1 @400 ]
 "2146
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @401 ]
-[s S44 . 1 `uc 1 INTF 1 0 :1:0 
+[s S45 . 1 `uc 1 INTF 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIF 1 0 :1:4 
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "5102
-[u S49 . 1 `S44 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES49  1 e 1 @1804 ]
-[s S95 . 1 `uc 1 ADIF 1 0 :1:0 
+[u S50 . 1 `S45 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES50  1 e 1 @1804 ]
+[s S96 . 1 `uc 1 ADIF 1 0 :1:0 
 `uc 1 SSP1IF 1 0 :1:1 
 `uc 1 BCL1IF 1 0 :1:2 
 `uc 1 TX1IF 1 0 :1:3 
@@ -213,17 +236,17 @@ SPI1_DEFAULT 0
 `uc 1 CCP1IF 1 0 :1:7 
 ]
 "5139
-[u S104 . 1 `S95 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES104  1 e 1 @1805 ]
-[s S31 . 1 `uc 1 INTE 1 0 :1:0 
+[u S105 . 1 `S96 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES105  1 e 1 @1805 ]
+[s S32 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "5230
-[u S36 . 1 `S31 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES36  1 e 1 @1814 ]
-[s S74 . 1 `uc 1 ADIE 1 0 :1:0 
+[u S37 . 1 `S32 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES37  1 e 1 @1814 ]
+[s S75 . 1 `uc 1 ADIE 1 0 :1:0 
 `uc 1 SSP1IE 1 0 :1:1 
 `uc 1 BCL1IE 1 0 :1:2 
 `uc 1 TX1IE 1 0 :1:3 
@@ -233,8 +256,8 @@ SPI1_DEFAULT 0
 `uc 1 CCP1IE 1 0 :1:7 
 ]
 "5267
-[u S83 . 1 `S74 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES83  1 e 1 @1815 ]
+[u S84 . 1 `S75 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES84  1 e 1 @1815 ]
 "5345
 [v _WDTCON WDTCON `VEuc  1 e 1 @2060 ]
 "5793
@@ -285,7 +308,7 @@ SPI1_DEFAULT 0
 [v _SLRCONC SLRCONC `VEuc  1 e 1 @8017 ]
 "9039
 [v _INLVLC INLVLC `VEuc  1 e 1 @8018 ]
-[s S259 . 1 `uc 1 IOCCP0 1 0 :1:0 
+[s S270 . 1 `uc 1 IOCCP0 1 0 :1:0 
 `uc 1 IOCCP1 1 0 :1:1 
 `uc 1 IOCCP2 1 0 :1:2 
 `uc 1 IOCCP3 1 0 :1:3 
@@ -295,9 +318,9 @@ SPI1_DEFAULT 0
 `uc 1 IOCCP7 1 0 :1:7 
 ]
 "9118
-[u S268 . 1 `S259 1 . 1 0 ]
-[v _IOCCPbits IOCCPbits `VES268  1 e 1 @8019 ]
-[s S238 . 1 `uc 1 IOCCN0 1 0 :1:0 
+[u S279 . 1 `S270 1 . 1 0 ]
+[v _IOCCPbits IOCCPbits `VES279  1 e 1 @8019 ]
+[s S249 . 1 `uc 1 IOCCN0 1 0 :1:0 
 `uc 1 IOCCN1 1 0 :1:1 
 `uc 1 IOCCN2 1 0 :1:2 
 `uc 1 IOCCN3 1 0 :1:3 
@@ -307,9 +330,9 @@ SPI1_DEFAULT 0
 `uc 1 IOCCN7 1 0 :1:7 
 ]
 "9180
-[u S247 . 1 `S238 1 . 1 0 ]
-[v _IOCCNbits IOCCNbits `VES247  1 e 1 @8020 ]
-[s S217 . 1 `uc 1 IOCCF0 1 0 :1:0 
+[u S258 . 1 `S249 1 . 1 0 ]
+[v _IOCCNbits IOCCNbits `VES258  1 e 1 @8020 ]
+[s S228 . 1 `uc 1 IOCCF0 1 0 :1:0 
 `uc 1 IOCCF1 1 0 :1:1 
 `uc 1 IOCCF2 1 0 :1:2 
 `uc 1 IOCCF3 1 0 :1:3 
@@ -319,49 +342,70 @@ SPI1_DEFAULT 0
 `uc 1 IOCCF7 1 0 :1:7 
 ]
 "9242
-[u S226 . 1 `S217 1 . 1 0 ]
-[v _IOCCFbits IOCCFbits `VES226  1 e 1 @8021 ]
+[u S237 . 1 `S228 1 . 1 0 ]
+[v _IOCCFbits IOCCFbits `VES237  1 e 1 @8021 ]
 "55 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
 [v _flags flags `i  1 s 2 flags ]
 [v _prec prec `i  1 s 2 prec ]
 [v _width width `i  1 s 2 width ]
 "69
 [v _nout nout `i  1 s 2 nout ]
-"63 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+"66 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
 [v _eusart1RxHead eusart1RxHead `VEuc  1 e 1 0 ]
-"64
+"67
 [v _eusart1RxTail eusart1RxTail `VEuc  1 e 1 0 ]
-"65
+"68
 [v _eusart1RxBuffer eusart1RxBuffer `VE[8]uc  1 e 8 0 ]
-[s S347 . 1 `uc 1 perr 1 0 :1:0 
+[s S417 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
-"66
-[u S352 . 1 `S347 1 . 1 0 `uc 1 status 1 0 ]
-[v _eusart1RxStatusBuffer eusart1RxStatusBuffer `VE[8]S352  1 e 8 0 ]
-"67
+"69
+[u S422 . 1 `S417 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusart1RxStatusBuffer eusart1RxStatusBuffer `VE[8]S422  1 e 8 0 ]
+"70
 [v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
-"68
-[v _eusart1RxLastError eusart1RxLastError `VES352  1 e 1 0 ]
-"73
-[v _EUSART1_RxDefaultInterruptHandler EUSART1_RxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
-"75
-[v _EUSART1_FramingErrorHandler EUSART1_FramingErrorHandler `*.37(v  1 e 2 0 ]
+"71
+[v _eusart1RxLastError eusart1RxLastError `VES422  1 e 1 0 ]
 "76
+[v _EUSART1_RxDefaultInterruptHandler EUSART1_RxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
+"78
+[v _EUSART1_FramingErrorHandler EUSART1_FramingErrorHandler `*.37(v  1 e 2 0 ]
+"79
 [v _EUSART1_OverrunErrorHandler EUSART1_OverrunErrorHandler `*.37(v  1 e 2 0 ]
-"77
+"80
 [v _EUSART1_ErrorHandler EUSART1_ErrorHandler `*.37(v  1 e 2 0 ]
-"54 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+"57 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
 [v _IOCCF2_InterruptHandler IOCCF2_InterruptHandler `*.37(v  1 e 2 0 ]
-[s S551 . 4 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 `uc 1 operation 1 3 ]
-"58 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
-[v _spi1_configuration spi1_configuration `DC[1]S551  1 s 4 spi1_configuration ]
-"50 /Users/jgarc609/github/test_nano/main.c
+[s S660 . 4 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 `uc 1 operation 1 3 ]
+"61 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+[v _spi1_configuration spi1_configuration `DC[1]S660  1 s 4 spi1_configuration ]
+"54 /Users/jgarc609/github/test_nano/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"88
+"99
+} 0
+"246 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+[v _receiveSerialCallback receiveSerialCallback `(v  1 e 1 0 ]
+{
+"251
+} 0
+"4 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/putchar.c
+[v _putchar putchar `(i  1 e 2 0 ]
+{
+[v putchar@c c `i  1 p 2 0 ]
+"7
+} 0
+"137 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+[v _receiveSPICallback receiveSPICallback `(v  1 e 1 0 ]
+{
+"140
+} 0
+"179 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+[v _pushButtonCallback pushButtonCallback `(v  1 e 1 0 ]
+{
+"185
 } 0
 "5 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/printf.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -375,56 +419,70 @@ SPI1_DEFAULT 0
 "1390 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S1085 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.1S1085  1 a 1 wreg ]
+[s S1188 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.1S1188  1 a 1 wreg ]
 "1393
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 13 ]
 "1390
-[v vfprintf@fp fp `*.1S1085  1 a 1 wreg ]
+[v vfprintf@fp fp `*.1S1188  1 a 1 wreg ]
 [v vfprintf@fmt fmt `*.25DCuc  1 p 2 7 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 9 ]
 "1395
 "1390
-[v vfprintf@fp fp `*.1S1085  1 a 1 12 ]
+[v vfprintf@fp fp `*.1S1188  1 a 1 12 ]
 "1404
 } 0
 "692
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
-[s S1085 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.1S1085  1 a 1 wreg ]
-[v vfpfcnvrt@fp fp `*.1S1085  1 a 1 wreg ]
+[s S1188 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.1S1188  1 a 1 wreg ]
+[v vfpfcnvrt@fp fp `*.1S1188  1 a 1 wreg ]
 [v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 0 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 1 ]
 "702
 "692
-[v vfpfcnvrt@fp fp `*.1S1085  1 a 1 11 ]
+[v vfpfcnvrt@fp fp `*.1S1188  1 a 1 11 ]
 "1387
 } 0
 "8 /Applications/microchip/xc8/v2.32/pic/sources/c99/common/nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 3 ]
-[s S1068 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
-[v fputc@fp fp `*.1S1068  1 p 1 5 ]
+[s S1171 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputc@fp fp `*.1S1171  1 p 1 5 ]
 "24
 } 0
-"176 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+"169 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
 [v _putch putch `(v  1 e 1 0 ]
 {
 [v putch@txData txData `uc  1 a 1 wreg ]
 [v putch@txData txData `uc  1 a 1 wreg ]
-"178
 [v putch@txData txData `uc  1 a 1 2 ]
-"179
+"171
 } 0
-"162
+"158
 [v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
 {
 [v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
 [v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
 [v EUSART1_Write@txData txData `uc  1 a 1 1 ]
-"169
+"163
+} 0
+"129 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+[v _SPI1_WriteByte SPI1_WriteByte `(v  1 e 1 0 ]
+{
+[v SPI1_WriteByte@byte byte `uc  1 a 1 wreg ]
+[v SPI1_WriteByte@byte byte `uc  1 a 1 wreg ]
+[v SPI1_WriteByte@byte byte `uc  1 a 1 1 ]
+"131
+} 0
+"187 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+[v _debouncePushButton debouncePushButton `(v  1 e 1 0 ]
+{
+"188
+[v debouncePushButton@count count `i  1 s 2 count ]
+"196
 } 0
 "50 /Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -436,37 +494,37 @@ SPI1_DEFAULT 0
 {
 "74
 } 0
-"62 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+"65 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
 [v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
 {
-"75
+"77
 } 0
-"57 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+"60 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"134
+"137
 } 0
-"163
+"166
 [v _IOCCF2_SetInterruptHandler IOCCF2_SetInterruptHandler `(v  1 e 1 0 ]
 {
 [v IOCCF2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 1 ]
-"165
+"168
 } 0
 "60 /Users/jgarc609/github/test_nano/mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
 "68
 } 0
-"83 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+"86 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
 [v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
 {
-"119
+"121
 } 0
-"243
+"242
 [v _EUSART1_SetRxInterruptHandler EUSART1_SetRxInterruptHandler `(v  1 e 1 0 ]
 {
 [v EUSART1_SetRxInterruptHandler@interruptHandler interruptHandler `*.37(v  1 p 2 1 ]
-"245
+"244
 } 0
 "234
 [v _EUSART1_SetOverrunErrorHandler EUSART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
@@ -486,47 +544,61 @@ SPI1_DEFAULT 0
 [v EUSART1_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 1 ]
 "240
 } 0
-"53 /Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
+"79 /Users/jgarc609/github/test_nano/mcc_generated_files/spi1.c
+[v _SPI1_Open SPI1_Open `(a  1 e 1 0 ]
+{
+[v SPI1_Open@spi1UniqueConfiguration spi1UniqueConfiguration `E355  1 a 1 wreg ]
+[v SPI1_Open@spi1UniqueConfiguration spi1UniqueConfiguration `E355  1 a 1 wreg ]
+[v SPI1_Open@spi1UniqueConfiguration spi1UniqueConfiguration `E355  1 a 1 4 ]
+"90
+} 0
+"54 /Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"65
+"68
 } 0
-"136 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
+"139 /Users/jgarc609/github/test_nano/mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
 {
-"143
+"146
 } 0
-"148
+"151
 [v _IOCCF2_ISR IOCCF2_ISR `(v  1 e 1 0 ]
 {
-"158
+"161
 } 0
-"170
+"173
 [v _IOCCF2_DefaultInterruptHandler IOCCF2_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"173
+"177
 } 0
-"182 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
+"173 /Users/jgarc609/github/test_nano/mcc_generated_files/eusart1.c
 [v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 1 0 ]
 {
-"204
+"193
 } 0
 "218
 [v _EUSART1_DefaultOverrunErrorHandler EUSART1_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
 {
 "224
 } 0
-"216
+"215
 [v _EUSART1_DefaultFramingErrorHandler EUSART1_DefaultFramingErrorHandler `(v  1 e 1 0 ]
 {
+"216
 } 0
 "226
 [v _EUSART1_DefaultErrorHandler EUSART1_DefaultErrorHandler `(v  1 e 1 0 ]
 {
 "228
 } 0
-"206
+"195
 [v _EUSART1_RxDataHandler EUSART1_RxDataHandler `(v  1 e 1 0 ]
 {
-"214
+"198
+} 0
+"200
+[v _EUSART1_RxCustomHandler EUSART1_RxCustomHandler `(v  1 e 1 0 ]
+{
+"204
 } 0

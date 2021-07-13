@@ -88,6 +88,8 @@ typedef union {
  */
 extern volatile uint8_t eusart1TxBufferRemaining;
 extern volatile uint8_t eusart1RxCount;
+char serialRead;
+
 
 /**
   Section: EUSART1 APIs
@@ -464,6 +466,10 @@ void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
     None
 */
 void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
+
+void receiveSerialCallback(void);
+
+void EUSART1_RxCustomHandler(void);
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 

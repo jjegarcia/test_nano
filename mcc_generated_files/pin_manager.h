@@ -97,37 +97,37 @@
 #define RC0_SetAnalogMode()         do { ANSELCbits.ANSC0 = 1; } while(0)
 #define RC0_SetDigitalMode()        do { ANSELCbits.ANSC0 = 0; } while(0)
 
-// get/set RB7 procedures
-#define RB7_SetHigh()            do { LATBbits.LATB7 = 1; } while(0)
-#define RB7_SetLow()             do { LATBbits.LATB7 = 0; } while(0)
-#define RB7_Toggle()             do { LATBbits.LATB7 = ~LATBbits.LATB7; } while(0)
-#define RB7_GetValue()              PORTBbits.RB7
-#define RB7_SetDigitalInput()    do { TRISBbits.TRISB7 = 1; } while(0)
-#define RB7_SetDigitalOutput()   do { TRISBbits.TRISB7 = 0; } while(0)
-#define RB7_SetPullup()             do { WPUBbits.WPUB7 = 1; } while(0)
-#define RB7_ResetPullup()           do { WPUBbits.WPUB7 = 0; } while(0)
-#define RB7_SetAnalogMode()         do { ANSELBbits.ANSB7 = 1; } while(0)
-#define RB7_SetDigitalMode()        do { ANSELBbits.ANSB7 = 0; } while(0)
+// get/set RC1 procedures
+#define RC1_SetHigh()            do { LATCbits.LATC1 = 1; } while(0)
+#define RC1_SetLow()             do { LATCbits.LATC1 = 0; } while(0)
+#define RC1_Toggle()             do { LATCbits.LATC1 = ~LATCbits.LATC1; } while(0)
+#define RC1_GetValue()              PORTCbits.RC1
+#define RC1_SetDigitalInput()    do { TRISCbits.TRISC1 = 1; } while(0)
+#define RC1_SetDigitalOutput()   do { TRISCbits.TRISC1 = 0; } while(0)
+#define RC1_SetPullup()             do { WPUCbits.WPUC1 = 1; } while(0)
+#define RC1_ResetPullup()           do { WPUCbits.WPUC1 = 0; } while(0)
+#define RC1_SetAnalogMode()         do { ANSELCbits.ANSC1 = 1; } while(0)
+#define RC1_SetDigitalMode()        do { ANSELCbits.ANSC1 = 0; } while(0)
 
-// get/set SW0 aliases
-#define SW0_TRIS                 TRISCbits.TRISC2
-#define SW0_LAT                  LATCbits.LATC2
-#define SW0_PORT                 PORTCbits.RC2
-#define SW0_WPU                  WPUCbits.WPUC2
-#define SW0_OD                   ODCONCbits.ODCC2
-#define SW0_ANS                  ANSELCbits.ANSC2
-#define SW0_SetHigh()            do { LATCbits.LATC2 = 1; } while(0)
-#define SW0_SetLow()             do { LATCbits.LATC2 = 0; } while(0)
-#define SW0_Toggle()             do { LATCbits.LATC2 = ~LATCbits.LATC2; } while(0)
-#define SW0_GetValue()           PORTCbits.RC2
-#define SW0_SetDigitalInput()    do { TRISCbits.TRISC2 = 1; } while(0)
-#define SW0_SetDigitalOutput()   do { TRISCbits.TRISC2 = 0; } while(0)
-#define SW0_SetPullup()          do { WPUCbits.WPUC2 = 1; } while(0)
-#define SW0_ResetPullup()        do { WPUCbits.WPUC2 = 0; } while(0)
-#define SW0_SetPushPull()        do { ODCONCbits.ODCC2 = 0; } while(0)
-#define SW0_SetOpenDrain()       do { ODCONCbits.ODCC2 = 1; } while(0)
-#define SW0_SetAnalogMode()      do { ANSELCbits.ANSC2 = 1; } while(0)
-#define SW0_SetDigitalMode()     do { ANSELCbits.ANSC2 = 0; } while(0)
+// get/set SW aliases
+#define SW_TRIS                 TRISCbits.TRISC2
+#define SW_LAT                  LATCbits.LATC2
+#define SW_PORT                 PORTCbits.RC2
+#define SW_WPU                  WPUCbits.WPUC2
+#define SW_OD                   ODCONCbits.ODCC2
+#define SW_ANS                  ANSELCbits.ANSC2
+#define SW_SetHigh()            do { LATCbits.LATC2 = 1; } while(0)
+#define SW_SetLow()             do { LATCbits.LATC2 = 0; } while(0)
+#define SW_Toggle()             do { LATCbits.LATC2 = ~LATCbits.LATC2; } while(0)
+#define SW_GetValue()           PORTCbits.RC2
+#define SW_SetDigitalInput()    do { TRISCbits.TRISC2 = 1; } while(0)
+#define SW_SetDigitalOutput()   do { TRISCbits.TRISC2 = 0; } while(0)
+#define SW_SetPullup()          do { WPUCbits.WPUC2 = 1; } while(0)
+#define SW_ResetPullup()        do { WPUCbits.WPUC2 = 0; } while(0)
+#define SW_SetPushPull()        do { ODCONCbits.ODCC2 = 0; } while(0)
+#define SW_SetOpenDrain()       do { ODCONCbits.ODCC2 = 1; } while(0)
+#define SW_SetAnalogMode()      do { ANSELCbits.ANSC2 = 1; } while(0)
+#define SW_SetDigitalMode()     do { ANSELCbits.ANSC2 = 0; } while(0)
 
 // get/set RC4 procedures
 #define RC4_SetHigh()            do { LATCbits.LATC4 = 1; } while(0)
@@ -272,6 +272,8 @@ extern void (*IOCCF2_InterruptHandler)(void);
 
 */
 void IOCCF2_DefaultInterruptHandler(void);
+void pushButtonCallback(void);
+void debouncePushButton(void);
 
 
 

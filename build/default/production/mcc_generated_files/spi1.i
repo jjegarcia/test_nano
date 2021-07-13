@@ -166,8 +166,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 54 "mcc_generated_files/spi1.h" 2
-
+# 55 "mcc_generated_files/spi1.h" 2
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdint.h" 1 3
 # 22 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdint.h" 3
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 1 3
@@ -252,17 +251,16 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 145 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdint.h" 2 3
-# 55 "mcc_generated_files/spi1.h" 2
-
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
 # 56 "mcc_generated_files/spi1.h" 2
-
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
+# 57 "mcc_generated_files/spi1.h" 2
 
 
 typedef enum {
     SPI1_DEFAULT
 } spi1_modes_t;
 
+uint8_t SPIRead;
 void SPI1_Initialize(void);
 _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
 void SPI1_Close(void);
@@ -272,8 +270,8 @@ void SPI1_WriteBlock(void *block, size_t blockSize);
 void SPI1_ReadBlock(void *block, size_t blockSize);
 void SPI1_WriteByte(uint8_t byte);
 uint8_t SPI1_ReadByte(void);
-# 47 "mcc_generated_files/spi1.c" 2
-
+void receiveSPICallback(void);
+# 48 "mcc_generated_files/spi1.c" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6186,8 +6184,44 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
-# 48 "mcc_generated_files/spi1.c" 2
+# 49 "mcc_generated_files/spi1.c" 2
+# 1 "mcc_generated_files/../main.h" 1
+# 24 "mcc_generated_files/../main.h"
+union {
+    unsigned char byte;
 
+    struct {
+        unsigned SPI_READ : 1;
+        unsigned DISPLAY_READING : 1;
+        unsigned BUTTON_PUSHED : 1;
+        unsigned BUTTON_DEBOUNCED : 1;
+        unsigned UART_RECEIVED : 1;
+        unsigned TIMER_TICK : 1;
+    } bits;
+} FLAGS;
+
+char serialReadValue;
+char spiReadValue;
+char requestType;
+# 50 "mcc_generated_files/spi1.c" 2
+# 1 "mcc_generated_files/interrupt_manager.h" 1
+# 51 "mcc_generated_files/spi1.c" 2
+# 1 "mcc_generated_files/pin_manager.h" 1
+# 178 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+# 190 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_IOC(void);
+# 203 "mcc_generated_files/pin_manager.h"
+void IOCCF2_ISR(void);
+# 226 "mcc_generated_files/pin_manager.h"
+void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
+# 250 "mcc_generated_files/pin_manager.h"
+extern void (*IOCCF2_InterruptHandler)(void);
+# 274 "mcc_generated_files/pin_manager.h"
+void IOCCF2_DefaultInterruptHandler(void);
+void pushButtonCallback(void);
+void debouncePushButton(void);
+# 52 "mcc_generated_files/spi1.c" 2
 
 typedef struct {
     uint8_t con1;
@@ -6198,11 +6232,10 @@ typedef struct {
 
 
 static const spi1_configuration_t spi1_configuration[] = {
-    { 0x0, 0x40, 0x1, 0 }
+    { 0x22, 0x40, 0x0, 0}
 };
 
-void SPI1_Initialize(void)
-{
+void SPI1_Initialize(void) {
 
     SSP1CLKPPS = 22;
     SSP1DATPPS = 21;
@@ -6210,16 +6243,14 @@ void SPI1_Initialize(void)
     RC4PPS = 8;
 
     SSP1STAT = 0x40;
-    SSP1CON1 = 0x00;
-    SSP1ADD = 0x01;
+    SSP1CON1 = 0x22;
+    SSP1ADD = 0x00;
     TRISCbits.TRISC6 = 0;
-    SSP1CON1bits.SSPEN = 0;
+    SSP1CON1bits.SSPEN = 1;
 }
 
-_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration)
-{
-    if(!SSP1CON1bits.SSPEN)
-    {
+_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration) {
+    if (!SSP1CON1bits.SSPEN) {
         SSP1STAT = spi1_configuration[spi1UniqueConfiguration].stat;
         SSP1CON1 = spi1_configuration[spi1UniqueConfiguration].con1;
         SSP1CON2 = 0x00;
@@ -6231,56 +6262,52 @@ _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration)
     return 0;
 }
 
-void SPI1_Close(void)
-{
+void SPI1_Close(void) {
     SSP1CON1bits.SSPEN = 0;
 }
 
-uint8_t SPI1_ExchangeByte(uint8_t data)
-{
+uint8_t SPI1_ExchangeByte(uint8_t data) {
     SSP1BUF = data;
-    while(!PIR1bits.SSP1IF);
+    while (!PIR1bits.SSP1IF);
     PIR1bits.SSP1IF = 0;
     return SSP1BUF;
 }
 
-void SPI1_ExchangeBlock(void *block, size_t blockSize)
-{
+void SPI1_ExchangeBlock(void *block, size_t blockSize) {
     uint8_t *data = block;
-    while(blockSize--)
-    {
+    while (blockSize--) {
         SSP1BUF = *data;
-        while(!PIR1bits.SSP1IF);
+        while (!PIR1bits.SSP1IF);
         PIR1bits.SSP1IF = 0;
         *data++ = SSP1BUF;
     }
 }
 
 
-void SPI1_WriteBlock(void *block, size_t blockSize)
-{
+
+void SPI1_WriteBlock(void *block, size_t blockSize) {
     uint8_t *data = block;
-    while(blockSize--)
-    {
+    while (blockSize--) {
         SPI1_ExchangeByte(*data++);
     }
 }
 
-void SPI1_ReadBlock(void *block, size_t blockSize)
-{
+void SPI1_ReadBlock(void *block, size_t blockSize) {
     uint8_t *data = block;
-    while(blockSize--)
-    {
+    while (blockSize--) {
         *data++ = SPI1_ExchangeByte(0);
     }
 }
 
-void SPI1_WriteByte(uint8_t byte)
-{
+void SPI1_WriteByte(uint8_t byte) {
     SSP1BUF = byte;
 }
 
-uint8_t SPI1_ReadByte(void)
-{
+uint8_t SPI1_ReadByte(void) {
     return SSP1BUF;
+}
+
+void receiveSPICallback(void) {
+    printf("toggling");
+    do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
 }
