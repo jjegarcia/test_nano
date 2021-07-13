@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.31 and above or later
         MPLAB             :  MPLAB X 5.45
-*/
+ */
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -42,24 +42,25 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 #ifndef SPI1_H
 #define SPI1_H
 
 /**
   Section: Included Files
-*/
+ */
 
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 
 /* SPI interfaces */
-typedef enum { 
+typedef enum {
     SPI1_DEFAULT
 } spi1_modes_t;
 
+uint8_t SPIRead;
 void SPI1_Initialize(void);
 bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
 void SPI1_Close(void);
@@ -69,5 +70,6 @@ void SPI1_WriteBlock(void *block, size_t blockSize);
 void SPI1_ReadBlock(void *block, size_t blockSize);
 void SPI1_WriteByte(uint8_t byte);
 uint8_t SPI1_ReadByte(void);
+void receiveSPICallback(void);
 
 #endif //SPI1_H

@@ -21,7 +21,7 @@
         MPLAB             :  MPLAB X 5.45
 
     Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
-*/
+ */
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -44,9 +44,12 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 #include "pin_manager.h"
+#include "../main.h"
+#include "eusart1.h"
+#include "spi1.h"
 
 
 
@@ -58,49 +61,49 @@ void PIN_MANAGER_Initialize(void)
 {
     /**
     LATx registers
-    */
+     */
     LATA = 0x00;
     LATB = 0x00;
     LATC = 0x00;
 
     /**
     TRISx registers
-    */
+     */
     TRISA = 0x3B;
     TRISB = 0xF0;
     TRISC = 0xAE;
 
     /**
     ANSELx registers
-    */
-    ANSELC = 0x89;
+     */
+    ANSELC = 0x88;
     ANSELB = 0x70;
     ANSELA = 0x33;
 
     /**
     WPUx registers
-    */
+     */
     WPUB = 0x20;
     WPUA = 0x00;
     WPUC = 0x04;
 
     /**
     ODx registers
-    */
+     */
     ODCONA = 0x00;
     ODCONB = 0x00;
     ODCONC = 0x00;
 
     /**
     SLRCONx registers
-    */
+     */
     SLRCONA = 0x37;
     SLRCONB = 0xF0;
     SLRCONC = 0xFF;
 
     /**
     INLVLx registers
-    */
+     */
     INLVLA = 0x3F;
     INLVLB = 0xF0;
     INLVLC = 0xFF;
@@ -108,7 +111,7 @@ void PIN_MANAGER_Initialize(void)
 
     /**
     IOCx registers 
-    */
+     */
     //interrupt on change for group IOCCF - flag
     IOCCFbits.IOCCF2 = 0;
     //interrupt on change for group IOCCN - negative
@@ -120,11 +123,11 @@ void PIN_MANAGER_Initialize(void)
 
     // register default IOC callback functions at runtime; use these methods to register a custom function
     IOCCF2_SetInterruptHandler(IOCCF2_DefaultInterruptHandler);
-   
+
     // Enable IOCI interrupt 
-    PIE0bits.IOCIE = 1; 
-    
-	
+    PIE0bits.IOCIE = 1;
+
+
     RC0PPS = 0x05;   //RC0->EUSART1:TX1;    
     RX1PPS = 0x11;   //RC1->EUSART1:RX1;    
     SSP1CLKPPS = 0x16;   //RC6->MSSP1:SCK1;    
@@ -132,19 +135,19 @@ void PIN_MANAGER_Initialize(void)
     RC6PPS = 0x07;   //RC6->MSSP1:SCK1;    
     SSP1DATPPS = 0x15;   //RC5->MSSP1:SDI1;    
 }
-  
+
 void PIN_MANAGER_IOC(void)
 {   
-	// interrupt on change for pin IOCCF2
+    // interrupt on change for pin IOCCF2
     if(IOCCFbits.IOCCF2 == 1)
     {
-        IOCCF2_ISR();  
-    }	
+        IOCCF2_ISR();
+    }
 }
 
 /**
    IOCCF2 Interrupt Service Routine
-*/
+ */
 void IOCCF2_ISR(void) {
 
     // Add custom IOCCF2 code
@@ -159,19 +162,38 @@ void IOCCF2_ISR(void) {
 
 /**
   Allows selecting an interrupt handler for IOCCF2 at application runtime
-*/
+ */
 void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)){
     IOCCF2_InterruptHandler = InterruptHandler;
 }
 
 /**
   Default interrupt handler for IOCCF2
-*/
+ */
 void IOCCF2_DefaultInterruptHandler(void){
     // add your IOCCF2 interrupt custom code
     // or set custom function using IOCCF2_SetInterruptHandler()
+    FLAGS.bits.BUTTON_PUSHED = 1;
 }
 
+void pushButtonCallback(void) {
+    if (FLAGS.bits.BUTTON_DEBOUNCED == 1) {
+        SPI1_WriteByte('u');
+        printf("toggling");
+        LED0_Toggle();
+    }
+}
+
+void debouncePushButton(void) {
+    static int count = 255;
+    if (FLAGS.bits.BUTTON_PUSHED) {
+        count--;
+        if (count == 0) {
+            FLAGS.bits.BUTTON_DEBOUNCED = 1;
+            count = 255;
+        }
+    }
+}
 /**
  End of File
-*/
+ */

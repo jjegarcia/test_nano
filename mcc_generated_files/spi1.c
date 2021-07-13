@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.31 and above or later
         MPLAB             :  MPLAB X 5.45
-*/
+ */
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -42,21 +42,24 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 #include "spi1.h"
 #include <xc.h>
+#include "../main.h"
+#include "interrupt_manager.h"
+#include "pin_manager.h"
 
-typedef struct { 
-    uint8_t con1; 
+typedef struct {
+    uint8_t con1;
     uint8_t stat;
     uint8_t add;
     uint8_t operation;
 } spi1_configuration_t;
 
 //con1 == SSPxCON1, stat == SSPxSTAT, add == SSPxADD, operation == Master/Slave
-static const spi1_configuration_t spi1_configuration[] = {   
-    { 0x0, 0x40, 0x1, 0 }
+static const spi1_configuration_t spi1_configuration[] = {
+    { 0x22, 0x0, 0x0, 0 }
 };
 
 void SPI1_Initialize(void)
@@ -67,9 +70,9 @@ void SPI1_Initialize(void)
     RC6PPS    = 7;
     RC4PPS    = 8;
     //SPI setup
-    SSP1STAT = 0x40;
-    SSP1CON1 = 0x00;
-    SSP1ADD = 0x01;
+    SSP1STAT = 0x00;
+    SSP1CON1 = 0x22;
+    SSP1ADD = 0x00;
     TRISCbits.TRISC6 = 0;
     SSP1CON1bits.SSPEN = 0;
 }
@@ -141,4 +144,9 @@ void SPI1_WriteByte(uint8_t byte)
 uint8_t SPI1_ReadByte(void)
 {
     return SSP1BUF;
+}
+
+void receiveSPICallback(void) {
+    printf("toggling");
+    LED0_Toggle();
 }

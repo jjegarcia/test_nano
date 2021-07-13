@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "27 ./main.h
 [; ;./main.h: 27:     struct {
-[s S512 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S512 . SPI_READ DISPLAY_READING PUSH_BUTTON UART_RECEIVED TIMER_TICK ]
+[s S512 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S512 . SPI_READ DISPLAY_READING BUTTON_PUSHED BUTTON_DEBOUNCED UART_RECEIVED TIMER_TICK ]
 "24
 [; ;./main.h: 24: union {
 [u S511 `uc 1 `S512 1 ]
@@ -22,26 +22,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "427
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 427: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
 [v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
-"111 /Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"755 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 755:     struct {
-[s S45 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S45 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 ]
-"754
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 754: typedef union {
-[u S44 `S45 1 ]
-[n S44 . . ]
-"764
-[; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 764: extern volatile LATAbits_t LATAbits __attribute__((address(0x018)));
-[v _LATAbits `VS44 ~T0 @X0 0 e@24 ]
-"348 ./mcc_generated_files/eusart1.h
-[; ;./mcc_generated_files/eusart1.h: 348: void EUSART1_Write(uint8_t txData);
-[v _EUSART1_Write `(v ~T0 @X0 0 ef1`uc ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
-"12 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
-[p i __delay ]
+"73 main.c
+[; ;main.c: 73:     SPI1_Open(SPI1_DEFAULT);
+[c E3871 0 .. ]
+[n E3871 . SPI1_DEFAULT  ]
+"65 ./mcc_generated_files/spi1.h
+[; ;./mcc_generated_files/spi1.h: 65: _Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
+[v _SPI1_Open `(a ~T0 @X0 0 ef1`E3871 ]
+"276 ./mcc_generated_files/pin_manager.h
+[; ;./mcc_generated_files/pin_manager.h: 276: void debouncePushButton(void);
+[v _debouncePushButton `(v ~T0 @X0 0 ef ]
+"275
+[; ;./mcc_generated_files/pin_manager.h: 275: void pushButtonCallback(void);
+[v _pushButtonCallback `(v ~T0 @X0 0 ef ]
+"470 ./mcc_generated_files/eusart1.h
+[; ;./mcc_generated_files/eusart1.h: 470: void receiveSerialCallback(void);
+[v _receiveSerialCallback `(v ~T0 @X0 0 ef ]
+"73 ./mcc_generated_files/spi1.h
+[; ;./mcc_generated_files/spi1.h: 73: void receiveSPICallback(void);
+[v _receiveSPICallback `(v ~T0 @X0 0 ef ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -588,113 +587,110 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9570
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 9570: __asm("TOSH equ 01FEFh");
 [; <" TOSH equ 01FEFh ;# ">
-"34 ./main.h
-[; ;./main.h: 34: } FLAGS;
+"63 ./mcc_generated_files/spi1.h
+[; ;./mcc_generated_files/spi1.h: 63: uint8_t SPIRead;
+[v _SPIRead `uc ~T0 @X0 1 e ]
+"91 ./mcc_generated_files/eusart1.h
+[; ;./mcc_generated_files/eusart1.h: 91: char serialRead;
+[v _serialRead `uc ~T0 @X0 1 e ]
+"35 ./main.h
+[; ;./main.h: 35: } FLAGS;
 [v _FLAGS `S511 ~T0 @X0 1 e ]
-"36
-[; ;./main.h: 36: char serialReadValue;
-[v _serialReadValue `uc ~T0 @X0 1 e ]
 "37
-[; ;./main.h: 37: char spiReadValue;
-[v _spiReadValue `uc ~T0 @X0 1 e ]
+[; ;./main.h: 37: char serialReadValue;
+[v _serialReadValue `uc ~T0 @X0 1 e ]
 "38
-[; ;./main.h: 38: char requestType;
+[; ;./main.h: 38: char spiReadValue;
+[v _spiReadValue `uc ~T0 @X0 1 e ]
+"39
+[; ;./main.h: 39: char requestType;
 [v _requestType `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"50 main.c
-[; ;main.c: 50: void main(void) {
+"54 main.c
+[; ;main.c: 54: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"52
-[; ;main.c: 52:     SYSTEM_Initialize();
+"56
+[; ;main.c: 56:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"58
-[; ;main.c: 58:     (INTCONbits.GIE = 1);
+"62
+[; ;main.c: 62:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"61
-[; ;main.c: 61:     (INTCONbits.PEIE = 1);
+"65
+[; ;main.c: 65:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
-"68
-[; ;main.c: 68:     printf("hey");
-[e ( _printf :s 1C ]
-"69
-[; ;main.c: 69:     while (1) {
-[e :U 515 ]
-{
-"70
-[; ;main.c: 70:         if (FLAGS.bits.PUSH_BUTTON) {
-[e $ ! != -> . . _FLAGS 1 2 `i -> 0 `i 517  ]
-{
-"71
-[; ;main.c: 71:             FLAGS.bits.PUSH_BUTTON = 0;
-[e = . . _FLAGS 1 2 -> -> 0 `i `uc ]
-"72
-[; ;main.c: 72:             printf("toggling");
-[e ( _printf :s 2C ]
 "73
-[; ;main.c: 73:              do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
+[; ;main.c: 73:     SPI1_Open(SPI1_DEFAULT);
+[e ( _SPI1_Open (1 . `E3871 0 ]
+"75
+[; ;main.c: 75:     while (1) {
 [e :U 520 ]
 {
-[e = . . _LATAbits 0 2 -> ~ -> . . _LATAbits 0 2 `i `uc ]
-}
-[e :U 519 ]
-"74
-[; ;main.c: 74:             EUSART1_Write(0x4F);
-[e ( _EUSART1_Write (1 -> -> 79 `i `uc ]
-"75
-[; ;main.c: 75:              EUSART1_Write(0x4F);
-[e ( _EUSART1_Write (1 -> -> 79 `i `uc ]
+"76
+[; ;main.c: 76:         if (FLAGS.bits.BUTTON_PUSHED) {
+[e $ ! != -> . . _FLAGS 1 2 `i -> 0 `i 522  ]
+{
 "77
-[; ;main.c: 77:         }
-}
-[e :U 517 ]
+[; ;main.c: 77:             debouncePushButton();
+[e ( _debouncePushButton ..  ]
 "78
-[; ;main.c: 78:         if (FLAGS.bits.UART_RECEIVED) {
-[e $ ! != -> . . _FLAGS 1 3 `i -> 0 `i 521  ]
+[; ;main.c: 78:             if (FLAGS.bits.BUTTON_DEBOUNCED) {
+[e $ ! != -> . . _FLAGS 1 3 `i -> 0 `i 523  ]
 {
 "79
-[; ;main.c: 79:             FLAGS.bits.UART_RECEIVED = 0;
-[e = . . _FLAGS 1 3 -> -> 0 `i `uc ]
+[; ;main.c: 79:                 pushButtonCallback();
+[e ( _pushButtonCallback ..  ]
 "80
-[; ;main.c: 80:             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
-[e :U 524 ]
-{
-[e = . . _LATAbits 0 2 -> ~ -> . . _LATAbits 0 2 `i `uc ]
+[; ;main.c: 80:                 FLAGS.bits.BUTTON_PUSHED = 0;
+[e = . . _FLAGS 1 2 -> -> 0 `i `uc ]
+"81
+[; ;main.c: 81:                 FLAGS.bits.BUTTON_PUSHED = 0;
+[e = . . _FLAGS 1 2 -> -> 0 `i `uc ]
+"82
+[; ;main.c: 82:             }
 }
 [e :U 523 ]
-"81
-[; ;main.c: 81:             printf("Serial Rx");
-[e ( _printf :s 3C ]
 "83
-[; ;main.c: 83:         } else {
+[; ;main.c: 83:         }
 }
-[e $U 525  ]
-[e :U 521 ]
-{
+[e :U 522 ]
 "84
-[; ;main.c: 84:             printf("looping");
-[e ( _printf :s 4C ]
+[; ;main.c: 84:         if (FLAGS.bits.UART_RECEIVED) {
+[e $ ! != -> . . _FLAGS 1 4 `i -> 0 `i 524  ]
+{
 "85
-[; ;main.c: 85:             _delay((unsigned long)((1000)*(1000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+[; ;main.c: 85:             receiveSerialCallback();
+[e ( _receiveSerialCallback ..  ]
 "86
-[; ;main.c: 86:         }
+[; ;main.c: 86:             FLAGS.bits.UART_RECEIVED = 0;
+[e = . . _FLAGS 1 4 -> -> 0 `i `uc ]
+"87
+[; ;main.c: 87:         }
+}
+[e :U 524 ]
+"88
+[; ;main.c: 88:         if (FLAGS.bits.SPI_READ) {
+[e $ ! != -> . . _FLAGS 1 0 `i -> 0 `i 525  ]
+{
+"89
+[; ;main.c: 89:             receiveSPICallback();
+[e ( _receiveSPICallback ..  ]
+"90
+[; ;main.c: 90:             FLAGS.bits.SPI_READ = 0;
+[e = . . _FLAGS 1 0 -> -> 0 `i `uc ]
+"91
+[; ;main.c: 91:         }
 }
 [e :U 525 ]
-"87
-[; ;main.c: 87:     }
+"92
+[; ;main.c: 92:     }
 }
-[e :U 514 ]
-[e $U 515  ]
-[e :U 516 ]
-"88
-[; ;main.c: 88: }
-[e :UE 513 ]
+[e :U 519 ]
+[e $U 520  ]
+[e :U 521 ]
+"93
+[; ;main.c: 93: }
+[e :UE 518 ]
 }
-[p f _printf 8388608 ]
-[a 1C 104 101 121 0 ]
-[a 3C 83 101 114 105 97 108 32 82 120 0 ]
-[a 4C 108 111 111 112 105 110 103 0 ]
-[a 2C 116 111 103 103 108 105 110 103 0 ]

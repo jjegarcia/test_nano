@@ -6037,7 +6037,244 @@ void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
 extern void (*IOCCF2_InterruptHandler)(void);
 # 274 "mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
+void pushButtonCallback(void);
+void debouncePushButton(void);
 # 50 "mcc_generated_files/pin_manager.c" 2
+# 1 "mcc_generated_files/../main.h" 1
+# 24 "mcc_generated_files/../main.h"
+union {
+    unsigned char byte;
+
+    struct {
+        unsigned SPI_READ : 1;
+        unsigned DISPLAY_READING : 1;
+        unsigned BUTTON_PUSHED : 1;
+        unsigned BUTTON_DEBOUNCED : 1;
+        unsigned UART_RECEIVED : 1;
+        unsigned TIMER_TICK : 1;
+    } bits;
+} FLAGS;
+
+char serialReadValue;
+char spiReadValue;
+char requestType;
+# 51 "mcc_generated_files/pin_manager.c" 2
+# 1 "mcc_generated_files/eusart1.h" 1
+# 55 "mcc_generated_files/eusart1.h"
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
+# 56 "mcc_generated_files/eusart1.h" 2
+
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 1 3
+# 24 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 3
+# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 1 3
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 137 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef long ssize_t;
+# 246 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 2 3
+# 52 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 58 "mcc_generated_files/eusart1.h" 2
+# 76 "mcc_generated_files/eusart1.h"
+typedef union {
+    struct {
+        unsigned perr : 1;
+        unsigned ferr : 1;
+        unsigned oerr : 1;
+        unsigned reserved : 5;
+    };
+    uint8_t status;
+}eusart1_status_t;
+
+
+
+
+extern volatile uint8_t eusart1TxBufferRemaining;
+extern volatile uint8_t eusart1RxCount;
+char serialRead;
+
+
+
+
+
+extern void (*EUSART1_RxDefaultInterruptHandler)(void);
+# 119 "mcc_generated_files/eusart1.h"
+void EUSART1_Initialize(void);
+# 167 "mcc_generated_files/eusart1.h"
+_Bool EUSART1_is_tx_ready(void);
+# 215 "mcc_generated_files/eusart1.h"
+_Bool EUSART1_is_rx_ready(void);
+# 262 "mcc_generated_files/eusart1.h"
+_Bool EUSART1_is_tx_done(void);
+# 310 "mcc_generated_files/eusart1.h"
+eusart1_status_t EUSART1_get_last_status(void);
+# 330 "mcc_generated_files/eusart1.h"
+uint8_t EUSART1_Read(void);
+# 350 "mcc_generated_files/eusart1.h"
+void EUSART1_Write(uint8_t txData);
+# 372 "mcc_generated_files/eusart1.h"
+void EUSART1_Receive_ISR(void);
+# 393 "mcc_generated_files/eusart1.h"
+void EUSART1_RxDataHandler(void);
+# 411 "mcc_generated_files/eusart1.h"
+void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
+# 429 "mcc_generated_files/eusart1.h"
+void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
+# 447 "mcc_generated_files/eusart1.h"
+void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
+# 468 "mcc_generated_files/eusart1.h"
+void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
+
+void receiveSerialCallback(void);
+
+void EUSART1_RxCustomHandler(void);
+# 52 "mcc_generated_files/pin_manager.c" 2
+# 1 "mcc_generated_files/spi1.h" 1
+# 59 "mcc_generated_files/spi1.h"
+typedef enum {
+    SPI1_DEFAULT
+} spi1_modes_t;
+
+uint8_t SPIRead;
+void SPI1_Initialize(void);
+_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
+void SPI1_Close(void);
+uint8_t SPI1_ExchangeByte(uint8_t data);
+void SPI1_ExchangeBlock(void *block, size_t blockSize);
+void SPI1_WriteBlock(void *block, size_t blockSize);
+void SPI1_ReadBlock(void *block, size_t blockSize);
+void SPI1_WriteByte(uint8_t byte);
+uint8_t SPI1_ReadByte(void);
+void receiveSPICallback(void);
+# 53 "mcc_generated_files/pin_manager.c" 2
 
 
 
@@ -6064,7 +6301,7 @@ void PIN_MANAGER_Initialize(void)
 
 
 
-    ANSELC = 0x89;
+    ANSELC = 0x88;
     ANSELB = 0x70;
     ANSELA = 0x33;
 
@@ -6161,4 +6398,24 @@ void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void)){
 void IOCCF2_DefaultInterruptHandler(void){
 
 
+    FLAGS.bits.BUTTON_PUSHED = 1;
+}
+
+void pushButtonCallback(void) {
+    if (FLAGS.bits.BUTTON_DEBOUNCED == 1) {
+        SPI1_WriteByte('u');
+        printf("toggling");
+        do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
+    }
+}
+
+void debouncePushButton(void) {
+    static int count = 255;
+    if (FLAGS.bits.BUTTON_PUSHED) {
+        count--;
+        if (count == 0) {
+            FLAGS.bits.BUTTON_DEBOUNCED = 1;
+            count = 255;
+        }
+    }
 }
