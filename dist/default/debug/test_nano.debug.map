@@ -3,10 +3,10 @@ Microchip MPLAB XC8 Compiler V2.32
 Linker command line:
 
 -W-3 --edf=/Applications/microchip/xc8/v2.32/pic/dat/en_msgs.txt -cn \
-  -h+dist/default/production/test_nano.production.sym \
-  --cmf=dist/default/production/test_nano.production.cmf -z -Q16F15244 \
-  -o/tmp/xc5BLSNpG --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/test_nano.production.map -E1 -ver=XC8 Compiler \
+  -h+dist/default/debug/test_nano.debug.sym \
+  --cmf=dist/default/debug/test_nano.debug.cmf -z -Q16F15244 \
+  -o/tmp/xcgCzYKke --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/debug/test_nano.debug.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=02070h-021EFh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -39,8 +39,7 @@ Linker command line:
   -ACONFIG=08007h-0800Bh -DCONFIG=2 -AIDLOC=08000h-08003h -DIDLOC=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k /tmp/xcBvG94vN.o \
-  dist/default/production/test_nano.production.o 
+  -pfunctab=ENTRY -k /tmp/xcte2zEPy.o dist/default/debug/test_nano.debug.o 
 
 Object code version is 3.11
 
@@ -49,11 +48,11 @@ Machine type is 16F15244
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcBvG94vN.o
+/tmp/xcte2zEPy.o
                 end_init                             27       27        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        5        0       4
-dist/default/production/test_nano.production.o
+dist/default/debug/test_nano.debug.o
                 cinit                                29       29       1D        8       0
                 intentry                              4        4       23        8       0
                 config                             8007     8007        5        0       4

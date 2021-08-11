@@ -611,8 +611,8 @@ text26 642 6CB CODE 642 0
 stringtext1 6CC 6D3 STRCODE 6CC 0
 text30 6D4 6FD CODE 6D4 0
 %locals
-dist/default/production/test_nano.production.o
-/tmp/xcohsfWJZ.s
+dist/default/debug/test_nano.debug.o
+/tmp/xcjb6FiQL.s
 2540 29 0 CODE 0
 2543 29 0 CODE 0
 2617 29 0 CODE 0
