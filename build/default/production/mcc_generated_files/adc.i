@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "mcc_generated_files/adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 44 "main.c"
-# 1 "./mcc_generated_files/mcc.h" 1
-# 49 "./mcc_generated_files/mcc.h"
+# 1 "mcc_generated_files/adc.c" 2
+# 51 "mcc_generated_files/adc.c"
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -6024,445 +6022,161 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
-# 50 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/device_config.h" 1
-# 51 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/pin_manager.h" 1
-# 178 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 190 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 203 "./mcc_generated_files/pin_manager.h"
-void IOCCF2_ISR(void);
-# 226 "./mcc_generated_files/pin_manager.h"
-void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 250 "./mcc_generated_files/pin_manager.h"
-extern void (*IOCCF2_InterruptHandler)(void);
-# 274 "./mcc_generated_files/pin_manager.h"
-void IOCCF2_DefaultInterruptHandler(void);
-void pushButtonCallback(void);
-void debouncePushButton(void);
-# 52 "./mcc_generated_files/mcc.h" 2
-
+# 52 "mcc_generated_files/adc.c" 2
+# 1 "mcc_generated_files/adc.h" 1
+# 56 "mcc_generated_files/adc.h"
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
-# 54 "./mcc_generated_files/mcc.h" 2
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/conio.h" 1 3
+# 57 "mcc_generated_files/adc.h" 2
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
 
 
 
 
+typedef struct
+{
+    adc_result_t adcResult1;
+    adc_result_t adcResult2;
+} adc_sync_double_result_t;
+# 95 "mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_ANA4 = 0x4,
+    channel_AVSS = 0x1B,
+    channel_FVR_BUF1 = 0x1E
+} adc_channel_t;
+# 135 "mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 165 "mcc_generated_files/adc.h"
+void ADC_SelectChannel(adc_channel_t channel);
+# 192 "mcc_generated_files/adc.h"
+void ADC_StartConversion(void);
+# 224 "mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 257 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 287 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 315 "mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 331 "mcc_generated_files/adc.h"
+void ADC_ISR(void);
+# 349 "mcc_generated_files/adc.h"
+ void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+# 367 "mcc_generated_files/adc.h"
+extern void (*ADC_InterruptHandler)(void);
+# 385 "mcc_generated_files/adc.h"
+void ADC_DefaultInterruptHandler(void);
+# 53 "mcc_generated_files/adc.c" 2
+# 1 "mcc_generated_files/device_config.h" 1
+# 54 "mcc_generated_files/adc.c" 2
 
 
 
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/errno.h" 1 3
-# 12 "/Applications/microchip/xc8/v2.32/pic/include/c99/errno.h" 3
-extern int errno;
-# 9 "/Applications/microchip/xc8/v2.32/pic/include/c99/conio.h" 2 3
-# 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/__null.h" 1 3
-# 10 "/Applications/microchip/xc8/v2.32/pic/include/c99/conio.h" 2 3
 
 
-extern void init_uart(void);
 
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
 
-extern __bit kbhit(void);
+void (*ADC_InterruptHandler)(void);
 
 
 
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 55 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/interrupt_manager.h" 1
-# 56 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/spi1.h" 1
-# 54 "./mcc_generated_files/spi1.h"
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 1 3
-# 24 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 3
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 1 3
 
 
+void ADC_Initialize(void)
+{
 
 
 
-typedef void * va_list[1];
+    ADCON1 = 0x00;
 
 
+    ADRESL = 0x00;
 
 
-typedef void * __isoc_va_list[1];
-# 137 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 2 3
-# 52 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
+    ADRESH = 0x00;
 
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
 
+    ADCON0 = 0x01;
 
 
 
 
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
 
-int remove(const char *);
-int rename(const char *, const char *);
 
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
+}
 
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
+void ADC_SelectChannel(adc_channel_t channel)
+{
 
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
+    ADCON0bits.CHS = channel;
 
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+    ADCON0bits.ADON = 1;
+}
 
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
+void ADC_StartConversion(void)
+{
 
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
+    ADCON0bits.GO_nDONE = 1;
+}
 
-char *fgets(char *restrict, int, FILE *restrict);
 
-char *gets(char *);
+_Bool ADC_IsConversionDone(void)
+{
 
+   return ((_Bool)(!ADCON0bits.GO_nDONE));
+}
 
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
+adc_result_t ADC_GetConversionResult(void)
+{
 
-#pragma printf_check(printf) const
-#pragma printf_check(vprintf) const
-#pragma printf_check(sprintf) const
-#pragma printf_check(snprintf) const
-#pragma printf_check(vsprintf) const
-#pragma printf_check(vsnprintf) const
+    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+}
 
-int printf(const char *restrict, ...);
-int fprintf(FILE *restrict, const char *restrict, ...);
-int sprintf(char *restrict, const char *restrict, ...);
-int snprintf(char *restrict, size_t, const char *restrict, ...);
+adc_result_t ADC_GetConversion(adc_channel_t channel)
+{
 
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+    ADCON0bits.CHS = channel;
 
-int scanf(const char *restrict, ...);
-int fscanf(FILE *restrict, const char *restrict, ...);
-int sscanf(const char *restrict, const char *restrict, ...);
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
 
-void perror(const char *);
+    ADCON0bits.ADON = 1;
 
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
 
-char *tmpnam(char *);
-FILE *tmpfile(void);
+    _delay((unsigned long)((5)*(1000000/4000000.0)));
 
 
+    ADCON0bits.GO_nDONE = 1;
 
 
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 55 "./mcc_generated_files/spi1.h" 2
-
-
-
-
-typedef enum {
-    SPI1_DEFAULT
-} spi1_modes_t;
-
-uint8_t SPIRead;
-void SPI1_Initialize(void);
-_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
-void SPI1_Close(void);
-uint8_t SPI1_ExchangeByte(uint8_t data);
-void SPI1_ExchangeBlock(void *block, size_t blockSize);
-void SPI1_WriteBlock(void *block, size_t blockSize);
-void SPI1_ReadBlock(void *block, size_t blockSize);
-void SPI1_WriteByte(uint8_t byte);
-uint8_t SPI1_ReadByte(void);
-void receiveSPICallback(void);
-# 57 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/eusart1.h" 1
-# 76 "./mcc_generated_files/eusart1.h"
-typedef union {
-    struct {
-        unsigned perr : 1;
-        unsigned ferr : 1;
-        unsigned oerr : 1;
-        unsigned reserved : 5;
-    };
-    uint8_t status;
-}eusart1_status_t;
-
-
-
-
-extern volatile uint8_t eusart1TxBufferRemaining;
-extern volatile uint8_t eusart1RxCount;
-char serialRead;
-
-
-
-
-
-extern void (*EUSART1_RxDefaultInterruptHandler)(void);
-# 119 "./mcc_generated_files/eusart1.h"
-void EUSART1_Initialize(void);
-# 167 "./mcc_generated_files/eusart1.h"
-_Bool EUSART1_is_tx_ready(void);
-# 215 "./mcc_generated_files/eusart1.h"
-_Bool EUSART1_is_rx_ready(void);
-# 262 "./mcc_generated_files/eusart1.h"
-_Bool EUSART1_is_tx_done(void);
-# 310 "./mcc_generated_files/eusart1.h"
-eusart1_status_t EUSART1_get_last_status(void);
-# 330 "./mcc_generated_files/eusart1.h"
-uint8_t EUSART1_Read(void);
-# 350 "./mcc_generated_files/eusart1.h"
-void EUSART1_Write(uint8_t txData);
-# 372 "./mcc_generated_files/eusart1.h"
-void EUSART1_Receive_ISR(void);
-# 393 "./mcc_generated_files/eusart1.h"
-void EUSART1_RxDataHandler(void);
-# 411 "./mcc_generated_files/eusart1.h"
-void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 429 "./mcc_generated_files/eusart1.h"
-void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 447 "./mcc_generated_files/eusart1.h"
-void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 468 "./mcc_generated_files/eusart1.h"
-void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
-
-void receiveSerialCallback(void);
-
-void EUSART1_RxCustomHandler(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-# 72 "./mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-# 85 "./mcc_generated_files/mcc.h"
-void OSCILLATOR_Initialize(void);
-# 97 "./mcc_generated_files/mcc.h"
-void WDT_Initialize(void);
-# 45 "main.c" 2
-# 1 "./main.h" 1
-# 24 "./main.h"
-union {
-    unsigned char byte;
-
-    struct {
-        unsigned SPI_READ : 1;
-        unsigned DISPLAY_READING : 1;
-        unsigned BUTTON_PUSHED : 1;
-        unsigned BUTTON_DEBOUNCED : 1;
-        unsigned UART_RECEIVED : 1;
-        unsigned TIMER_TICK : 1;
-    } bits;
-} FLAGS;
-
-char serialReadValue;
-char spiReadValue;
-char requestType;
-# 46 "main.c" 2
-
-
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 1 3
-# 33 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 3
-# 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 1 3
-# 76 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-typedef long long time_t;
-# 293 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-typedef void * timer_t;
-
-
-
-
-typedef int clockid_t;
-
-
-
-
-typedef unsigned long clock_t;
-# 313 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-struct timespec { time_t tv_sec; long tv_nsec; };
-
-
-
-
-
-typedef int pid_t;
-# 411 "/Applications/microchip/xc8/v2.32/pic/include/c99/bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 34 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 2 3
-
-
-
-
-
-
-struct tm {
- int tm_sec;
- int tm_min;
- int tm_hour;
- int tm_mday;
- int tm_mon;
- int tm_year;
- int tm_wday;
- int tm_yday;
- int tm_isdst;
- long __tm_gmtoff;
- const char *__tm_zone;
-};
-
-clock_t clock (void);
-time_t time (time_t *);
-double difftime (time_t, time_t);
-time_t mktime (struct tm *);
-size_t strftime (char *restrict, size_t, const char *restrict, const struct tm *restrict);
-struct tm *gmtime (const time_t *);
-struct tm *localtime (const time_t *);
-char *asctime (const struct tm *);
-char *ctime (const time_t *);
-int timespec_get(struct timespec *, int);
-# 73 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 3
-size_t strftime_l (char * restrict, size_t, const char * restrict, const struct tm * restrict, locale_t);
-
-struct tm *gmtime_r (const time_t *restrict, struct tm *restrict);
-struct tm *localtime_r (const time_t *restrict, struct tm *restrict);
-char *asctime_r (const struct tm *restrict, char *restrict);
-char *ctime_r (const time_t *, char *);
-
-void tzset (void);
-
-struct itimerspec {
- struct timespec it_interval;
- struct timespec it_value;
-};
-# 102 "/Applications/microchip/xc8/v2.32/pic/include/c99/time.h" 3
-int nanosleep (const struct timespec *, struct timespec *);
-int clock_getres (clockid_t, struct timespec *);
-int clock_gettime (clockid_t, struct timespec *);
-int clock_settime (clockid_t, const struct timespec *);
-int clock_nanosleep (clockid_t, int, const struct timespec *, struct timespec *);
-int clock_getcpuclockid (pid_t, clockid_t *);
-
-struct sigevent;
-int timer_create (clockid_t, struct sigevent *restrict, timer_t *restrict);
-int timer_delete (timer_t);
-int timer_settime (timer_t, int, const struct itimerspec *restrict, struct itimerspec *restrict);
-int timer_gettime (timer_t, struct itimerspec *);
-int timer_getoverrun (timer_t);
-
-extern char *tzname[2];
-
-
-
-
-
-char *strptime (const char *restrict, const char *restrict, struct tm *restrict);
-extern int daylight;
-extern long timezone;
-extern int getdate_err;
-struct tm *getdate (const char *);
-# 49 "main.c" 2
-
-
-
-
-
-void main(void) {
-
-    SYSTEM_Initialize();
-
-
-
-
-
-    (INTCONbits.GIE = 1);
-
-
-    (INTCONbits.PEIE = 1);
-
-
-
-
-
-
-
-    SPI1_Open(SPI1_DEFAULT);
-
-    while (1) {
-        if (FLAGS.bits.BUTTON_PUSHED) {
-            debouncePushButton();
-            if (FLAGS.bits.BUTTON_DEBOUNCED) {
-                pushButtonCallback();
-                FLAGS.bits.BUTTON_PUSHED = 0;
-                FLAGS.bits.BUTTON_PUSHED = 0;
-            }
-        }
-        if (FLAGS.bits.UART_RECEIVED) {
-            receiveSerialCallback();
-            FLAGS.bits.UART_RECEIVED = 0;
-        }
-        if (FLAGS.bits.SPI_READ) {
-            receiveSPICallback();
-            FLAGS.bits.SPI_READ = 0;
-        }
+    while (ADCON0bits.GO_nDONE)
+    {
     }
+
+
+    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+}
+
+void ADC_TemperatureAcquisitionDelay(void)
+{
+    _delay((unsigned long)((200)*(1000000/4000000.0)));
+}
+
+void ADC_ISR(void)
+{
+
+    PIR1bits.ADIF = 0;
+
+ if(ADC_InterruptHandler)
+    {
+        ADC_InterruptHandler();
+    }
+}
+
+void ADC_SetInterruptHandler(void (* InterruptHandler)(void)){
+    ADC_InterruptHandler = InterruptHandler;
+}
+
+void ADC_DefaultInterruptHandler(void){
+
+
 }

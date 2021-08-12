@@ -71,7 +71,7 @@ void main(void) {
     //INTERRUPT_PeripheralInterruptDisable();
 
     SPI1_Open(SPI1_DEFAULT);
-    
+    ADC_StartConversion();
     while (1) {
         if (FLAGS.bits.BUTTON_PUSHED) {
             debouncePushButton();
@@ -79,6 +79,7 @@ void main(void) {
                 pushButtonCallback();
                 FLAGS.bits.BUTTON_PUSHED = 0;
                 FLAGS.bits.BUTTON_PUSHED = 0;
+                ADC_StartConversion();
             }
         }
         if (FLAGS.bits.UART_RECEIVED) {

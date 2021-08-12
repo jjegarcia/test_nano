@@ -94,7 +94,7 @@ typedef struct
 
 typedef enum
 {
-    Digipot_Input =  0x4,
+    channel_ANA4 =  0x4,
     channel_AVSS =  0x1B,
     channel_FVR_BUF1 =  0x1E
 } adc_channel_t;

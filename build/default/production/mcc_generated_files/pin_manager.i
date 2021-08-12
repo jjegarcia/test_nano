@@ -6025,17 +6025,17 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/xc.h" 2 3
 # 55 "mcc_generated_files/pin_manager.h" 2
-# 178 "mcc_generated_files/pin_manager.h"
+# 208 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 190 "mcc_generated_files/pin_manager.h"
+# 220 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 203 "mcc_generated_files/pin_manager.h"
+# 233 "mcc_generated_files/pin_manager.h"
 void IOCCF2_ISR(void);
-# 226 "mcc_generated_files/pin_manager.h"
+# 256 "mcc_generated_files/pin_manager.h"
 void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 250 "mcc_generated_files/pin_manager.h"
+# 280 "mcc_generated_files/pin_manager.h"
 extern void (*IOCCF2_InterruptHandler)(void);
-# 274 "mcc_generated_files/pin_manager.h"
+# 304 "mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
 void pushButtonCallback(void);
 void debouncePushButton(void);
@@ -6354,6 +6354,7 @@ void PIN_MANAGER_Initialize(void)
 
 
     RC0PPS = 0x05;
+    ADACTPPS = 0x12;
     RX1PPS = 0x11;
     SSP1CLKPPS = 0x16;
     RC4PPS = 0x08;
@@ -6404,8 +6405,9 @@ void IOCCF2_DefaultInterruptHandler(void){
 void pushButtonCallback(void) {
     if (FLAGS.bits.BUTTON_DEBOUNCED == 1) {
         SPI1_WriteByte('u');
-        printf("toggling");
+
         do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
+        printf("Digipot:%d\n",ADRESH);
     }
 }
 

@@ -6028,17 +6028,17 @@ extern __bank0 __bit __timeout;
 # 1 "./mcc_generated_files/device_config.h" 1
 # 51 "./mcc_generated_files/mcc.h" 2
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 178 "./mcc_generated_files/pin_manager.h"
+# 208 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 190 "./mcc_generated_files/pin_manager.h"
+# 220 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 203 "./mcc_generated_files/pin_manager.h"
+# 233 "./mcc_generated_files/pin_manager.h"
 void IOCCF2_ISR(void);
-# 226 "./mcc_generated_files/pin_manager.h"
+# 256 "./mcc_generated_files/pin_manager.h"
 void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 250 "./mcc_generated_files/pin_manager.h"
+# 280 "./mcc_generated_files/pin_manager.h"
 extern void (*IOCCF2_InterruptHandler)(void);
-# 274 "./mcc_generated_files/pin_manager.h"
+# 304 "./mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
 void pushButtonCallback(void);
 void debouncePushButton(void);
@@ -6239,6 +6239,48 @@ void SPI1_WriteByte(uint8_t byte);
 uint8_t SPI1_ReadByte(void);
 void receiveSPICallback(void);
 # 57 "./mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/adc.h" 1
+# 72 "./mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+
+
+
+typedef struct
+{
+    adc_result_t adcResult1;
+    adc_result_t adcResult2;
+} adc_sync_double_result_t;
+# 95 "./mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_ANA4 = 0x4,
+    channel_AVSS = 0x1B,
+    channel_FVR_BUF1 = 0x1E
+} adc_channel_t;
+# 135 "./mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 165 "./mcc_generated_files/adc.h"
+void ADC_SelectChannel(adc_channel_t channel);
+# 192 "./mcc_generated_files/adc.h"
+void ADC_StartConversion(void);
+# 224 "./mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 257 "./mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 287 "./mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 315 "./mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 331 "./mcc_generated_files/adc.h"
+void ADC_ISR(void);
+# 349 "./mcc_generated_files/adc.h"
+ void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+# 367 "./mcc_generated_files/adc.h"
+extern void (*ADC_InterruptHandler)(void);
+# 385 "./mcc_generated_files/adc.h"
+void ADC_DefaultInterruptHandler(void);
+# 58 "./mcc_generated_files/mcc.h" 2
 # 1 "./mcc_generated_files/eusart1.h" 1
 # 76 "./mcc_generated_files/eusart1.h"
 typedef union {
@@ -6293,12 +6335,12 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
 void receiveSerialCallback(void);
 
 void EUSART1_RxCustomHandler(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-# 72 "./mcc_generated_files/mcc.h"
+# 59 "./mcc_generated_files/mcc.h" 2
+# 73 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 85 "./mcc_generated_files/mcc.h"
+# 86 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 97 "./mcc_generated_files/mcc.h"
+# 98 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 45 "main.c" 2
 # 1 "./main.h" 1
@@ -6446,7 +6488,7 @@ void main(void) {
 
 
     SPI1_Open(SPI1_DEFAULT);
-
+    ADC_StartConversion();
     while (1) {
         if (FLAGS.bits.BUTTON_PUSHED) {
             debouncePushButton();
@@ -6454,6 +6496,7 @@ void main(void) {
                 pushButtonCallback();
                 FLAGS.bits.BUTTON_PUSHED = 0;
                 FLAGS.bits.BUTTON_PUSHED = 0;
+                ADC_StartConversion();
             }
         }
         if (FLAGS.bits.UART_RECEIVED) {

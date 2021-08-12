@@ -54,6 +54,7 @@
 #include <conio.h>
 #include "interrupt_manager.h"
 #include "spi1.h"
+#include "adc.h"
 #include "eusart1.h"
 
 

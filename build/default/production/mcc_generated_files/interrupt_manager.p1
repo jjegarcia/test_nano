@@ -1,12 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "27 mcc_generated_files/../main.h
 [; ;mcc_generated_files/../main.h: 27:     struct {
-[s S512 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S512 . SPI_READ DISPLAY_READING BUTTON_PUSHED BUTTON_DEBOUNCED UART_RECEIVED TIMER_TICK ]
+[s S513 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S513 . SPI_READ DISPLAY_READING BUTTON_PUSHED BUTTON_DEBOUNCED UART_RECEIVED TIMER_TICK ]
 "24
 [; ;mcc_generated_files/../main.h: 24: union {
-[u S511 `uc 1 `S512 1 ]
-[n S511 . byte bits ]
+[u S512 `uc 1 `S513 1 ]
+[n S512 . byte bits ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "5223 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
@@ -31,8 +31,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5102
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5102: extern volatile PIR0bits_t PIR0bits __attribute__((address(0x70C)));
 [v _PIR0bits `VS264 ~T0 @X0 0 e@1804 ]
-"190 mcc_generated_files/pin_manager.h
-[; ;mcc_generated_files/pin_manager.h: 190: void PIN_MANAGER_IOC(void);
+"220 mcc_generated_files/pin_manager.h
+[; ;mcc_generated_files/pin_manager.h: 220: void PIN_MANAGER_IOC(void);
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 0 ef ]
 "420 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 420:     struct {
@@ -67,10 +67,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5139
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5139: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x70D)));
 [v _PIR1bits `VS266 ~T0 @X0 0 e@1805 ]
-[v F3907 `(v ~T0 @X0 0 tf ]
+[v F3934 `(v ~T0 @X0 0 tf ]
 "97 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 97: extern void (*EUSART1_RxDefaultInterruptHandler)(void);
-[v _EUSART1_RxDefaultInterruptHandler `*F3907 ~T0 @X0 0 e ]
+[v _EUSART1_RxDefaultInterruptHandler `*F3934 ~T0 @X0 0 e ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -625,7 +625,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _serialRead `uc ~T0 @X0 1 e ]
 "35 mcc_generated_files/../main.h
 [; ;mcc_generated_files/../main.h: 35: } FLAGS;
-[v _FLAGS `S511 ~T0 @X0 1 e ]
+[v _FLAGS `S512 ~T0 @X0 1 e ]
 "37
 [; ;mcc_generated_files/../main.h: 37: char serialReadValue;
 [v _serialReadValue `uc ~T0 @X0 1 e ]
@@ -646,7 +646,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "57
 [; ;mcc_generated_files/interrupt_manager.c: 57:     if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
-[e $ ! && == -> . . _PIE0bits 0 2 `i -> 1 `i == -> . . _PIR0bits 0 2 `i -> 1 `i 514  ]
+[e $ ! && == -> . . _PIE0bits 0 2 `i -> 1 `i == -> . . _PIR0bits 0 2 `i -> 1 `i 515  ]
 "58
 [; ;mcc_generated_files/interrupt_manager.c: 58:     {
 {
@@ -656,16 +656,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;mcc_generated_files/interrupt_manager.c: 60:     }
 }
-[e :U 514 ]
+[e :U 515 ]
 "61
 [; ;mcc_generated_files/interrupt_manager.c: 61:     if(INTCONbits.PEIE == 1)
-[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 515  ]
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 516  ]
 "62
 [; ;mcc_generated_files/interrupt_manager.c: 62:     {
 {
 "63
 [; ;mcc_generated_files/interrupt_manager.c: 63:         if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
-[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 516  ]
+[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 517  ]
 "64
 [; ;mcc_generated_files/interrupt_manager.c: 64:         {
 {
@@ -675,12 +675,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66
 [; ;mcc_generated_files/interrupt_manager.c: 66:         }
 }
-[e :U 516 ]
+[e :U 517 ]
 "67
 [; ;mcc_generated_files/interrupt_manager.c: 67:     }
 }
-[e :U 515 ]
+[e :U 516 ]
 "68
 [; ;mcc_generated_files/interrupt_manager.c: 68: }
-[e :UE 513 ]
+[e :UE 514 ]
 }

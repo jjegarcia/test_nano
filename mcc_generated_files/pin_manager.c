@@ -129,6 +129,7 @@ void PIN_MANAGER_Initialize(void)
 
 
     RC0PPS = 0x05;   //RC0->EUSART1:TX1;    
+    ADACTPPS = 0x12;   //RC2->ADC:ADACT;    
     RX1PPS = 0x11;   //RC1->EUSART1:RX1;    
     SSP1CLKPPS = 0x16;   //RC6->MSSP1:SCK1;    
     RC4PPS = 0x08;   //RC4->MSSP1:SDO1;    
@@ -179,8 +180,9 @@ void IOCCF2_DefaultInterruptHandler(void){
 void pushButtonCallback(void) {
     if (FLAGS.bits.BUTTON_DEBOUNCED == 1) {
         SPI1_WriteByte('u');
-        printf("toggling");
+//        printf("toggling");
         LED0_Toggle();
+        printf("Digipot:%d\n",ADRESH);
     }
 }
 

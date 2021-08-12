@@ -6222,17 +6222,17 @@ void receiveSerialCallback(void);
 void EUSART1_RxCustomHandler(void);
 # 51 "mcc_generated_files/eusart1.c" 2
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 178 "mcc_generated_files/pin_manager.h"
+# 208 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 190 "mcc_generated_files/pin_manager.h"
+# 220 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 203 "mcc_generated_files/pin_manager.h"
+# 233 "mcc_generated_files/pin_manager.h"
 void IOCCF2_ISR(void);
-# 226 "mcc_generated_files/pin_manager.h"
+# 256 "mcc_generated_files/pin_manager.h"
 void IOCCF2_SetInterruptHandler(void (* InterruptHandler)(void));
-# 250 "mcc_generated_files/pin_manager.h"
+# 280 "mcc_generated_files/pin_manager.h"
 extern void (*IOCCF2_InterruptHandler)(void);
-# 274 "mcc_generated_files/pin_manager.h"
+# 304 "mcc_generated_files/pin_manager.h"
 void IOCCF2_DefaultInterruptHandler(void);
 void pushButtonCallback(void);
 void debouncePushButton(void);

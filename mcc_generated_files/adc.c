@@ -81,10 +81,10 @@ void ADC_Initialize(void)
     ADCON0 = 0x01;
     
     // Enabling ADC interrupt.
-    PIE1bits.ADIE = 1;
+//    PIE1bits.ADIE = 1;
 	
 	// Set Default Interrupt Handler
-    ADC_SetInterruptHandler(ADC_DefaultInterruptHandler);
+//    ADC_SetInterruptHandler(ADC_DefaultInterruptHandler);
 }
 
 void ADC_SelectChannel(adc_channel_t channel)
