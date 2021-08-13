@@ -6275,6 +6275,49 @@ void SPI1_WriteByte(uint8_t byte);
 uint8_t SPI1_ReadByte(void);
 void receiveSPICallback(void);
 # 53 "mcc_generated_files/pin_manager.c" 2
+# 1 "mcc_generated_files/adc.h" 1
+# 72 "mcc_generated_files/adc.h"
+    typedef uint16_t adc_result_t;
+
+
+
+
+    typedef struct {
+        adc_result_t adcResult1;
+        adc_result_t adcResult2;
+    } adc_sync_double_result_t;
+# 94 "mcc_generated_files/adc.h"
+    typedef enum {
+        DigiPot = 0x4,
+        channel_AVSS = 0x1B,
+        channel_FVR_BUF1 = 0x1E
+    } adc_channel_t;
+
+    unsigned char adc_low = 0;
+    unsigned char adc_high = 0;
+# 137 "mcc_generated_files/adc.h"
+    void ADC_Initialize(void);
+# 167 "mcc_generated_files/adc.h"
+    void ADC_SelectChannel(adc_channel_t channel);
+# 194 "mcc_generated_files/adc.h"
+    void ADC_StartConversion(void);
+# 226 "mcc_generated_files/adc.h"
+    _Bool ADC_IsConversionDone(void);
+# 259 "mcc_generated_files/adc.h"
+    adc_result_t ADC_GetConversionResult(void);
+# 289 "mcc_generated_files/adc.h"
+    adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 317 "mcc_generated_files/adc.h"
+    void ADC_TemperatureAcquisitionDelay(void);
+# 333 "mcc_generated_files/adc.h"
+    void ADC_ISR(void);
+# 351 "mcc_generated_files/adc.h"
+    void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+# 369 "mcc_generated_files/adc.h"
+    extern void (*ADC_InterruptHandler)(void);
+# 387 "mcc_generated_files/adc.h"
+    void ADC_DefaultInterruptHandler(void);
+# 54 "mcc_generated_files/pin_manager.c" 2
 
 
 
@@ -6407,7 +6450,7 @@ void pushButtonCallback(void) {
         SPI1_WriteByte('u');
 
         do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0);
-        printf("Digipot:%d\n",ADRESH);
+        printf("Digipot: H=%d L=%d\n ",adc_high,adc_low);
     }
 }
 

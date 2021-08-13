@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.31 and above
         MPLAB             :  MPLAB X 5.45
-*/
+ */
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -42,11 +42,11 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
-*/
+ */
 
 /**
   Section: Included Files
-*/
+ */
 
 #include <xc.h>
 #include "adc.h"
@@ -54,7 +54,7 @@
 
 /**
   Section: Macro Declarations
-*/
+ */
 
 #define ACQ_US_DELAY 5
 
@@ -62,63 +62,56 @@ void (*ADC_InterruptHandler)(void);
 
 /**
   Section: ADC Module APIs
-*/
+ */
 
-void ADC_Initialize(void)
-{
+void ADC_Initialize(void) {
     // set the ADC to the options selected in the User Interface
-    
+
     // ADFM left; ADPREF VDD; ADCS FOSC/2; 
     ADCON1 = 0x00;
-    
+
     // ADRESL 0; 
     ADRESL = 0x00;
-    
+
     // ADRESH 0; 
     ADRESH = 0x00;
-    
+
     // GO_nDONE stop; ADON enabled; CHS ANA0; 
     ADCON0 = 0x01;
-    
+
     // Enabling ADC interrupt.
-//    PIE1bits.ADIE = 1;
-	
-	// Set Default Interrupt Handler
-//    ADC_SetInterruptHandler(ADC_DefaultInterruptHandler);
+    PIE1bits.ADIE = 1;
+
+    // Set Default Interrupt Handler
+    ADC_SetInterruptHandler(ADC_DefaultInterruptHandler);
 }
 
-void ADC_SelectChannel(adc_channel_t channel)
-{
+void ADC_SelectChannel(adc_channel_t channel) {
     // select the A/D channel
-    ADCON0bits.CHS = channel;    
+    ADCON0bits.CHS = channel;
     // Turn on the ADC module
-    ADCON0bits.ADON = 1;  
+    ADCON0bits.ADON = 1;
 }
 
-void ADC_StartConversion(void)
-{
+void ADC_StartConversion(void) {
     // Start the conversion
     ADCON0bits.GO_nDONE = 1;
 }
 
-
-bool ADC_IsConversionDone(void)
-{
+bool ADC_IsConversionDone(void) {
     // Start the conversion
-   return ((bool)(!ADCON0bits.GO_nDONE));
+    return ((bool) (!ADCON0bits.GO_nDONE));
 }
 
-adc_result_t ADC_GetConversionResult(void)
-{
+adc_result_t ADC_GetConversionResult(void) {
     // Conversion finished, return the result
-    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+    return ((adc_result_t) ((ADRESH << 8) + ADRESL));
 }
 
-adc_result_t ADC_GetConversion(adc_channel_t channel)
-{
+adc_result_t ADC_GetConversion(adc_channel_t channel) {
     // select the A/D channel
-    ADCON0bits.CHS = channel;    
-    
+    ADCON0bits.CHS = channel;
+
     // Turn on the ADC module
     ADCON0bits.ADON = 1;
 
@@ -129,38 +122,36 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
     ADCON0bits.GO_nDONE = 1;
 
     // Wait for the conversion to finish
-    while (ADCON0bits.GO_nDONE)
-    {
+    while (ADCON0bits.GO_nDONE) {
     }
 
     // Conversion finished, return the result
-    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+    return ((adc_result_t) ((ADRESH << 8) + ADRESL));
 }
 
-void ADC_TemperatureAcquisitionDelay(void)
-{
+void ADC_TemperatureAcquisitionDelay(void) {
     __delay_us(200);
 }
 
-void ADC_ISR(void)
-{
+void ADC_ISR(void) {
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
-	
-	if(ADC_InterruptHandler)
-    {
+
+    if (ADC_InterruptHandler) {
         ADC_InterruptHandler();
     }
 }
 
-void ADC_SetInterruptHandler(void (* InterruptHandler)(void)){
+void ADC_SetInterruptHandler(void (* InterruptHandler)(void)) {
     ADC_InterruptHandler = InterruptHandler;
 }
 
-void ADC_DefaultInterruptHandler(void){
+void ADC_DefaultInterruptHandler(void) {
     // add your ADC interrupt custom code
     // or set custom function using ADC_SetInterruptHandler()
+    adc_low = ADRESL;
+    adc_high = ADRESH;
 }
 /**
  End of File
-*/
+ */

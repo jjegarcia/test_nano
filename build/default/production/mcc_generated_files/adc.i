@@ -6028,45 +6028,46 @@ extern __bank0 __bit __timeout;
 # 1 "/Applications/microchip/xc8/v2.32/pic/include/c99/stdbool.h" 1 3
 # 57 "mcc_generated_files/adc.h" 2
 # 72 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
+    typedef uint16_t adc_result_t;
 
 
 
 
-typedef struct
-{
-    adc_result_t adcResult1;
-    adc_result_t adcResult2;
-} adc_sync_double_result_t;
-# 95 "mcc_generated_files/adc.h"
-typedef enum
-{
-    channel_ANA4 = 0x4,
-    channel_AVSS = 0x1B,
-    channel_FVR_BUF1 = 0x1E
-} adc_channel_t;
-# 135 "mcc_generated_files/adc.h"
-void ADC_Initialize(void);
-# 165 "mcc_generated_files/adc.h"
-void ADC_SelectChannel(adc_channel_t channel);
-# 192 "mcc_generated_files/adc.h"
-void ADC_StartConversion(void);
-# 224 "mcc_generated_files/adc.h"
-_Bool ADC_IsConversionDone(void);
-# 257 "mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversionResult(void);
-# 287 "mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 315 "mcc_generated_files/adc.h"
-void ADC_TemperatureAcquisitionDelay(void);
-# 331 "mcc_generated_files/adc.h"
-void ADC_ISR(void);
-# 349 "mcc_generated_files/adc.h"
- void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-# 367 "mcc_generated_files/adc.h"
-extern void (*ADC_InterruptHandler)(void);
-# 385 "mcc_generated_files/adc.h"
-void ADC_DefaultInterruptHandler(void);
+    typedef struct {
+        adc_result_t adcResult1;
+        adc_result_t adcResult2;
+    } adc_sync_double_result_t;
+# 94 "mcc_generated_files/adc.h"
+    typedef enum {
+        DigiPot = 0x4,
+        channel_AVSS = 0x1B,
+        channel_FVR_BUF1 = 0x1E
+    } adc_channel_t;
+
+    unsigned char adc_low = 0;
+    unsigned char adc_high = 0;
+# 137 "mcc_generated_files/adc.h"
+    void ADC_Initialize(void);
+# 167 "mcc_generated_files/adc.h"
+    void ADC_SelectChannel(adc_channel_t channel);
+# 194 "mcc_generated_files/adc.h"
+    void ADC_StartConversion(void);
+# 226 "mcc_generated_files/adc.h"
+    _Bool ADC_IsConversionDone(void);
+# 259 "mcc_generated_files/adc.h"
+    adc_result_t ADC_GetConversionResult(void);
+# 289 "mcc_generated_files/adc.h"
+    adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 317 "mcc_generated_files/adc.h"
+    void ADC_TemperatureAcquisitionDelay(void);
+# 333 "mcc_generated_files/adc.h"
+    void ADC_ISR(void);
+# 351 "mcc_generated_files/adc.h"
+    void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+# 369 "mcc_generated_files/adc.h"
+    extern void (*ADC_InterruptHandler)(void);
+# 387 "mcc_generated_files/adc.h"
+    void ADC_DefaultInterruptHandler(void);
 # 53 "mcc_generated_files/adc.c" 2
 # 1 "mcc_generated_files/device_config.h" 1
 # 54 "mcc_generated_files/adc.c" 2
@@ -6083,8 +6084,7 @@ void (*ADC_InterruptHandler)(void);
 
 
 
-void ADC_Initialize(void)
-{
+void ADC_Initialize(void) {
 
 
 
@@ -6100,41 +6100,35 @@ void ADC_Initialize(void)
     ADCON0 = 0x01;
 
 
+    PIE1bits.ADIE = 1;
 
 
-
-
+    ADC_SetInterruptHandler(ADC_DefaultInterruptHandler);
 }
 
-void ADC_SelectChannel(adc_channel_t channel)
-{
+void ADC_SelectChannel(adc_channel_t channel) {
 
     ADCON0bits.CHS = channel;
 
     ADCON0bits.ADON = 1;
 }
 
-void ADC_StartConversion(void)
-{
+void ADC_StartConversion(void) {
 
     ADCON0bits.GO_nDONE = 1;
 }
 
+_Bool ADC_IsConversionDone(void) {
 
-_Bool ADC_IsConversionDone(void)
-{
-
-   return ((_Bool)(!ADCON0bits.GO_nDONE));
+    return ((_Bool) (!ADCON0bits.GO_nDONE));
 }
 
-adc_result_t ADC_GetConversionResult(void)
-{
+adc_result_t ADC_GetConversionResult(void) {
 
-    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+    return ((adc_result_t) ((ADRESH << 8) + ADRESL));
 }
 
-adc_result_t ADC_GetConversion(adc_channel_t channel)
-{
+adc_result_t ADC_GetConversion(adc_channel_t channel) {
 
     ADCON0bits.CHS = channel;
 
@@ -6148,35 +6142,33 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
     ADCON0bits.GO_nDONE = 1;
 
 
-    while (ADCON0bits.GO_nDONE)
-    {
+    while (ADCON0bits.GO_nDONE) {
     }
 
 
-    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+    return ((adc_result_t) ((ADRESH << 8) + ADRESL));
 }
 
-void ADC_TemperatureAcquisitionDelay(void)
-{
+void ADC_TemperatureAcquisitionDelay(void) {
     _delay((unsigned long)((200)*(1000000/4000000.0)));
 }
 
-void ADC_ISR(void)
-{
+void ADC_ISR(void) {
 
     PIR1bits.ADIF = 0;
 
- if(ADC_InterruptHandler)
-    {
+    if (ADC_InterruptHandler) {
         ADC_InterruptHandler();
     }
 }
 
-void ADC_SetInterruptHandler(void (* InterruptHandler)(void)){
+void ADC_SetInterruptHandler(void (* InterruptHandler)(void)) {
     ADC_InterruptHandler = InterruptHandler;
 }
 
-void ADC_DefaultInterruptHandler(void){
+void ADC_DefaultInterruptHandler(void) {
 
 
+    adc_low = ADRESL;
+    adc_high = ADRESH;
 }

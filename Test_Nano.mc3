@@ -139,7 +139,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC" name="enableInterrupt"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC" name="samplingFrequency"/>
@@ -367,7 +367,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="ADC" registerAlias="ADI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="ADC" registerAlias="ADI" settingAlias="flag"/>
@@ -1579,7 +1579,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RA4"/>
-         <value>channel_ANA4</value>
+         <value>DigiPot</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RA5"/>
@@ -1831,7 +1831,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA4"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA5"/>
@@ -5036,24 +5036,24 @@
          <hash>9179cabadfba7a42bd58a097bb565660e1cbf93ce9e905bb06c9cc78dabc509a</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/pin_manager.h</file>
-         <hash>43407645e81412b643e793180880455106f58665c67d357060b4c800725cf0ec</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files/spi1.c</file>
          <hash>27b3aae3c4e8c7a7c1f870ceddd07e1a77b906bcd683a4d1c2c0cd0b80fe88e9</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/eusart1.h</file>
-         <hash>c06ca80a75e7ec6f79f8d8a73705082e9e7ddbbc5f2da96188022e6d008ef06a</hash>
+         <file>mcc_generated_files/pin_manager.h</file>
+         <hash>8d21f2e969399c291c0ef4c2995d081ffd04398b2b4564fa85636f6b443c7ea3</hash>
       </entry>
       <entry>
          <file>main.c</file>
          <hash>95c9777d06a94a40ef1b8f0fd747302d75a99979379029bd41ef5b9749298011</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files/eusart1.h</file>
+         <hash>c06ca80a75e7ec6f79f8d8a73705082e9e7ddbbc5f2da96188022e6d008ef06a</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files/adc.h</file>
-         <hash>b95a7aa738a749ecc10629e0299dad0bfd5091a584d5d2773e093aa6f5351033</hash>
+         <hash>07c6a7f1e186a3b4602b9063cd73824ad5be07bd134520fcea3570675c63c08f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/spi1.h</file>
@@ -5065,15 +5065,15 @@
       </entry>
       <entry>
          <file>mcc_generated_files/adc.c</file>
-         <hash>bcbc0c66c3703afb4cf0554347f78c226c238cbbe4e23ea741dd8d6df32622f3</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/eusart1.c</file>
-         <hash>cd71c13f998746c7bd50dfba15d6ee2d7b55d1c0f7471b622c95eca267ac7bcc</hash>
+         <hash>764ea10d33b3fdf856a13e99d991e419b28cf3ac1957554e5118264e583422d0</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.h</file>
          <hash>90e0a62176efc2e5a45ee61140be56e2d1cf2bdba77501ee5e0f04bb8ef948fc</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/eusart1.c</file>
+         <hash>cd71c13f998746c7bd50dfba15d6ee2d7b55d1c0f7471b622c95eca267ac7bcc</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/device_config.c</file>
@@ -5081,7 +5081,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files/interrupt_manager.c</file>
-         <hash>27a20ee6188828b74711ecf9e90d26266f7b53d6dd5403b82cb73f6aa224ba04</hash>
+         <hash>69d877d809c1a40ae5291769875c747abae249406e310dfdd84089e261d119e0</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.c</file>

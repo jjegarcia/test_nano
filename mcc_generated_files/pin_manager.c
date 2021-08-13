@@ -50,6 +50,7 @@
 #include "../main.h"
 #include "eusart1.h"
 #include "spi1.h"
+#include"adc.h"
 
 
 
@@ -182,7 +183,7 @@ void pushButtonCallback(void) {
         SPI1_WriteByte('u');
 //        printf("toggling");
         LED0_Toggle();
-        printf("Digipot:%d\n",ADRESH);
+        printf("Digipot: H=%d L=%d\n ",adc_high,adc_low);
     }
 }
 

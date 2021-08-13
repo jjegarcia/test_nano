@@ -51,21 +51,21 @@
 #include "../main.h"
 #include "spi1.h"
 
-void __interrupt() INTERRUPT_InterruptManager (void)
-{
+void __interrupt() INTERRUPT_InterruptManager(void) {
     // interrupt handler
-    if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
-    {
+    if (PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1) {
         PIN_MANAGER_IOC();
     }
-    if(INTCONbits.PEIE == 1)
-    {
-        if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
-        {
+    if (INTCONbits.PEIE == 1) {
+        if (PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1) {
+            ADC_ISR();
+        }
+        if (PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1) {
             EUSART1_RxDefaultInterruptHandler();
         }
     }
 }
+
 /**
  End of File
  */

@@ -67,10 +67,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5139
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 5139: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x70D)));
 [v _PIR1bits `VS266 ~T0 @X0 0 e@1805 ]
-[v F3934 `(v ~T0 @X0 0 tf ]
+"333 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 333:     void ADC_ISR(void);
+[v _ADC_ISR `(v ~T0 @X0 0 ef ]
+[v F3936 `(v ~T0 @X0 0 tf ]
 "97 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 97: extern void (*EUSART1_RxDefaultInterruptHandler)(void);
-[v _EUSART1_RxDefaultInterruptHandler `*F3934 ~T0 @X0 0 e ]
+[v _EUSART1_RxDefaultInterruptHandler `*F3936 ~T0 @X0 0 e ]
 "111 /Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h
 [; ;/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16F1xxxx_DFP/1.5.133/xc8/pic/include/proc/pic16f15244.h: 111: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -620,6 +623,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "63 mcc_generated_files/spi1.h
 [; ;mcc_generated_files/spi1.h: 63: uint8_t SPIRead;
 [v _SPIRead `uc ~T0 @X0 1 e ]
+"100 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 100:     unsigned char adc_low = 0;
+[v _adc_low `uc ~T0 @X0 1 e ]
+[i _adc_low
+-> -> 0 `i `uc
+]
+"101
+[; ;mcc_generated_files/adc.h: 101:     unsigned char adc_high = 0;
+[v _adc_high `uc ~T0 @X0 1 e ]
+[i _adc_high
+-> -> 0 `i `uc
+]
 "91 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 91: char serialRead;
 [v _serialRead `uc ~T0 @X0 1 e ]
@@ -637,50 +652,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _requestType `uc ~T0 @X0 1 e ]
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
 "54 mcc_generated_files/interrupt_manager.c
-[; ;mcc_generated_files/interrupt_manager.c: 54: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
+[; ;mcc_generated_files/interrupt_manager.c: 54: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void) {
 [v _INTERRUPT_InterruptManager `(v ~T1 @X0 1 ef ]
-"55
-[; ;mcc_generated_files/interrupt_manager.c: 55: {
 {
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
-"57
-[; ;mcc_generated_files/interrupt_manager.c: 57:     if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
+"56
+[; ;mcc_generated_files/interrupt_manager.c: 56:     if (PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1) {
 [e $ ! && == -> . . _PIE0bits 0 2 `i -> 1 `i == -> . . _PIR0bits 0 2 `i -> 1 `i 515  ]
-"58
-[; ;mcc_generated_files/interrupt_manager.c: 58:     {
 {
-"59
-[; ;mcc_generated_files/interrupt_manager.c: 59:         PIN_MANAGER_IOC();
+"57
+[; ;mcc_generated_files/interrupt_manager.c: 57:         PIN_MANAGER_IOC();
 [e ( _PIN_MANAGER_IOC ..  ]
-"60
-[; ;mcc_generated_files/interrupt_manager.c: 60:     }
+"58
+[; ;mcc_generated_files/interrupt_manager.c: 58:     }
 }
 [e :U 515 ]
-"61
-[; ;mcc_generated_files/interrupt_manager.c: 61:     if(INTCONbits.PEIE == 1)
+"59
+[; ;mcc_generated_files/interrupt_manager.c: 59:     if (INTCONbits.PEIE == 1) {
 [e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 516  ]
+{
+"60
+[; ;mcc_generated_files/interrupt_manager.c: 60:         if (PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1) {
+[e $ ! && == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 517  ]
+{
+"61
+[; ;mcc_generated_files/interrupt_manager.c: 61:             ADC_ISR();
+[e ( _ADC_ISR ..  ]
 "62
-[; ;mcc_generated_files/interrupt_manager.c: 62:     {
-{
-"63
-[; ;mcc_generated_files/interrupt_manager.c: 63:         if(PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1)
-[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 517  ]
-"64
-[; ;mcc_generated_files/interrupt_manager.c: 64:         {
-{
-"65
-[; ;mcc_generated_files/interrupt_manager.c: 65:             EUSART1_RxDefaultInterruptHandler();
-[e ( *U _EUSART1_RxDefaultInterruptHandler ..  ]
-"66
-[; ;mcc_generated_files/interrupt_manager.c: 66:         }
+[; ;mcc_generated_files/interrupt_manager.c: 62:         }
 }
 [e :U 517 ]
-"67
-[; ;mcc_generated_files/interrupt_manager.c: 67:     }
+"63
+[; ;mcc_generated_files/interrupt_manager.c: 63:         if (PIE1bits.RC1IE == 1 && PIR1bits.RC1IF == 1) {
+[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 518  ]
+{
+"64
+[; ;mcc_generated_files/interrupt_manager.c: 64:             EUSART1_RxDefaultInterruptHandler();
+[e ( *U _EUSART1_RxDefaultInterruptHandler ..  ]
+"65
+[; ;mcc_generated_files/interrupt_manager.c: 65:         }
+}
+[e :U 518 ]
+"66
+[; ;mcc_generated_files/interrupt_manager.c: 66:     }
 }
 [e :U 516 ]
-"68
-[; ;mcc_generated_files/interrupt_manager.c: 68: }
+"67
+[; ;mcc_generated_files/interrupt_manager.c: 67: }
 [e :UE 514 ]
 }

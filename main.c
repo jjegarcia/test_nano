@@ -54,6 +54,9 @@
 void main(void) {
     // initialize the device
     SYSTEM_Initialize();
+    
+    ADC_SelectChannel(adc_channel_t);
+    
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
@@ -71,7 +74,7 @@ void main(void) {
     //INTERRUPT_PeripheralInterruptDisable();
 
     SPI1_Open(SPI1_DEFAULT);
-    ADC_StartConversion();
+//    ADC_StartConversion();
     while (1) {
         if (FLAGS.bits.BUTTON_PUSHED) {
             debouncePushButton();

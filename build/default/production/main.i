@@ -6241,45 +6241,46 @@ void receiveSPICallback(void);
 # 57 "./mcc_generated_files/mcc.h" 2
 # 1 "./mcc_generated_files/adc.h" 1
 # 72 "./mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
+    typedef uint16_t adc_result_t;
 
 
 
 
-typedef struct
-{
-    adc_result_t adcResult1;
-    adc_result_t adcResult2;
-} adc_sync_double_result_t;
-# 95 "./mcc_generated_files/adc.h"
-typedef enum
-{
-    channel_ANA4 = 0x4,
-    channel_AVSS = 0x1B,
-    channel_FVR_BUF1 = 0x1E
-} adc_channel_t;
-# 135 "./mcc_generated_files/adc.h"
-void ADC_Initialize(void);
-# 165 "./mcc_generated_files/adc.h"
-void ADC_SelectChannel(adc_channel_t channel);
-# 192 "./mcc_generated_files/adc.h"
-void ADC_StartConversion(void);
-# 224 "./mcc_generated_files/adc.h"
-_Bool ADC_IsConversionDone(void);
-# 257 "./mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversionResult(void);
-# 287 "./mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 315 "./mcc_generated_files/adc.h"
-void ADC_TemperatureAcquisitionDelay(void);
-# 331 "./mcc_generated_files/adc.h"
-void ADC_ISR(void);
-# 349 "./mcc_generated_files/adc.h"
- void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-# 367 "./mcc_generated_files/adc.h"
-extern void (*ADC_InterruptHandler)(void);
-# 385 "./mcc_generated_files/adc.h"
-void ADC_DefaultInterruptHandler(void);
+    typedef struct {
+        adc_result_t adcResult1;
+        adc_result_t adcResult2;
+    } adc_sync_double_result_t;
+# 94 "./mcc_generated_files/adc.h"
+    typedef enum {
+        DigiPot = 0x4,
+        channel_AVSS = 0x1B,
+        channel_FVR_BUF1 = 0x1E
+    } adc_channel_t;
+
+    unsigned char adc_low = 0;
+    unsigned char adc_high = 0;
+# 137 "./mcc_generated_files/adc.h"
+    void ADC_Initialize(void);
+# 167 "./mcc_generated_files/adc.h"
+    void ADC_SelectChannel(adc_channel_t channel);
+# 194 "./mcc_generated_files/adc.h"
+    void ADC_StartConversion(void);
+# 226 "./mcc_generated_files/adc.h"
+    _Bool ADC_IsConversionDone(void);
+# 259 "./mcc_generated_files/adc.h"
+    adc_result_t ADC_GetConversionResult(void);
+# 289 "./mcc_generated_files/adc.h"
+    adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 317 "./mcc_generated_files/adc.h"
+    void ADC_TemperatureAcquisitionDelay(void);
+# 333 "./mcc_generated_files/adc.h"
+    void ADC_ISR(void);
+# 351 "./mcc_generated_files/adc.h"
+    void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+# 369 "./mcc_generated_files/adc.h"
+    extern void (*ADC_InterruptHandler)(void);
+# 387 "./mcc_generated_files/adc.h"
+    void ADC_DefaultInterruptHandler(void);
 # 58 "./mcc_generated_files/mcc.h" 2
 # 1 "./mcc_generated_files/eusart1.h" 1
 # 76 "./mcc_generated_files/eusart1.h"
@@ -6472,6 +6473,9 @@ void main(void) {
 
     SYSTEM_Initialize();
 
+    ADC_SelectChannel(adc_channel_t);
+
+
 
 
 
@@ -6488,7 +6492,7 @@ void main(void) {
 
 
     SPI1_Open(SPI1_DEFAULT);
-    ADC_StartConversion();
+
     while (1) {
         if (FLAGS.bits.BUTTON_PUSHED) {
             debouncePushButton();

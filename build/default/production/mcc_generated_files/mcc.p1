@@ -11,8 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "98
 [; ;mcc_generated_files/mcc.h: 98: void WDT_Initialize(void);
 [v _WDT_Initialize `(v ~T0 @X0 0 ef ]
-"135 mcc_generated_files/adc.h
-[; ;mcc_generated_files/adc.h: 135: void ADC_Initialize(void);
+"137 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 137:     void ADC_Initialize(void);
 [v _ADC_Initialize `(v ~T0 @X0 0 ef ]
 "119 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 119: void EUSART1_Initialize(void);
@@ -578,6 +578,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "63 mcc_generated_files/spi1.h
 [; ;mcc_generated_files/spi1.h: 63: uint8_t SPIRead;
 [v _SPIRead `uc ~T0 @X0 1 e ]
+"100 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 100:     unsigned char adc_low = 0;
+[v _adc_low `uc ~T0 @X0 1 e ]
+[i _adc_low
+-> -> 0 `i `uc
+]
+"101
+[; ;mcc_generated_files/adc.h: 101:     unsigned char adc_high = 0;
+[v _adc_high `uc ~T0 @X0 1 e ]
+[i _adc_high
+-> -> 0 `i `uc
+]
 "91 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 91: char serialRead;
 [v _serialRead `uc ~T0 @X0 1 e ]
