@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Thu Aug 12 16:54:32 2021
+                                                                                               Tue Aug 17 08:13:57 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F15244
@@ -2188,8 +2188,8 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2174                           ;main.c: 56:     SYSTEM_Initialize();
   2175  05BE  3187  2797  3185   	fcall	_SYSTEM_Initialize
   2176                           
-  2177                           ;main.c: 58:     ADC_SelectChannel(0);
-  2178  05C1  3000               	movlw	0
+  2177                           ;main.c: 58:     ADC_SelectChannel(DigiPot);
+  2178  05C1  3004               	movlw	4
   2179  05C2  3187  27EA  3185   	fcall	_ADC_SelectChannel
   2180  05C5                     l2574:
   2181                           
@@ -7854,7 +7854,7 @@ SFR63                0      0       0      64        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Thu Aug 12 16:54:32 2021
+Symbol Table                                                                                   Tue Aug 17 08:13:57 2021
 
                             SPI1_WriteByte@byte 0071                                              l72 07A9  
                                             l75 0F9A                                              l78 0F89  

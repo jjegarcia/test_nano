@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcN5xytVs.o
+$/tmp/xcRwTxTJM.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 33 33 2 2
 config CONFIG 4 8007 8007 5 2
@@ -185,33 +185,33 @@ STRING 804-F7F 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/test_nano.production.o
-35 cinit CODE >2963:/tmp/xcnVcqa40.s
-35 cinit CODE >2966:/tmp/xcnVcqa40.s
-35 cinit CODE >3049:/tmp/xcnVcqa40.s
-36 cinit CODE >3050:/tmp/xcnVcqa40.s
-39 cinit CODE >3051:/tmp/xcnVcqa40.s
-3A cinit CODE >3052:/tmp/xcnVcqa40.s
-3D cinit CODE >3053:/tmp/xcnVcqa40.s
-3E cinit CODE >3070:/tmp/xcnVcqa40.s
-3F cinit CODE >3074:/tmp/xcnVcqa40.s
-40 cinit CODE >3075:/tmp/xcnVcqa40.s
-41 cinit CODE >3076:/tmp/xcnVcqa40.s
-42 cinit CODE >3080:/tmp/xcnVcqa40.s
-43 cinit CODE >3081:/tmp/xcnVcqa40.s
-44 cinit CODE >3082:/tmp/xcnVcqa40.s
-45 cinit CODE >3083:/tmp/xcnVcqa40.s
-46 cinit CODE >3084:/tmp/xcnVcqa40.s
-47 cinit CODE >3085:/tmp/xcnVcqa40.s
-4A cinit CODE >3089:/tmp/xcnVcqa40.s
-4B cinit CODE >3090:/tmp/xcnVcqa40.s
-4C cinit CODE >3091:/tmp/xcnVcqa40.s
-4D cinit CODE >3092:/tmp/xcnVcqa40.s
-4E cinit CODE >3093:/tmp/xcnVcqa40.s
-4F cinit CODE >3094:/tmp/xcnVcqa40.s
-52 cinit CODE >3100:/tmp/xcnVcqa40.s
-52 cinit CODE >3102:/tmp/xcnVcqa40.s
-53 cinit CODE >3103:/tmp/xcnVcqa40.s
-54 cinit CODE >3104:/tmp/xcnVcqa40.s
+35 cinit CODE >2963:/tmp/xcp8JBuK6.s
+35 cinit CODE >2966:/tmp/xcp8JBuK6.s
+35 cinit CODE >3049:/tmp/xcp8JBuK6.s
+36 cinit CODE >3050:/tmp/xcp8JBuK6.s
+39 cinit CODE >3051:/tmp/xcp8JBuK6.s
+3A cinit CODE >3052:/tmp/xcp8JBuK6.s
+3D cinit CODE >3053:/tmp/xcp8JBuK6.s
+3E cinit CODE >3070:/tmp/xcp8JBuK6.s
+3F cinit CODE >3074:/tmp/xcp8JBuK6.s
+40 cinit CODE >3075:/tmp/xcp8JBuK6.s
+41 cinit CODE >3076:/tmp/xcp8JBuK6.s
+42 cinit CODE >3080:/tmp/xcp8JBuK6.s
+43 cinit CODE >3081:/tmp/xcp8JBuK6.s
+44 cinit CODE >3082:/tmp/xcp8JBuK6.s
+45 cinit CODE >3083:/tmp/xcp8JBuK6.s
+46 cinit CODE >3084:/tmp/xcp8JBuK6.s
+47 cinit CODE >3085:/tmp/xcp8JBuK6.s
+4A cinit CODE >3089:/tmp/xcp8JBuK6.s
+4B cinit CODE >3090:/tmp/xcp8JBuK6.s
+4C cinit CODE >3091:/tmp/xcp8JBuK6.s
+4D cinit CODE >3092:/tmp/xcp8JBuK6.s
+4E cinit CODE >3093:/tmp/xcp8JBuK6.s
+4F cinit CODE >3094:/tmp/xcp8JBuK6.s
+52 cinit CODE >3100:/tmp/xcp8JBuK6.s
+52 cinit CODE >3102:/tmp/xcp8JBuK6.s
+53 cinit CODE >3103:/tmp/xcp8JBuK6.s
+54 cinit CODE >3104:/tmp/xcp8JBuK6.s
 4 intentry CODE >54:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
 6 intentry CODE >56:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
 F intentry CODE >57:/Users/jgarc609/github/test_nano/mcc_generated_files/interrupt_manager.c
@@ -683,14 +683,14 @@ FFF text2 CODE >7:/Applications/microchip/xc8/v2.32/pic/sources/c99/common/putch
 5EB maintext CODE >92:/Users/jgarc609/github/test_nano/main.c
 5EF maintext CODE >93:/Users/jgarc609/github/test_nano/main.c
 5F2 maintext CODE >94:/Users/jgarc609/github/test_nano/main.c
-FCA clrtext CODE >3059:/tmp/xcnVcqa40.s
-FCA clrtext CODE >3060:/tmp/xcnVcqa40.s
-FCB clrtext CODE >3061:/tmp/xcnVcqa40.s
-FCB clrtext CODE >3062:/tmp/xcnVcqa40.s
-FCC clrtext CODE >3063:/tmp/xcnVcqa40.s
-FCD clrtext CODE >3064:/tmp/xcnVcqa40.s
-FCE clrtext CODE >3065:/tmp/xcnVcqa40.s
-FCF clrtext CODE >3066:/tmp/xcnVcqa40.s
+FCA clrtext CODE >3059:/tmp/xcp8JBuK6.s
+FCA clrtext CODE >3060:/tmp/xcp8JBuK6.s
+FCB clrtext CODE >3061:/tmp/xcp8JBuK6.s
+FCB clrtext CODE >3062:/tmp/xcp8JBuK6.s
+FCC clrtext CODE >3063:/tmp/xcp8JBuK6.s
+FCD clrtext CODE >3064:/tmp/xcp8JBuK6.s
+FCE clrtext CODE >3065:/tmp/xcp8JBuK6.s
+FCF clrtext CODE >3066:/tmp/xcp8JBuK6.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -731,7 +731,7 @@ _LATC 1A 0 ABS 0 - dist/default/production/test_nano.production.o
 _WPUA 1F39 0 ABS 0 - dist/default/production/test_nano.production.o
 _WPUB 1F44 0 ABS 0 - dist/default/production/test_nano.production.o
 _WPUC 1F4F 0 ABS 0 - dist/default/production/test_nano.production.o
-___sp 0 0 STACK 2 stack /tmp/xcN5xytVs.o
+___sp 0 0 STACK 2 stack /tmp/xcRwTxTJM.o
 _dbuf 120 0 BANK2 1 bssBANK2 dist/default/production/test_nano.production.o
 _dtoa AC 0 CODE 0 text8 dist/default/production/test_nano.production.o
 _main B7C 0 CODE 0 maintext dist/default/production/test_nano.production.o
@@ -742,7 +742,7 @@ btemp 7E 0 ABS 0 - dist/default/production/test_nano.production.o
 pad@i 2B 0 BANK0 1 cstackBANK0 dist/default/production/test_nano.production.o
 pad@p 28 0 BANK0 1 cstackBANK0 dist/default/production/test_nano.production.o
 pad@w 2D 0 BANK0 1 cstackBANK0 dist/default/production/test_nano.production.o
-start 66 0 CODE 0 init /tmp/xcN5xytVs.o
+start 66 0 CODE 0 init /tmp/xcRwTxTJM.o
 ___aomod@counter 72 0 COMMON 1 cstackCOMMON dist/default/production/test_nano.production.o
 __size_of___aodiv 0 0 ABS 0 - dist/default/production/test_nano.production.o
 __size_of___aomod 0 0 ABS 0 - dist/default/production/test_nano.production.o
@@ -763,12 +763,12 @@ __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production/test_nano.produc
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/production/test_nano.production.o
 debouncePushButton@count D1 0 BANK1 1 dataBANK1 dist/default/production/test_nano.production.o
 __size_of_ADC_SetInterruptHandler 0 0 ABS 0 - dist/default/production/test_nano.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcN5xytVs.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcN5xytVs.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcN5xytVs.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcN5xytVs.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcN5xytVs.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcN5xytVs.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcRwTxTJM.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcRwTxTJM.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcRwTxTJM.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcRwTxTJM.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcRwTxTJM.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcRwTxTJM.o
 __size_of_EUSART1_SetErrorHandler 0 0 ABS 0 - dist/default/production/test_nano.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _IOCCF2_ISR F98 0 CODE 0 text38 dist/default/production/test_nano.production.o
@@ -815,8 +815,8 @@ _INLVLB 1F47 0 ABS 0 - dist/default/production/test_nano.production.o
 _INLVLC 1F52 0 ABS 0 - dist/default/production/test_nano.production.o
 ?_strlen 71 0 COMMON 1 cstackCOMMON dist/default/production/test_nano.production.o
 __end_of_IOCCF2_ISR FB6 0 CODE 0 text38 dist/default/production/test_nano.production.o
-___stackhi 21EF 0 ABS 0 - /tmp/xcN5xytVs.o
-___stacklo 20C0 0 ABS 0 - /tmp/xcN5xytVs.o
+___stackhi 21EF 0 ABS 0 - /tmp/xcRwTxTJM.o
+___stacklo 20C0 0 ABS 0 - /tmp/xcRwTxTJM.o
 ___aomod@dividend 28 0 BANK0 1 cstackBANK0 dist/default/production/test_nano.production.o
 __size_of_fputc 0 0 ABS 0 - dist/default/production/test_nano.production.o
 __size_of_fputs 0 0 ABS 0 - dist/default/production/test_nano.production.o
@@ -857,7 +857,7 @@ __size_of_EUSART1_Initialize 0 0 ABS 0 - dist/default/production/test_nano.produ
 _WDTCON 80C 0 ABS 0 - dist/default/production/test_nano.production.o
 fputc@fp 75 0 COMMON 1 cstackCOMMON dist/default/production/test_nano.production.o
 fputs@fp 7B 0 COMMON 1 cstackCOMMON dist/default/production/test_nano.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcN5xytVs.o
+___int_sp 0 0 STACK 2 stack /tmp/xcRwTxTJM.o
 _EUSART1_Write 1FD8 0 CODE 0 text14 dist/default/production/test_nano.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -1122,7 +1122,7 @@ __end_of_abs E82 0 CODE 0 text15 dist/default/production/test_nano.production.o
 __end_of_pad 9CA 0 CODE 0 text9 dist/default/production/test_nano.production.o
 __HnvBANK1 0 0 ABS 0 nvBANK1 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcN5xytVs.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcRwTxTJM.o
 strlen@a 74 0 COMMON 1 cstackCOMMON dist/default/production/test_nano.production.o
 strlen@s 75 0 COMMON 1 cstackCOMMON dist/default/production/test_nano.production.o
 __end_of_putchar 2000 0 CODE 0 text2 dist/default/production/test_nano.production.o

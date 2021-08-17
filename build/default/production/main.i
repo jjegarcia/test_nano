@@ -6473,7 +6473,7 @@ void main(void) {
 
     SYSTEM_Initialize();
 
-    ADC_SelectChannel(adc_channel_t);
+    ADC_SelectChannel(DigiPot);
 
 
 

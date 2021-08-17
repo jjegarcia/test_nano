@@ -54,8 +54,8 @@
 void main(void) {
     // initialize the device
     SYSTEM_Initialize();
-    
-    ADC_SelectChannel(adc_channel_t);
+
+    ADC_SelectChannel(DigiPot);
     
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
